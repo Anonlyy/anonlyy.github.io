@@ -71,8 +71,8 @@ var IndexComponent = (function () {
 IndexComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-index',
-        template: __webpack_require__(969),
-        styles: [__webpack_require__(949)]
+        template: __webpack_require__(970),
+        styles: [__webpack_require__(950)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__serve_get_data_service__["a" /* GetDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__serve_get_data_service__["a" /* GetDataService */]) === "function" && _a || Object])
 ], IndexComponent);
@@ -121,7 +121,7 @@ var _a;
 
 /***/ }),
 
-/***/ 1291:
+/***/ 1292:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(586);
@@ -180,13 +180,17 @@ var DetailsComponent = (function () {
             console.log('获取内容出错' + error);
         });
     };
+    //回到顶部
+    DetailsComponent.prototype.backTop = function () {
+        window.scrollTo(0, 0);
+    };
     return DetailsComponent;
 }());
 DetailsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-details',
-        template: __webpack_require__(966),
-        styles: [__webpack_require__(946)]
+        template: __webpack_require__(967),
+        styles: [__webpack_require__(947)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__serve_get_data_service__["a" /* GetDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__serve_get_data_service__["a" /* GetDataService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */]) === "function" && _b || Object])
 ], DetailsComponent);
@@ -266,8 +270,8 @@ var ImageTextDetailsComponent = (function () {
 ImageTextDetailsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-image-text-details',
-        template: __webpack_require__(968),
-        styles: [__webpack_require__(948)]
+        template: __webpack_require__(969),
+        styles: [__webpack_require__(949)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__serve_get_data_service__["a" /* GetDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__serve_get_data_service__["a" /* GetDataService */]) === "function" && _b || Object])
 ], ImageTextDetailsComponent);
@@ -469,8 +473,8 @@ var ListComponent = (function () {
 ListComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-list',
-        template: __webpack_require__(970),
-        styles: [__webpack_require__(950)]
+        template: __webpack_require__(971),
+        styles: [__webpack_require__(951)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__serve_get_data_service__["a" /* GetDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__serve_get_data_service__["a" /* GetDataService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4_angular2_cookie_services_cookies_service__["CookieService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_angular2_cookie_services_cookies_service__["CookieService"]) === "function" && _c || Object])
 ], ListComponent);
@@ -553,8 +557,8 @@ var MovieDetailsComponent = (function () {
 MovieDetailsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-movie-details',
-        template: __webpack_require__(971),
-        styles: [__webpack_require__(951)]
+        template: __webpack_require__(972),
+        styles: [__webpack_require__(952)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__serve_get_data_service__["a" /* GetDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__serve_get_data_service__["a" /* GetDataService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _b || Object])
 ], MovieDetailsComponent);
@@ -649,8 +653,8 @@ var MusicDetailsComponent = (function () {
 MusicDetailsComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-music-details',
-        template: __webpack_require__(972),
-        styles: [__webpack_require__(952)]
+        template: __webpack_require__(973),
+        styles: [__webpack_require__(953)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__serve_get_data_service__["a" /* GetDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__serve_get_data_service__["a" /* GetDataService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* ActivatedRoute */]) === "function" && _b || Object])
 ], MusicDetailsComponent);
@@ -682,7 +686,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(591);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(595);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(599);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(600);
 
 
 
@@ -737,23 +741,28 @@ var routes = [
     },
     {
         path: 'list/:type',
-        component: __WEBPACK_IMPORTED_MODULE_3__list_list_component__["a" /* ListComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_3__list_list_component__["a" /* ListComponent */],
+        data: { state: 'list' }
     },
     {
         path: 'details/:id',
-        component: __WEBPACK_IMPORTED_MODULE_4__details_details_component__["a" /* DetailsComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_4__details_details_component__["a" /* DetailsComponent */],
+        data: { state: 'details' }
     },
     {
         path: 'musicDetails/:id',
-        component: __WEBPACK_IMPORTED_MODULE_5__music_details_music_details_component__["a" /* MusicDetailsComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_5__music_details_music_details_component__["a" /* MusicDetailsComponent */],
+        data: { state: 'musicDetails' }
     },
     {
         path: 'movieDetails/:id',
-        component: __WEBPACK_IMPORTED_MODULE_6__movie_details_movie_details_component__["a" /* MovieDetailsComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_6__movie_details_movie_details_component__["a" /* MovieDetailsComponent */],
+        data: { state: 'movieDetails' }
     },
     {
         path: 'imageTextDetails/:id',
-        component: __WEBPACK_IMPORTED_MODULE_7__image_text_details_image_text_details_component__["a" /* ImageTextDetailsComponent */]
+        component: __WEBPACK_IMPORTED_MODULE_7__image_text_details_image_text_details_component__["a" /* ImageTextDetailsComponent */],
+        data: { state: 'imageTextDetails' }
     }
 ];
 var AppRoutingModule = (function () {
@@ -777,6 +786,7 @@ AppRoutingModule = __decorate([
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__router_animations__ = __webpack_require__(599);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -785,17 +795,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
+
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'app works!';
     }
+    AppComponent.prototype.getState = function (outlet) {
+        return outlet.activatedRouteData.state;
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-root',
-        template: __webpack_require__(965),
-        styles: [__webpack_require__(945)]
+        template: __webpack_require__(966),
+        styles: [__webpack_require__(946)],
+        animations: [__WEBPACK_IMPORTED_MODULE_1__router_animations__["a" /* routerTransition */]]
     })
 ], AppComponent);
 
@@ -942,7 +956,7 @@ var HeaderComponent = (function () {
     HeaderComponent.prototype.ngOnInit = function () {
     };
     HeaderComponent.prototype.toList = function (i) {
-        this.router.navigate(['/list', this.menuList[i].link]);
+        // this.router.navigate(['/list',this.menuList[i].link]);
         this.isShow = false;
     };
     HeaderComponent.prototype.showMenu = function () {
@@ -953,8 +967,8 @@ var HeaderComponent = (function () {
 HeaderComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-header',
-        template: __webpack_require__(967),
-        styles: [__webpack_require__(947)]
+        template: __webpack_require__(968),
+        styles: [__webpack_require__(948)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _a || Object])
 ], HeaderComponent);
@@ -1031,6 +1045,37 @@ DayPipePipe = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_animations__ = __webpack_require__(24);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routerTransition; });
+
+var routerTransition = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["a" /* trigger */])('routerTransition', [
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["d" /* transition */])('* <=> *', [
+        /* order */
+        /* 1 */ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["m" /* query */])(':enter, :leave', __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["c" /* style */])({ position: 'fixed', width: '100%' }), { optional: true }),
+        /* 2 */ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["n" /* group */])([
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["m" /* query */])(':enter', [
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["c" /* style */])({ transform: 'translateX(100%)' }),
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["e" /* animate */])('0.5s ease-in-out', __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["c" /* style */])({ transform: 'translateX(0%)' }))
+            ], { optional: true }),
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["m" /* query */])(':leave', [
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["c" /* style */])({ transform: 'translateX(0%)' }),
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["e" /* animate */])('0.5s ease-in-out', __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["c" /* style */])({ transform: 'translateX(-100%)' }))
+            ], { optional: true }),
+            /* 4 */ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["m" /* query */])(':enter .block', __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["o" /* stagger */])(400, [
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["c" /* style */])({ transform: 'translateY(100px)' }),
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["e" /* animate */])('.6s ease-in-out', __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["c" /* style */])({ transform: 'translateY(0px)', opacity: 1 })),
+            ]), { optional: true }),
+        ])
+    ])
+]);
+//# sourceMappingURL=router.animations.js.map
+
+/***/ }),
+
+/***/ 600:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
 // The file contents for the current environment will overwrite these during build.
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
@@ -1049,7 +1094,7 @@ var environment = {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs__ = __webpack_require__(974);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs__ = __webpack_require__(975);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(209);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GetDataService; });
@@ -1184,7 +1229,7 @@ var _a;
 
 /***/ }),
 
-/***/ 945:
+/***/ 946:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(34)(false);
@@ -1202,7 +1247,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 946:
+/***/ 947:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(34)(false);
@@ -1220,7 +1265,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 947:
+/***/ 948:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(34)(false);
@@ -1238,7 +1283,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 948:
+/***/ 949:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(34)(false);
@@ -1256,7 +1301,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 949:
+/***/ 950:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(34)(false);
@@ -1274,7 +1319,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 950:
+/***/ 951:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(34)(false);
@@ -1292,7 +1337,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 951:
+/***/ 952:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(34)(false);
@@ -1310,7 +1355,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 952:
+/***/ 953:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(34)(false);
@@ -1328,7 +1373,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 964:
+/***/ 965:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -1583,66 +1628,66 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 964;
+webpackContext.id = 965;
 
-
-/***/ }),
-
-/***/ 965:
-/***/ (function(module, exports) {
-
-module.exports = "<div id=\"app\">\n  <app-header></app-header>\n  <router-outlet></router-outlet>\n</div>\n\n"
 
 /***/ }),
 
 /***/ 966:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"global-content\">\n  <div class=\"content-body\">\n    <h3 class=\"content-title\" [innerHTML]=\"storyDetail.title\">\n    </h3>\n    <p class=\"text-author\">文／{{storyDetail.authorName}}</p>\n    <div class=\"text-content\"  [innerHTML]=\"storyDetail.content\"></div>\n\n    <div class=\"text-tip\">\n      <i class=\"text-editor\" [innerHTML]=\"storyDetail.author_introduce\"></i>\n      <i class=\"text-editor\">本文经作者授权转载。</i>\n    </div>\n\n    <div class=\"content-author\">\n      <h4 class=\"author-title\">作者</h4>\n      <div class=\"author-content\">\n        <img [src]=\"storyDetail.authorImgurl\" alt=\"\">\n        <div class=\"author\">\n          <p class=\"author-name\">{{storyDetail.authorName}}</p>\n          <p class=\"page-summary\">{{storyDetail.authorDesc}}</p>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"content-comment\"></div>\n  <div class=\"footer-bar\">\n    <span class=\"btn-backtop\" (click)=\"backTop()\">\n      <i class=\"czs-arrow-up-l\"></i>\n    </span>\n  </div>\n  <div class=\"end-tip\">\n    - END -\n  </div>\n</div>\n"
+module.exports = "<div id=\"app\" [@routerTransition]=\"getState(o)\">\n  <app-header></app-header>\n  <router-outlet #o=\"outlet\"></router-outlet>\n</div>\n\n"
 
 /***/ }),
 
 /***/ 967:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"global-header\">\n  <div class=\"header-left\">\n    <span class=\"button-menu clearfix\" (click)=\"showMenu()\">\n      <i class=\"czs-menu-l\"></i>\n    </span>\n    <free-sidenav [visible]=\"isShow\" [overlay]=\"false\" direction=\"left\">\n      <ul class=\"list\">\n        <li class=\"list-item\" *ngFor=\"let item of menuList;let i = index;\" (click)=\"toList(i)\">\n          <span class=\"list-text\"><i class=\"{{item.icon}}\"></i> {{item.name}}</span>\n        </li>\n        <li class=\"list-item\">\n          <span class=\"list-text\">关于我</span>\n        </li>\n      </ul>\n      <div class=\"button-overlay\" (click)=\"isShow = false;\"></div>\n    </free-sidenav>\n  </div>\n  <div class=\"header-center\">一个</div>\n  <div class=\"header-right\">\n    <i class=\"czs-search-l\"></i>\n  </div>\n\n\n\n</div>\n"
+module.exports = "<div class=\"global-content\">\n  <div class=\"content-body\">\n    <h3 class=\"content-title\" [innerHTML]=\"storyDetail.title\">\n    </h3>\n    <p class=\"text-author\">文／{{storyDetail.authorName}}</p>\n    <div class=\"text-content\"  [innerHTML]=\"storyDetail.content\"></div>\n\n    <div class=\"text-tip\">\n      <i class=\"text-editor\" [innerHTML]=\"storyDetail.author_introduce\"></i>\n      <i class=\"text-editor\">本文经作者授权转载。</i>\n    </div>\n\n    <div class=\"content-author\">\n      <h4 class=\"author-title\">作者</h4>\n      <div class=\"author-content\">\n        <img [src]=\"storyDetail.authorImgurl\" alt=\"\">\n        <div class=\"author\">\n          <p class=\"author-name\">{{storyDetail.authorName}}</p>\n          <p class=\"page-summary\">{{storyDetail.authorDesc}}</p>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"content-comment\"></div>\n  <div class=\"footer-bar\">\n    <span class=\"btn-backtop\" (click)=\"backTop()\">\n      <i class=\"czs-arrow-up-l\"></i>\n    </span>\n  </div>\n  <div class=\"end-tip\">\n    - END -\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 968:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content-detail\">\n  <img class=\"item-picture-img\" [src]=\"indexImageText.picUrl\" alt=\"首页图\">\n  <p class=\"text-author\">\n    <span>{{indexImageText.volume}}</span>{{indexImageText.pic_info}}\n  </p>\n  <p class=\"day\">{{indexImageText.date | dayPipe}}</p>\n  <p class=\"month\">{{indexImageText.date | datePipe}}</p>\n  <div class=\"separate-line\"></div>\n  <p class=\"text-content\">{{indexImageText.title}}</p>\n</div>\n"
+module.exports = "<div class=\"global-header\">\n  <div class=\"header-left\">\n    <span class=\"button-menu clearfix\" (click)=\"showMenu()\">\n      <i class=\"czs-menu-l\"></i>\n    </span>\n    <free-sidenav [visible]=\"isShow\" [overlay]=\"false\" direction=\"left\">\n      <ul class=\"list\">\n        <li class=\"list-item\" routerLinkActive=\"active\" [routerLink]=\"['/list',menuList[i].link]\" *ngFor=\"let item of menuList;let i = index;\" (click)=\"toList(i)\">\n          <span class=\"list-text\"><i class=\"{{item.icon}}\"></i> {{item.name}}</span>\n        </li>\n        <li class=\"list-item\">\n          <span class=\"list-text\">关于我</span>\n        </li>\n      </ul>\n      <div class=\"button-overlay\" (click)=\"isShow = false;\"></div>\n    </free-sidenav>\n  </div>\n  <div class=\"header-center\">一个</div>\n  <div class=\"header-right\">\n    <i class=\"czs-search-l\"></i>\n  </div>\n\n\n\n</div>\n"
 
 /***/ }),
 
 /***/ 969:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"app-container\">\n  <div class=\"app-banner\" [routerLink]=\"['/imageTextDetails',currentId]\" [style.height]=\"windowHeight+'px'\">\n    <img class=\"banner\" [src]=\"indexImageText.picUrl\" alt=\"\">\n    <div class=\"banner-inner\">\n      <h3 class=\"inner-day\">{{indexImageText.date | dayPipe}}</h3>\n      <p class=\"inner-date\">{{indexImageText.volume}} | {{indexImageText.date | datePipe}}</p>\n      <p class=\"inner-title\">{{indexImageText.title}}</p>\n      <span class=\"icon\">\n        <i class=\"czs-angle-down-l\"></i>\n      </span>\n    </div>\n  </div>\n  <div class=\"app-body\">\n    <ul class=\"content-list\">\n      <li class=\"content-item\">\n        <div class=\"item-heading\">\n          <a [routerLink]=\"['/list',1]\"> 「 {{reading.category}} 」 </a>\n        </div>\n        <div class=\"item-body\">\n          <h3 class=\"title\" [routerLink]=\"['/details',reading.content_id]\">{{reading.title}}</h3>\n          <p class=\"artist\">作者／{{reading.authorName}}</p>\n          <div class=\"text-content\">{{reading.content}}</div>\n          <a [routerLink]=\"['/details',reading.content_id]\" class=\"more-link\">阅读全文 ></a>\n        </div>\n      </li>\n      <li class=\"content-item\">\n        <div class=\"item-heading\">\n          <a [routerLink]=\"['/list',4]\" > 「 {{music.category}} 」 </a>\n        </div>\n        <div class=\"item-body\">\n          <h3 class=\"title\" [routerLink]=\"['/musicDetails',music.content_id]\" >{{music.title}}</h3>\n          <p class=\"artist\">作者／{{music.authorName}}</p>\n          <div class=\"text-content\">{{music.content}}</div>\n          <a [routerLink]=\"['/musicDetails',music.content_id]\" class=\"more-link\">阅读全文 ></a>\n        </div>\n      </li>\n      <li class=\"content-item\">\n        <div class=\"item-heading\">\n          <a  [routerLink]=\"['/list',5]\"> 「{{movie.category}}」 </a>\n        </div>\n        <div class=\"item-body\">\n          <h3 class=\"title\" [routerLink]=\"['/movieDetails',movie.content_id]\">{{movie.title}}</h3>\n          <p class=\"artist\">作者／{{movie.authorName}}</p>\n          <div class=\"text-content\">{{movie.content}}</div>\n          <a [routerLink]=\"['/movieDetails',movie.content_id]\" class=\"more-link\">阅读全文 ></a>\n        </div>\n      </li>\n    </ul>\n    <p class=\"tip\">END</p>\n  </div>\n</div>\n"
+module.exports = "<div class=\"content-detail block\">\n  <img class=\"item-picture-img\" [src]=\"indexImageText.picUrl\" alt=\"首页图\">\n  <p class=\"text-author\">\n    <span>{{indexImageText.volume}}</span>{{indexImageText.pic_info}}\n  </p>\n  <p class=\"day\">{{indexImageText.date | dayPipe}}</p>\n  <p class=\"month\">{{indexImageText.date | datePipe}}</p>\n  <div class=\"separate-line\"></div>\n\n  <p class=\"text-content\">{{indexImageText.title}}</p>\n</div>\n"
 
 /***/ }),
 
 /***/ 970:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"global-list\" id=\"app-list\" (scroll)=\"scrollBottom($event)\">\n  <div class=\"content-list\" >\n    <free-loading type=\"lineBounce\" *ngIf=\"isLoading\"></free-loading>\n\n\n    <div class=\"content\" *ngFor=\"let item of contentList;let i = index;\">\n      <div class=\"content-body\" *ngIf=\"listType!=0\">\n        <p class=\"content-tag\">- {{item.category}} -</p>\n        <div class=\"content-title\">\n          <a class=\"title-link\" [routerLink]=\"[linkUrl,item.content_id]\">{{item.title}}</a>\n          <p class=\"text-author\">著/ {{item.authorName}}</p>\n        </div>\n        <div [class.text-music-cover]=\"listType==4\">\n          <img class=\"cover-img\"  [routerLink]=\"[linkUrl,item.content_id]\" [src]=\"item.picUrl\">\n        </div>\n        <p class=\"text-content-short\">{{item.content}}</p>\n        <p class=\"date\">\n          <i class=\"czs-time-l\"></i>\n          {{item.date}}</p>\n      </div>\n      <div class=\"image-content-body \" *ngIf=\"listType==0\">\n        <div class=\"content-header\">\n          <p class=\"date\"> {{item.date.slice(0,4)}} / {{item.date.slice(5,7)}} / {{item.date.slice(8,10)}} </p>\n          <span>{{item.volume}}</span>\n        </div>\n        <img class=\"cover-img\"  [routerLink]=\"[linkUrl,ImageTextIdList[i]]\" [src]=\"item.picUrl\">\n        <div class=\"content-text\">\n          <span>{{item.pic_info}}</span>\n          <p class=\"text-content-short\" [routerLink]=\"[linkUrl,ImageTextIdList[i]]\" >{{item.title}}</p>\n        </div>\n        <p class=\"content-footer\">\n          —— {{item.words_info}}\n        </p>\n      </div>\n    </div>\n  </div>\n  <div class=\"tip\" *ngIf=\"listType==0\">- END -</div>\n  <div class=\"footer-bar\">\n    <span class=\"btn-backtop\" (click)=\"backTop()\">\n      <i class=\"czs-arrow-up-l\"></i>\n    </span>\n  </div>\n\n\n</div>\n"
+module.exports = "<div class=\"app-container\">\n  <div class=\"app-banner\" [routerLink]=\"['/imageTextDetails',currentId]\" [style.height]=\"windowHeight+'px'\">\n    <img class=\"banner\" [src]=\"indexImageText.picUrl\" alt=\"\">\n    <div class=\"banner-inner\">\n      <h3 class=\"inner-day\">{{indexImageText.date | dayPipe}}</h3>\n      <p class=\"inner-date\">{{indexImageText.volume}} | {{indexImageText.date | datePipe}}</p>\n      <p class=\"inner-title\">{{indexImageText.title}}</p>\n      <span class=\"icon\">\n        <i class=\"czs-angle-down-l\"></i>\n      </span>\n    </div>\n  </div>\n  <div class=\"app-body\">\n    <ul class=\"content-list\">\n      <li class=\"content-item\">\n        <div class=\"item-heading\">\n          <a [routerLink]=\"['/list',1]\"> 「 {{reading.category}} 」 </a>\n        </div>\n        <div class=\"item-body\">\n          <h3 class=\"title\" [routerLink]=\"['/details',reading.content_id]\">{{reading.title}}</h3>\n          <p class=\"artist\">作者／{{reading.authorName}}</p>\n          <div class=\"text-content\">{{reading.content}}</div>\n          <a [routerLink]=\"['/details',reading.content_id]\" class=\"more-link\">阅读全文 ></a>\n        </div>\n      </li>\n      <li class=\"content-item\">\n        <div class=\"item-heading\">\n          <a [routerLink]=\"['/list',4]\" > 「 {{music.category}} 」 </a>\n        </div>\n        <div class=\"item-body\">\n          <h3 class=\"title\" [routerLink]=\"['/musicDetails',music.content_id]\" >{{music.title}}</h3>\n          <p class=\"artist\">作者／{{music.authorName}}</p>\n          <div class=\"text-content\">{{music.content}}</div>\n          <a [routerLink]=\"['/musicDetails',music.content_id]\" class=\"more-link\">阅读全文 ></a>\n        </div>\n      </li>\n      <li class=\"content-item\">\n        <div class=\"item-heading\">\n          <a  [routerLink]=\"['/list',5]\"> 「{{movie.category}}」 </a>\n        </div>\n        <div class=\"item-body\">\n          <h3 class=\"title\" [routerLink]=\"['/movieDetails',movie.content_id]\">{{movie.title}}</h3>\n          <p class=\"artist\">作者／{{movie.authorName}}</p>\n          <div class=\"text-content\">{{movie.content}}</div>\n          <a [routerLink]=\"['/movieDetails',movie.content_id]\" class=\"more-link\">阅读全文 ></a>\n        </div>\n      </li>\n    </ul>\n    <p class=\"tip\">END</p>\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 971:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"global-content\">\n  <div class=\"content-banner\">\n    <img class=\"img\" [src]=\"photoList.bannerUrl\">\n  </div>\n  <div class=\"content-body\">\n    <h3 class=\"content-title\">\n      {{movieDetail.title}}\n    </h3>\n    <p class=\"text-subtitle\">\n      ——{{photoList.subTitle}}\n    </p>\n    <p class=\"text-author\">\n      文／{{movieDetail.authorName}}\n    </p>\n    <div class=\"text-content\" [innerHTML]=\"movieDetail.content\" >\n    </div>\n    <div class=\"text-tip\">\n      <i class=\"text-editor\">{{movieDetail.author_introduce}}</i>\n      <i class=\"text-editor\">{{movieDetail.copyright}}</i>\n    </div>\n  </div>\n  <div class=\"content-comment\"></div>\n  <div class=\"footer-bar\">\n        <span class=\"btn-backtop\" (click)=\"backTop()\">\n          <i class=\"czs-arrow-up-l\"></i>\n        </span>\n  </div>\n  <div class=\"end-tip\">\n    - END -\n  </div>\n</div>\n"
+module.exports = "<div class=\"global-list\" id=\"app-list\" (scroll)=\"scrollBottom($event)\">\n  <div class=\"content-list\" >\n    <free-loading type=\"lineBounce\" *ngIf=\"isLoading\"></free-loading>\n    <div class=\"content\" *ngFor=\"let item of contentList;let i = index;\">\n      <div class=\"content-body\" *ngIf=\"listType!=0\">\n        <p class=\"content-tag\">- {{item.category}} -</p>\n        <div class=\"content-title\">\n          <a class=\"title-link\" [routerLink]=\"[linkUrl,item.content_id]\">{{item.title}}</a>\n          <p class=\"text-author\">著/ {{item.authorName}}</p>\n        </div>\n        <div [class.text-music-cover]=\"listType==4\">\n          <img class=\"cover-img\"  [routerLink]=\"[linkUrl,item.content_id]\" [src]=\"item.picUrl\">\n        </div>\n        <p class=\"text-content-short\">{{item.content}}</p>\n        <p class=\"date\">\n          <i class=\"czs-time-l\"></i>\n          {{item.date}}</p>\n      </div>\n      <div class=\"image-content-body \" *ngIf=\"listType==0\">\n        <div class=\"content-header\">\n          <p class=\"date\"> {{item.date.slice(0,4)}} / {{item.date.slice(5,7)}} / {{item.date.slice(8,10)}} </p>\n          <span>{{item.volume}}</span>\n        </div>\n        <img class=\"cover-img\"  [routerLink]=\"[linkUrl,ImageTextIdList[i]]\" [src]=\"item.picUrl\">\n        <div class=\"content-text\">\n          <span>{{item.pic_info}}</span>\n          <p class=\"text-content-short\" [routerLink]=\"[linkUrl,ImageTextIdList[i]]\" >{{item.title}}</p>\n        </div>\n        <p class=\"content-footer\">\n          —— {{item.words_info}}\n        </p>\n      </div>\n    </div>\n  </div>\n  <div class=\"tip\" *ngIf=\"listType==0\">- END -</div>\n  <div class=\"footer-bar\">\n    <span class=\"btn-backtop\" (click)=\"backTop()\">\n      <i class=\"czs-arrow-up-l\"></i>\n    </span>\n  </div>\n\n\n</div>\n"
 
 /***/ }),
 
 /***/ 972:
 /***/ (function(module, exports) {
 
+module.exports = "<div class=\"global-content\">\n  <div class=\"content-banner\">\n    <img class=\"img\" [src]=\"photoList.bannerUrl\">\n  </div>\n  <div class=\"content-body\">\n    <h3 class=\"content-title\">\n      {{movieDetail.title}}\n    </h3>\n    <p class=\"text-subtitle\">\n      ——{{photoList.subTitle}}\n    </p>\n    <p class=\"text-author\">\n      文／{{movieDetail.authorName}}\n    </p>\n    <div class=\"text-content\" [innerHTML]=\"movieDetail.content\" >\n    </div>\n    <div class=\"text-tip\">\n      <i class=\"text-editor\">{{movieDetail.author_introduce}}</i>\n      <i class=\"text-editor\">{{movieDetail.copyright}}</i>\n    </div>\n  </div>\n  <div class=\"content-comment\"></div>\n  <div class=\"footer-bar\">\n        <span class=\"btn-backtop\" (click)=\"backTop()\">\n          <i class=\"czs-arrow-up-l\"></i>\n        </span>\n  </div>\n  <div class=\"end-tip\">\n    - END -\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ 973:
+/***/ (function(module, exports) {
+
 module.exports = "<div class=\"global-content\">\n  <div class=\"content-banner\">\n    <div class=\"banner-detail\">\n      <img class=\"img\" [src]=\"musicDetail.picUrl\">\n    </div>\n    <div class=\"text-music-info\">\n      <p>{{musicStory.title}}</p>\n      <p>{{musicStory.album}}</p>\n      <p>{{musicStory.story_author}}</p>\n    </div>\n  </div>\n  <div class=\"content-body\">\n    <h3 class=\"content-title\">{{musicDetail.title}}</h3>\n    <p class=\"text-author\">文／{{musicDetail.authorName}}    </p>\n    <div class=\"text-content\" [innerHTML]=\"musicDetail.content\"></div>\n    <div class=\"text-tip\">\n      <i class=\"text-editor\" [innerHTML]=\"musicDetail.author_introduce\"></i>\n      <i class=\"text-editor\">{{musicDetail.copyright}}</i>\n    </div>\n    <div class=\"content-author\">\n      <h4 class=\"author-title\">作者</h4>\n      <div class=\"author-content\">\n        <img [src]=\"musicDetail.authorImgurl\" alt=\"\">\n        <div class=\"author\">\n          <p class=\"author-name\">{{musicDetail.authorName}} </p>\n          <p class=\"page-summary\">{{musicDetail.authorDesc}} </p>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"content-comment\"></div>\n  <div class=\"footer-bar\">\n        <span class=\"btn-backtop\" (click)=\"backTop()\">\n          <i class=\"czs-arrow-up-l\"></i>\n        </span>\n  </div>\n</div>\n"
 
 /***/ })
 
-},[1291]);
+},[1292]);
 //# sourceMappingURL=main.bundle.js.map
