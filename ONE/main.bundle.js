@@ -20,7 +20,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var defaultSrc = 'https://ws1.sinaimg.cn/large/a0b131e2gy1fl2nio8ajhj20960920sj.jpg';
+var defaultSrc = 'https://raw.githubusercontent.com/Anonlyy/ONE_Angular/master/src/assets/image/default.jpg';
 var IndexComponent = (function () {
     function IndexComponent(getDataService) {
         this.getDataService = getDataService;
@@ -150,7 +150,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var defaultSrc = 'https://ws1.sinaimg.cn/large/a0b131e2gy1fl2nio8ajhj20960920sj.jpg';
+var defaultSrc = 'https://raw.githubusercontent.com/Anonlyy/ONE_Angular/master/src/assets/image/default.jpg';
 var DetailsComponent = (function () {
     function DetailsComponent(getDataService, routerInfo) {
         this.getDataService = getDataService;
@@ -242,7 +242,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var defaultSrc = 'https://ws1.sinaimg.cn/large/a0b131e2gy1fl2nio8ajhj20960920sj.jpg';
+var defaultSrc = 'https://raw.githubusercontent.com/Anonlyy/ONE_Angular/master/src/assets/image/default.jpg';
 var ImageTextDetailsComponent = (function () {
     function ImageTextDetailsComponent(routerInfo, getDataService) {
         this.routerInfo = routerInfo;
@@ -306,7 +306,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var defaultSrc = 'https://ws1.sinaimg.cn/large/a0b131e2gy1fl2nio8ajhj20960920sj.jpg';
+var defaultSrc = 'https://raw.githubusercontent.com/Anonlyy/ONE_Angular/master/src/assets/image/default.jpg';
 var ListComponent = (function () {
     function ListComponent(getDataService, routerInfo, cookieService) {
         this.getDataService = getDataService;
@@ -505,7 +505,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var defaultSrc = 'https://ws1.sinaimg.cn/large/a0b131e2gy1fl2nio8ajhj20960920sj.jpg';
+var defaultSrc = 'https://raw.githubusercontent.com/Anonlyy/ONE_Angular/master/src/assets/image/default.jpg';
 var MovieDetailsComponent = (function () {
     function MovieDetailsComponent(getDateService, routerInfo) {
         this.getDateService = getDateService;
@@ -603,7 +603,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var defaultSrc = 'https://ws1.sinaimg.cn/large/a0b131e2gy1fl2nio8ajhj20960920sj.jpg';
+var defaultSrc = 'https://raw.githubusercontent.com/Anonlyy/ONE_Angular/master/src/assets/image/default.jpg';
 var MusicDetailsComponent = (function () {
     function MusicDetailsComponent(getDateService, routerInfo) {
         this.getDateService = getDateService;
