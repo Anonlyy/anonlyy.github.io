@@ -114,7 +114,7 @@
   &lt;div id=&quot;box&quot;&gt;&lt;/div&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre><h2 id="attr"><a href="#attr" class="headerlink" title="attr()"></a>attr()</h2><p><code>attr()</code> 函数返回选择元素的属性值。<br><code>content</code>属性和<code>attr</code>函数,在我们实际开发过程还是十分有用的,就是用来动态生成文本内容并展示在页面上.</p>
+</code></pre><h2 id="attr"><a href="#attr" class="headerlink" title="attr()"></a>attr()</h2><p><code>attr()</code> 函数返回选择元素的属性值。<br><code>content</code>属性和<code>attr</code>函数,在我们实际开发过程还是十分有用的,就是用来动态生成文本内容并展示在页面上,制作纯<code>CSS</code>的<code>Tooltip</code>;</p>
 <h3 id="attr-的日常使用"><a href="#attr-的日常使用" class="headerlink" title="attr()的日常使用"></a>attr()的日常使用</h3><p>下面让我们看看 attr 和 content 如何相互配合产生神奇效果的<br>    <div class="title" data-title="attr"></div></p>
 <pre><code>div[data-line]:after { 
     content:attr(data-title);
@@ -128,18 +128,7 @@
 </code></pre><p><code>direction</code>是指用角度值指定渐变的方向（或角度）。<br> to left：设置渐变为从右到左。相当于: 270deg<br> to right：设置渐变从左到右。相当于: 90deg<br> to top：设置渐变从下到上。相当于: 0deg<br> to bottom：设置渐变从上到下。相当于: 180deg。这是默认值，等同于留空不写。<br> xxxdeg:设置渐变角度。<br><code>color-stop1、color-stop2....</code>用于指定渐变的起止颜色,颜色数量不限制,即可以制作大于两种颜色以上的渐变背景。</p>
 <p>因为很简单,所以就不多介绍了,<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient" target="_blank" rel="external">详细可看MDN
 </a></p>
-]]></content>
-      
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[CSS网格布局入门]]></title>
-      <url>/2017/11/05/CSS%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80%E5%85%A5%E9%97%A8/</url>
-      <content type="html"><![CDATA[<p>我们都是知道也听说<code>Flexbox</code>布局，但其实还有另外一个布局也十分重要且有用.<br>辣就是 <code>CSS</code>网格布局(<code>css Grid</code>)。</p>
-<p><code>Grid</code>布局并不是为了取代<code>flex</code>布局，它是<code>flex</code>的补充。<code>grid</code>擅长二维布局，<code>flex</code>擅长一维布局(即流式内容)。他们需要各司其职。</p>
-<h2 id="grid-table2-0"><a href="#grid-table2-0" class="headerlink" title="grid = table2.0?"></a>grid = table2.0?</h2><p>二维布局方式，可以按照行列方式排列内容。把页面划分为几块，指定不同内容区块的大小、位置和层级。</p>
-<p>有观点说<code>Grid</code>很像<code>table2.0</code>或者说栅格系统，他们是有相同之处的。比如都是把元素排列成行和列。<br>但是表格和<code>Grid</code>的区别在于，表格是有内容结构的，不能很自由地在里面做布局,且不利于SEO。<br>而<code>Grid</code>内部元素可以自由设定位置，允许重叠和设定层级的样。</p>
+<p>### </p>
 ]]></content>
       
         
