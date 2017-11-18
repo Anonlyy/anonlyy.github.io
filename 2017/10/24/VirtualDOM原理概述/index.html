@@ -492,7 +492,7 @@
                 Virtual DOM原理概述
             </p>
             <p><img src="http://it.dyg.cn/wp-content/uploads/2017/10/timg-2.jpg" alt="Virtual DOM"></p>
-<h2 id="Virtual-DOM概念的诞生"><a href="#Virtual-DOM概念的诞生" class="headerlink" title="Virtual DOM概念的诞生"></a>Virtual DOM概念的诞生</h2><p>先来说说<code>Virtual DOM</code>的起源,<code>Virtual DOM</code>的概念最早是在<code>React中</code>被提出来的,<a href="http://www.xposean.xin/2017/10/24/%E5%BD%B1%E5%93%8D%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E7%9A%84%E5%85%83%E5%87%B6-DOM%E6%93%8D%E4%BD%9C/" target="_blank" rel="external">上一节</a>我们也说了,<code>DOM</code>操作是十分耗费性能,因为动不动操作就会引发回流，即渲染整个DOM树,对于移动端浏览器或者是复杂的页面来讲,这简直就是噩梦。</p>
+<h2 id="Virtual-DOM概念的诞生"><a href="#Virtual-DOM概念的诞生" class="headerlink" title="Virtual DOM概念的诞生"></a>Virtual DOM概念的诞生</h2><p>先来说说<code>Virtual DOM</code>的起源,<code>Virtual DOM</code>的概念最早是在<code>React中</code>被提出来的,<a href="http://www.xposean.xin/2017/10/24/%E5%BD%B1%E5%93%8D%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E7%9A%84%E5%85%83%E5%87%B6-DOM%E6%93%8D%E4%BD%9C/" target="_blank" rel="noopener">上一节</a>我们也说了,<code>DOM</code>操作是十分耗费性能,因为动不动操作就会引发回流，即渲染整个DOM树,对于移动端浏览器或者是复杂的页面来讲,这简直就是噩梦。</p>
 <p>于是,聪明的工程师们就发明了一种<code>MVVM</code>模式,即视图和状态进行绑定，状态变更了视图自动变更，就不用手动更新页面了。只要在模版中声明视图组件是和什么状态进行绑定的，通过改变状态，双向绑定引擎就会在状态更新的时候自动更新视图。</p>
 <p>MVVM模式让我们大大减少代码中的DOM操作次数，其次可以提高<code>DOM</code>的渲染性能,因为他是通过模板引擎和JS构建修改DOM的,很大程度的减少了回流产生的次数。<br><img src="http://it.dyg.cn/wp-content/uploads/2017/10/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171022220758.png" alt=""></p>
 <p>相对于 <code>DOM</code> 对象，原生的 <code>JavaScript</code> 对象处理起来更快，而且更简单。<code>DOM</code> 树上的结构、属性信息我们都可以很容易地用 <code>JavaScript</code> 对象表示出来。</p>
