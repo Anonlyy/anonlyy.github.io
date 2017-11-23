@@ -3,6 +3,42 @@
   
     
     <entry>
+      <title><![CDATA[MPA和SPA,你选哪一个]]></title>
+      <url>/2017/11/23/MPA%E5%92%8CSPA-%E4%BD%A0%E9%80%89%E5%93%AA%E4%B8%80%E4%B8%AA/</url>
+      <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>旧的桌面应用程序被Web应用程序推到了极点。基于Web的应用程序使用起来非常方便，可以从多个设备访问，并且易于升级。对移动友好的复杂应用程序的需求正在上升。熟悉Web应用程序开发的您必须了解两种主要的Web设计类型：单页应用程序（SPA）和多页面应用程序（MPA）。</p>
+<h2 id="多页面应用程序-MultiPage-Application，MPA"><a href="#多页面应用程序-MultiPage-Application，MPA" class="headerlink" title="多页面应用程序(MultiPage Application，MPA)"></a>多页面应用程序(MultiPage Application，MPA)</h2><p><img src="https://user-gold-cdn.xitu.io/2017/11/17/15fc93684b5f10e1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""><br><code>MPA</code>的工作遵循传统模式，即每次更改都会重新提交，或者从服务器显示为新的页面。鉴于这些应用程序的性质，它们的大小以适应其功能。内容的巨大增加给应用程序提供了多层UI的复杂性。侵入的复杂性是在21世纪初引入的<code>AJAX</code>（异步JavaScript和XML），这使得仅仅刷新网站的一部分而不是重新提交整个页面成为可能。尽管它极大地改善了用户体验，但却为页面增添了一层复杂性。与<code>SPA</code>的直接方法相比，<code>MPA</code>的发展是复杂的。</p>
+<h3 id="MPA的优点"><a href="#MPA的优点" class="headerlink" title="MPA的优点"></a>MPA的优点</h3><ol>
+<li><code>MPA</code>方法最适合那些设计为视觉地图的网站。多级菜单导航是传统<code>MPA</code>的核心。</li>
+<li>开发成本和学习门槛较低,易于上手。</li>
+<li>SEO搜索引擎优化管理是有效的，因为不同的关键字可以优化每个应用程序的一个关键字。</li>
+</ol>
+<h3 id="MPA的弱点"><a href="#MPA的弱点" class="headerlink" title="MPA的弱点"></a>MPA的弱点</h3><ol>
+<li><code>MPA</code>资源不共用，每个页面都需要加载,这就意味着大部分页面的部分代码和资源都是重复加载的.</li>
+<li><strong>用户体验</strong>较差,多页面切换会造成整页刷新,加载缓慢,流畅度也不足,且无法实现转场动画。</li>
+<li>传统前后端开发模式,非前后端分离,导致不够高效。</li>
+</ol>
+<h2 id="单页应用程序-SinglePage-Web-Application，SPA"><a href="#单页应用程序-SinglePage-Web-Application，SPA" class="headerlink" title="单页应用程序(SinglePage Web Application，SPA)"></a>单页应用程序(SinglePage Web Application，SPA)</h2><p><img src="https://user-gold-cdn.xitu.io/2017/11/17/15fc93562b418a6e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
+<p>简单点说,<code>SPA</code>就是只有一个Web页面的应用，单页应用程序 (SPA) 是加载单个HTML 页面并在用户与应用程序交互时动态更新该页面的Web应用程序。 浏览器一开始会加载必需的HTML、CSS和JavaScript，所有的操作都在这张页面上完成，都由JavaScript来控制。</p>
+<h3 id="怎么实现无刷新的呢"><a href="#怎么实现无刷新的呢" class="headerlink" title="怎么实现无刷新的呢?"></a>怎么实现无刷新的呢?</h3><p><code>History API</code></p>
+<h3 id="SPA的优点"><a href="#SPA的优点" class="headerlink" title="SPA的优点"></a>SPA的优点</h3><ol>
+<li>分离前后端关注点，前端负责view，后端负责model，各司其职； </li>
+<li>服务器只接口提供数据，不用展示逻辑和页面合成，提高性能； </li>
+<li>同一套后端程序代码，不用修改兼容Web界面、手机； </li>
+<li>用户体验好、快，内容的改变不需要重新加载整个页面 </li>
+<li>可以缓存较多数据，减少服务器压力 </li>
+<li>单页应用像网络一样，几乎随处可以访问—不像大多数的桌面应用，用户可以通过任务网络连接和适当的浏览器访问单页应用。如今，这一名单包括智能手机、平板电脑、电视、笔记本电脑和台式计算机。 </li>
+</ol>
+<h3 id="SPA的缺点："><a href="#SPA的缺点：" class="headerlink" title="SPA的缺点："></a>SPA的缺点：</h3><ol>
+<li>SEO问题</li>
+<li>首次加载时间较长。 </li>
+<li>页面复杂度提高很多，复杂逻辑难度成倍,意味着开发成本和学习成本的提高。</li>
+</ol>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[JavaScript的高级运用之节流与防抖]]></title>
       <url>/2017/11/17/JavaScript%E7%9A%84%E9%AB%98%E7%BA%A7%E8%BF%90%E7%94%A8%E8%8A%82%E6%B5%81%E4%B8%8E%E9%98%B2%E6%8A%96/</url>
       <content type="html"><![CDATA[<h2 id="概念与目的"><a href="#概念与目的" class="headerlink" title="概念与目的"></a>概念与目的</h2><p>首先还是得先来讲讲概念,<strong>节流</strong>和<strong>防抖</strong>的目的都十分的简单,就是为了性能优化而出现的,目的是为了解决一些短时间内连续执行导致性能不佳或者内存消耗巨大的情况。<br>这类事件有:<code>scroll</code> <code>keyup</code> <code>mousemove</code> <code>resize</code>事件等，短时间内会不断的触发，在性能上消耗是非常大的，尤其是一些改变DOM结构的操作；<br>例如我们的<code>scroll</code>事件,当使用触控板，滚动滚轮，或者拖拽滚动条的时候，一秒就可以触发 30 次事件。经测试，在移动设备上轻轻滚动一下，一秒可以触发 100 次之多。这么高的执行频率是我们无法忍受的。<br>所以,在这些高频率触发的事件中,<code>节流</code>[throttle]与<code>防抖</code>[debounce]十分有必要了,它们非常相似，都是让上述这类事件在规定的事件从不断的去触发更改成为规定的时间内触发多少次；</p>
@@ -740,6 +776,18 @@ var postcss = require(&apos;gulp-postcss&apos;);
 <li>Github：<a href="https://github.com/Anonlyy" target="_blank" rel="noopener">https://github.com/Anonlyy</a></li>
 </ul>
 <hr>
+<h2 id="开源项目和作品"><a href="#开源项目和作品" class="headerlink" title="开源项目和作品"></a>开源项目和作品</h2><h3 id="开源项目"><a href="#开源项目" class="headerlink" title="开源项目"></a>开源项目</h3><ul>
+<li><a href="https://github.com/Anonlyy/ONE_Angular" target="_blank" rel="noopener">ONE_Angular</a>：<br>基于Angular4框架的「ONE一个」应用。<br>预览地址: <a href="http://www.xposean.xin/ONE" target="_blank" rel="noopener">http://www.xposean.xin/ONE</a> 或 <a href="http://Xposean.coding.me/ONE_Angular。" target="_blank" rel="noopener">http://Xposean.coding.me/ONE_Angular。</a></li>
+<li><a href="https://github.com/Anonlyy/shareMusic" target="_blank" rel="noopener">shareMusic</a>：这是一款基于Anuglar4框架的音乐播放器,并使用网易云音乐API,样式布局则参考QQ音乐客户端.</li>
+<li><a href="https://github.com/Anonlyy/loveWall" target="_blank" rel="noopener">loveWall</a>:毕设作品,基于微信小程序开发的APP</li>
+</ul>
+<h3 id="技术文章"><a href="#技术文章" class="headerlink" title="技术文章"></a>技术文章</h3><ul>
+<li><a href="http://www.xposean.xin/2017/10/27/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%9B%BE%E7%89%87/" target="_blank" rel="noopener">前端性能优化之图片</a></li>
+<li><a href="http://www.xposean.xin/2017/10/24/VirtualDOM%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0/" target="_blank" rel="noopener">Virtual DOM原理概述</a></li>
+<li><a href="http://www.xposean.xin/2017/10/24/%E5%BD%B1%E5%93%8D%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E7%9A%84%E5%85%83%E5%87%B6-DOM%E6%93%8D%E4%BD%9C/" target="_blank" rel="noopener">影响前端性能的元凶:DOM操作</a>  </li>
+<li><a href="http://www.xposean.xin/2017/10/24/jQuery%E7%9A%84%E6%8F%92%E4%BB%B6%E6%9C%BA%E5%88%B6/" target="_blank" rel="noopener">jQuery的插件机制</a>  </li>
+</ul>
+<hr>
 <h2 id="工作经历"><a href="#工作经历" class="headerlink" title="工作经历"></a>工作经历</h2><h3 id="前海东阳光电商公司-（-2017年4月-至今-）"><a href="#前海东阳光电商公司-（-2017年4月-至今-）" class="headerlink" title="前海东阳光电商公司 （ 2017年4月 ~ 至今 ）"></a>前海东阳光电商公司 （ 2017年4月 ~ 至今 ）</h3><h4 id="收银端项目"><a href="#收银端项目" class="headerlink" title="收银端项目"></a>收银端项目</h4><p>该项目是基于Angular4,主要用于集团线下门店的收银,支付方式包括现金、银行卡和在线支付,并于线上的电商网站后台进行对接。<br>主要工作包括</p>
 <ol>
 <li>项目的整体的UI界面和交互逻辑</li>
@@ -761,27 +809,17 @@ var postcss = require(&apos;gulp-postcss&apos;);
 <li>负责公司新版移动版(vue)的部分页面排版,主要使用vue+webpack的工作流</li>
 </ol>
 <hr>
-<h2 id="开源项目和作品"><a href="#开源项目和作品" class="headerlink" title="开源项目和作品"></a>开源项目和作品</h2><h3 id="开源项目"><a href="#开源项目" class="headerlink" title="开源项目"></a>开源项目</h3><ul>
-<li><a href="https://github.com/Anonlyy/ONE_Angular" target="_blank" rel="noopener">ONE_Angular</a>：<br>基于Angular4框架的「ONE一个」应用。<br>预览地址: <a href="http://www.xposean.xin/ONE" target="_blank" rel="noopener">http://www.xposean.xin/ONE</a> 或 <a href="http://Xposean.coding.me/ONE_Angular。" target="_blank" rel="noopener">http://Xposean.coding.me/ONE_Angular。</a></li>
-<li><a href="https://github.com/Anonlyy/shareMusic" target="_blank" rel="noopener">shareMusic</a>：这是一款基于Anuglar4框架的音乐播放器,并使用网易云音乐API,样式布局则参考QQ音乐客户端.</li>
-<li><a href="https://github.com/Anonlyy/loveWall" target="_blank" rel="noopener">loveWall</a>:毕设作品,基于微信小程序开发的APP</li>
-</ul>
-<h3 id="技术文章"><a href="#技术文章" class="headerlink" title="技术文章"></a>技术文章</h3><ul>
-<li><a href="http://www.xposean.xin/2017/10/27/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%9B%BE%E7%89%87/" target="_blank" rel="noopener">前端性能优化之图片</a></li>
-<li><a href="http://www.xposean.xin/2017/10/24/VirtualDOM%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0/" target="_blank" rel="noopener">Virtual DOM原理概述</a></li>
-<li><a href="http://www.xposean.xin/2017/10/24/%E5%BD%B1%E5%93%8D%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E7%9A%84%E5%85%83%E5%87%B6-DOM%E6%93%8D%E4%BD%9C/" target="_blank" rel="noopener">影响前端性能的元凶:DOM操作</a>  </li>
-<li><a href="http://www.xposean.xin/2017/10/24/jQuery%E7%9A%84%E6%8F%92%E4%BB%B6%E6%9C%BA%E5%88%B6/" target="_blank" rel="noopener">jQuery的插件机制</a>  </li>
-</ul>
 <h3 id="日常开发笔记"><a href="#日常开发笔记" class="headerlink" title="日常开发笔记"></a>日常开发笔记</h3><ul>
 <li><a href="http://note.youdao.com/noteshare?id=344dd81175a57858749f8227e9f2b3d1&amp;sub=7F338E6365304F1A8B5892D35B64329A" target="_blank" rel="noopener">Anglar遇到的坑</a></li>
 <li><a href="http://note.youdao.com/noteshare?id=9e2dc73c02ab6307f3a76e94e279130b&amp;sub=0300A0EDA46A4C16B06E900F3C31F3EB" target="_blank" rel="noopener">Angular4-路由笔记</a></li>
 </ul>
 <h2 id="技能清单"><a href="#技能清单" class="headerlink" title="技能清单"></a>技能清单</h2><ul>
-<li>熟悉HTML5、CSS3、JavaScript</li>
+<li>熟悉HTML5、CSS3、JavaScript、TypeScript</li>
+<li>熟悉使用Angular4、JQuery、Bootstrap、vue等前端库进行开发</li>
+<li>熟悉前后端分离开发模式、web语义化</li>
 <li>熟悉SASS、LESS等CSS预编译器、及PostCSS后编译器</li>
 <li>熟练使用Gulp工作流、webpack等开发工具</li>
 <li>熟练使用git、svn的版本控制工具</li>
-<li>熟悉使用Angular4、JQuery、Bootstrap、vue等前端库进行开发</li>
 <li>熟悉ES6、ES5语法</li>
 <li>熟悉处理PC端页面兼容、移动端页面兼容性问题</li>
 </ul>
