@@ -25,6 +25,25 @@ tags:
  - Github：https://github.com/Anonlyy
 
 ---
+## 开源项目和作品
+
+### 开源项目
+ - [ONE_Angular](https://github.com/Anonlyy/ONE_Angular)：
+   基于Angular4框架的「ONE一个」应用。
+   预览地址: http://www.xposean.xin/ONE 或 http://Xposean.coding.me/ONE_Angular。
+ - [shareMusic](https://github.com/Anonlyy/shareMusic)：这是一款基于Anuglar4框架的音乐播放器,并使用网易云音乐API,样式布局则参考QQ音乐客户端.
+ - [loveWall](https://github.com/Anonlyy/loveWall):毕设作品,基于微信小程序开发的APP
+
+### 技术文章
+
+- [前端性能优化之图片](http://www.xposean.xin/2017/10/27/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%9B%BE%E7%89%87/)
+- [Virtual DOM原理概述](http://www.xposean.xin/2017/10/24/VirtualDOM%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0/)
+- [影响前端性能的元凶:DOM操作](http://www.xposean.xin/2017/10/24/%E5%BD%B1%E5%93%8D%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E7%9A%84%E5%85%83%E5%87%B6-DOM%E6%93%8D%E4%BD%9C/)  
+- [jQuery的插件机制](http://www.xposean.xin/2017/10/24/jQuery%E7%9A%84%E6%8F%92%E4%BB%B6%E6%9C%BA%E5%88%B6/)  
+
+---
+
+
 
 ## 工作经历
 
@@ -63,22 +82,6 @@ tags:
 
 ---
 
-## 开源项目和作品
-
-### 开源项目
- - [ONE_Angular](https://github.com/Anonlyy/ONE_Angular)：
-   基于Angular4框架的「ONE一个」应用。
-   预览地址: http://www.xposean.xin/ONE 或 http://Xposean.coding.me/ONE_Angular。
- - [shareMusic](https://github.com/Anonlyy/shareMusic)：这是一款基于Anuglar4框架的音乐播放器,并使用网易云音乐API,样式布局则参考QQ音乐客户端.
- - [loveWall](https://github.com/Anonlyy/loveWall):毕设作品,基于微信小程序开发的APP
-
-### 技术文章
-
-- [前端性能优化之图片](http://www.xposean.xin/2017/10/27/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%9B%BE%E7%89%87/)
-- [Virtual DOM原理概述](http://www.xposean.xin/2017/10/24/VirtualDOM%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0/)
-- [影响前端性能的元凶:DOM操作](http://www.xposean.xin/2017/10/24/%E5%BD%B1%E5%93%8D%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E7%9A%84%E5%85%83%E5%87%B6-DOM%E6%93%8D%E4%BD%9C/)  
-- [jQuery的插件机制](http://www.xposean.xin/2017/10/24/jQuery%E7%9A%84%E6%8F%92%E4%BB%B6%E6%9C%BA%E5%88%B6/)  
-
 
 ### 日常开发笔记
  - [Anglar遇到的坑](http://note.youdao.com/noteshare?id=344dd81175a57858749f8227e9f2b3d1&sub=7F338E6365304F1A8B5892D35B64329A)
@@ -88,11 +91,12 @@ tags:
 
 ## 技能清单
 
-- 熟悉HTML5、CSS3、JavaScript
+- 熟悉HTML5、CSS3、JavaScript、TypeScript
+- 熟悉使用Angular4、JQuery、Bootstrap、vue等前端库进行开发
+- 熟悉前后端分离开发模式、web语义化
 - 熟悉SASS、LESS等CSS预编译器、及PostCSS后编译器
 - 熟练使用Gulp工作流、webpack等开发工具
 - 熟练使用git、svn的版本控制工具
-- 熟悉使用Angular4、JQuery、Bootstrap、vue等前端库进行开发
 - 熟悉ES6、ES5语法
 - 熟悉处理PC端页面兼容、移动端页面兼容性问题
 
