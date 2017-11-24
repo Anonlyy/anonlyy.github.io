@@ -74,7 +74,7 @@
 
     
         <meta property="article:published_time" content="11月 23, 2017" />
-        <meta property="article:modified_time" content="11月 23, 2017" />
+        <meta property="article:modified_time" content="11月 24, 2017" />
     
 
     <!-- The Twitter Card protocol -->
@@ -115,7 +115,7 @@
     "headline": "MPA和SPA,你选哪一个",
     "url": "http://xposean.xin/2017/11/23/MPA和SPA-你选哪一个/index.html",
     "datePublished": "11月 23, 2017",
-    "dateModified": "11月 23, 2017",
+    "dateModified": "11月 24, 2017",
     "description": "做一个刚刚好的前端仔",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -505,7 +505,23 @@
 </ol>
 <h2 id="单页应用程序-SinglePage-Web-Application，SPA"><a href="#单页应用程序-SinglePage-Web-Application，SPA" class="headerlink" title="单页应用程序(SinglePage Web Application，SPA)"></a>单页应用程序(SinglePage Web Application，SPA)</h2><p><img src="https://user-gold-cdn.xitu.io/2017/11/17/15fc93562b418a6e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt=""></p>
 <p>简单点说,<code>SPA</code>就是只有一个Web页面的应用，单页应用程序 (SPA) 是加载单个HTML 页面并在用户与应用程序交互时动态更新该页面的Web应用程序。 浏览器一开始会加载必需的HTML、CSS和JavaScript，所有的操作都在这张页面上完成，都由JavaScript来控制。</p>
-<h3 id="怎么实现无刷新的呢"><a href="#怎么实现无刷新的呢" class="headerlink" title="怎么实现无刷新的呢?"></a>怎么实现无刷新的呢?</h3><p><code>History API</code></p>
+<h3 id="怎么实现无刷新的呢"><a href="#怎么实现无刷新的呢" class="headerlink" title="怎么实现无刷新的呢?"></a>怎么实现无刷新的呢?</h3><p>那就是History API.<br><code>History API</code>是HTML5 的历史记录 API。这套 API 提供一种「人为操纵」浏览器历史记录的方法,可以实现无刷新更改地址栏链接，配合 AJAX 可以做到无刷新跳转。<br>简单来说：假设当前页面为xposean.xin/，那么执行下面的 JavaScript 语句：</p>
+<pre><code>window.history.pushState(null, null, &quot;/profile/&quot;);
+</code></pre><p>之后，地址栏的地址就会变成xposean.xin/profile/，但同时浏览器不会刷新页面，甚至不会检测目标页面是否存在。</p>
+<h4 id="pushState方法"><a href="#pushState方法" class="headerlink" title="pushState方法"></a>pushState方法</h4><p>浏览器历史记录可以看作一个「栈」。栈是一种后进先出的结构，可以把它想象成一摞盘子，用户每点开一个新网页，都会在上面加一个新盘子，叫「入栈」。用户每次点击「后退」按钮都会取走最上面的那个盘子，叫做「出栈」。而每次浏览器显示的自然是最顶端的盘子的内容。</p>
+<p>执行pushState函数之后，会往浏览器的历史记录中添加一条新记录，同时改变地址栏的地址内容。它可以接收三个参数，按顺序分别为：</p>
+<ol>
+<li>一个对象或者字符串，用于描述新记录的一些特性。这个参数会被一并添加到历史记录中，以供以后使用。这个参数是开发者根据自己的需要自由给出的。</li>
+<li>一个字符串，代表新页面的标题。当前基本上所有浏览器都会忽略这个参数。</li>
+<li><p>一个字符串，代表新页面的相对地址。</p>
+<pre><code>var state = {
+    id: 2,
+    name: &quot;profile&quot;
+};
+window.history.pushState(state, &quot;My Profile&quot;, &quot;/profile/&quot;);
+</code></pre></li>
+</ol>
+<h4 id="replaceState-方法"><a href="#replaceState-方法" class="headerlink" title="replaceState 方法"></a>replaceState 方法</h4><p>有时，你希望不添加一个新记录，而是替换当前的记录（比如对网站的 loading-page），则可以使用replaceState方法。这个方法和pushState的参数完全一样。</p>
 <h3 id="SPA的优点"><a href="#SPA的优点" class="headerlink" title="SPA的优点"></a>SPA的优点</h3><ol>
 <li>分离前后端关注点，前端负责view，后端负责model，各司其职； </li>
 <li>服务器只接口提供数据，不用展示逻辑和页面合成，提高性能； </li>
