@@ -49,6 +49,7 @@ window.history.pushState(state, &quot;My Profile&quot;, &quot;/profile/&quot;);
 <li>首次加载时间较长。 </li>
 <li>页面复杂度提高很多，复杂逻辑难度成倍,意味着开发成本和学习成本的提高。</li>
 </ol>
+<h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><p>本文部分内容出处为<a href="https://mouthmedia.com/blog/mpa-or-spa-which-one-should-you-choose/" target="_blank" rel="noopener">MPA OR SPA? WHICH ONE SHOULD YOU CHOOSE?</a></p>
 ]]></content>
       
         
