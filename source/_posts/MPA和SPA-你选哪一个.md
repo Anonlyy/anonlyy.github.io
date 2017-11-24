@@ -79,3 +79,8 @@ tags:
 1. SEO问题
 2. 首次加载时间较长。 
 3. 页面复杂度提高很多，复杂逻辑难度成倍,意味着开发成本和学习成本的提高。
+
+
+## 感谢
+
+本文部分内容出处为[MPA OR SPA? WHICH ONE SHOULD YOU CHOOSE?](https://mouthmedia.com/blog/mpa-or-spa-which-one-should-you-choose/)
