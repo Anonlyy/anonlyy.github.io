@@ -525,7 +525,19 @@
 <hr>
 <h3 id="Hybrid-APP"><a href="#Hybrid-APP" class="headerlink" title="Hybrid APP"></a>Hybrid APP</h3><p>今天我们着重讲的开发方案是Hybrid APP(混合APP)。<br>Hybrid App主要以JS+Native两者相互调用为主，从开发层面实现“一次开发，多处运行”的机制，成为真正适合跨平台的开发。Hybrid App兼具了Native App良好用户体验的优势，也兼具了Web App使用HTML5跨平台开发低成本的优势。</p>
 <p>基于以上优势,目前已经有绝大多数的中大型APP,已经不会是纯粹的Native APP,转而被Hybrid App所取代，比如淘宝、天猫、京东、爱奇艺、微信等知名移动应用，都是采用Hybrid App开发模式。</p>
-<h3 id="Hybrid-APP类型"><a href="#Hybrid-APP类型" class="headerlink" title="Hybrid APP类型"></a>Hybrid APP类型</h3><p>方案一：Web主体型<br>即移动应用的主体是Web View，主要以网页语言编写，穿插Native功能的Hybrid App开发类型。这种类型开发的移动应用体验相对而言存在缺陷，但整体开发难度大幅降低，并且基本可以实现跨平台。<br>使用Ionic、Weex、NativeScript、React Native之类的框架,</p>
+<h3 id="Hybrid-APP类型"><a href="#Hybrid-APP类型" class="headerlink" title="Hybrid APP类型"></a>Hybrid APP类型</h3><h4 id="方案一：Web主体型"><a href="#方案一：Web主体型" class="headerlink" title="方案一：Web主体型"></a>方案一：Web主体型</h4><p>即移动应用的主体是Web View，主要以网页语言编写，穿插Native功能的Hybrid App开发类型。这种类型开发的移动应用体验相对而言存在缺陷，但整体开发难度大幅降低，并且基本可以实现跨平台。<br>使用Ionic、Weex、NativeScript、React Native之类的框架。</p>
+<p><img src="https://i.imgur.com/KPRqQyB.png" alt=""></p>
+<p>优点：</p>
+<p>全Web开发，一定程度上有利于Web前端技术人员快速地构建页面样式,且跨平台,极大程度降低开发APP成本.<br>便于调试，开发的时候可以通过浏览器的方式进行调试，工具丰富。</p>
+<p>缺点:</p>
+<ol>
+<li>兼容性是极大的问题,特别是在Android机器上,因为国产的系统花样繁多,且底层代码大多被都修改,导致在即便在Android机器上,显示也有很多差异。</li>
+<li>在业务复杂的界面,如list页,极容易造成机器内存暴涨,极不稳定。</li>
+<li>基于以上两点,web主体型并不是适合开发中大型业务复杂的APP.</li>
+</ol>
+<h4 id="方案二-Native主体型"><a href="#方案二-Native主体型" class="headerlink" title="方案二:Native主体型"></a>方案二:Native主体型</h4><p>在开发原生应用的基础上，嵌入WebView但是整体的架构使用原生应用提供，一般这样的开发由Native开发人员和Web前端开发人员组成。Native开发人员会写好基本的架构以及API让Web开发人员开发界面以及大部分的渲染。保证到交互设计，以及开发都有一个比较折中的效果出来，优化得好也会有很棒的效果。但不具备跨平台的功能。</p>
+<p>优点：</p>
+<p>这无疑是最稳定的Hybrid App开发方式了，交互层的效率上由Native的东西解决了，而且架构上基本就是在App内写网页，连App Store都是采用了该种方案；<br>开发时分工非常明确，底层的由iOS开发人员处理，上层的由Web前端开发人员处理；<br>有效的在线参数配置方式，以便于及时在线替换界面；<br>缺点：<br>相对于native APP团队而言,团队还需要多一个web前端工程师,仅仅只是分担了IOS/Android的工作量,并没有降低多少开发成本.<br>还是运行效率，要权衡好多少界面采用Web来渲染，毕竟WebView的效率会相对降低，以前Facebook就是因为Web的渲染效率低下，把整个应用改为原生的解决方案。当然这里面可以通过优化来解决。</p>
 
         </div>
     
