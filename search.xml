@@ -3,6 +3,30 @@
   
     
     <entry>
+      <title><![CDATA[谈谈我们日常接触的APP]]></title>
+      <url>/2017/11/28/%E8%B0%88%E8%B0%88%E6%88%91%E4%BB%AC%E6%97%A5%E5%B8%B8%E6%8E%A5%E8%A7%A6%E7%9A%84APP/</url>
+      <content type="html"><![CDATA[<h2 id="APP现状分析"><a href="#APP现状分析" class="headerlink" title="APP现状分析"></a>APP现状分析</h2><p>近年来随着移动设备类型的变多，操作系统的变多，用户需求的增加，开发App的方案已经变得越来越多了。下面就由我来详细罗列一下各种开发APP的方式.</p>
+<h2 id="APP开发方案"><a href="#APP开发方案" class="headerlink" title="APP开发方案"></a>APP开发方案</h2><p><img src="http://image.uisdc.com/wp-content/uploads/2014/12/texingfenxi.png" alt=""></p>
+<h3 id="Web-App"><a href="#Web-App" class="headerlink" title="Web App"></a>Web App</h3><p><strong>Web App</strong>指采用Html5语言写出的App，不需要下载安装。类似于现在所说的轻应用。生存在浏览器中的应用，基本上可以说是触屏版的网页应用。</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点:"></a>优点:</h2><ol>
+<li>开发成本低，</li>
+<li>更新快，</li>
+<li>更新无需通知用户，不需要手动升级，</li>
+<li>能够跨多个平台和终端。</li>
+</ol>
+<h2 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h2><ol>
+<li>临时性的入口</li>
+<li>无法获取系统级别的通知，提醒，动效等等</li>
+<li>用户留存率低</li>
+<li>设计受限制诸多</li>
+<li>体验较差</li>
+</ol>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[MPA和SPA,你选哪一个]]></title>
       <url>/2017/11/23/MPA%E5%92%8CSPA-%E4%BD%A0%E9%80%89%E5%93%AA%E4%B8%80%E4%B8%AA/</url>
       <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>旧的桌面应用程序被Web应用程序推到了极点。基于Web的应用程序使用起来非常方便，可以从多个设备访问，并且易于升级。对移动友好的复杂应用程序的需求正在上升。熟悉Web应用程序开发的您必须了解两种主要的Web设计类型：单页应用程序（SPA）和多页面应用程序（MPA）。</p>
