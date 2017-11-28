@@ -7,20 +7,20 @@
       <url>/2017/11/28/%E8%B0%88%E8%B0%88%E6%88%91%E4%BB%AC%E6%97%A5%E5%B8%B8%E6%8E%A5%E8%A7%A6%E7%9A%84APP/</url>
       <content type="html"><![CDATA[<h2 id="APP现状分析"><a href="#APP现状分析" class="headerlink" title="APP现状分析"></a>APP现状分析</h2><p>近年来随着移动设备类型的变多，操作系统的变多，用户需求的增加，开发App的方案已经变得越来越多了。下面就由我来详细罗列一下各种开发APP的方式.</p>
 <h2 id="APP开发方案"><a href="#APP开发方案" class="headerlink" title="APP开发方案"></a>APP开发方案</h2><p><img src="http://image.uisdc.com/wp-content/uploads/2014/12/texingfenxi.png" alt=""></p>
-<h3 id="Web-App"><a href="#Web-App" class="headerlink" title="Web App"></a>Web App</h3><p><strong>Web App</strong>指采用Html5语言写出的App，不需要下载安装。类似于现在所说的轻应用。生存在浏览器中的应用，基本上可以说是触屏版的网页应用。</p>
+<h3 id="Web-App"><a href="#Web-App" class="headerlink" title="Web App"></a>Web App</h3><p><strong>Web App</strong>指采用Html5语言写出的App,无须下载安装。类似于现在所说的轻应用。生存在浏览器中的应用，基本上可以说是触屏版的网页应用。</p>
 <h4 id="优点"><a href="#优点" class="headerlink" title="优点:"></a>优点:</h4><ol>
-<li>开发成本低，</li>
-<li>更新快，</li>
-<li>更新无需通知用户，不需要手动升级，</li>
-<li>能够跨多个平台和终端。</li>
+<li>开发成本低;</li>
+<li>更新快;</li>
+<li>更新无需通知用户，不需要手动升级;</li>
+<li>能够跨多个平台和终端;</li>
 </ol>
 <h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ol>
-<li>临时性的入口</li>
+<li>性能缺陷,体验较差</li>
 <li>无法获取系统级别的通知，提醒，动效等等</li>
 <li>用户留存率低</li>
 <li>设计受限制诸多</li>
-<li>体验较差</li>
 </ol>
+<hr>
 <h3 id="Native-APP"><a href="#Native-APP" class="headerlink" title="Native APP"></a>Native APP</h3><p>Native APP 指的是原生程序，一般依托于操作系统，有很强的交互，是一个完整的App，可拓展性强。需要用户下载安装使用。</p>
 <h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ol>
 <li>打造完美的用户体验</li>
@@ -36,6 +36,10 @@
 <li>维护成本高（例如一款App已更新至V5版本，但仍有用户在使用V2， V3， V4版本，需要更多的开发人员维护之前的版本）</li>
 <li>更新缓慢，根据不同平台，提交–审核–上线 等等不同的流程，需要经过的流程较复杂</li>
 </ol>
+<hr>
+<h3 id="Hybrid-APP"><a href="#Hybrid-APP" class="headerlink" title="Hybrid APP"></a>Hybrid APP</h3><p>今天我们着重讲的开发方案是Hybrid APP(混合APP)。<br>Hybrid App主要以JS+Native两者相互调用为主，从开发层面实现“一次开发，多处运行”的机制，成为真正适合跨平台的开发。Hybrid App兼具了Native App良好用户体验的优势，也兼具了Web App使用HTML5跨平台开发低成本的优势。</p>
+<p>基于以上优势,目前已经有绝大多数的中大型APP,已经不会是纯粹的Native APP,转而被Hybrid App所取代，比如淘宝、天猫、京东、爱奇艺、微信等知名移动应用，都是采用Hybrid App开发模式。</p>
+<h3 id="Hybrid-APP类型"><a href="#Hybrid-APP类型" class="headerlink" title="Hybrid APP类型"></a>Hybrid APP类型</h3><p>方案一：Web主体型<br>即移动应用的主体是Web View，主要以网页语言编写，穿插Native功能的Hybrid App开发类型。这种类型开发的移动应用体验相对而言存在缺陷，但整体开发难度大幅降低，并且基本可以实现跨平台。<br>使用Ionic、Weex、NativeScript、React Native之类的框架,</p>
 ]]></content>
       
         
