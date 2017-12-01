@@ -847,11 +847,9 @@ var postcss = require(&apos;gulp-postcss&apos;);
 </ul>
 <hr>
 <h2 id="开源项目和作品-已附github地址"><a href="#开源项目和作品-已附github地址" class="headerlink" title="开源项目和作品(已附github地址)"></a>开源项目和作品(已附github地址)</h2><h3 id="开源项目"><a href="#开源项目" class="headerlink" title="开源项目"></a>开源项目</h3><ul>
-<li><a href="https://github.com/Anonlyy/ONE_Angular" target="_blank" rel="noopener">ONE_Angular</a>： 基于Angular4框架的「ONE一个」SPA应用。<br>预览地址: <a href="http://Xposean.coding.me/ONE_Angular。" target="_blank" rel="noopener">http://Xposean.coding.me/ONE_Angular。</a><ul>
+<li><a href="https://github.com/Anonlyy/ONE_Angular" target="_blank" rel="noopener">ONE_Angular</a>： 基于Angular4框架的「ONE一个」SPA应用。<br>预览地址: <a href="http://Xposean.coding.me/ONE_Angular。" target="_blank" rel="noopener">http://Xposean.coding.me/ONE_Angular。</a></li>
 <li><a href="https://github.com/Anonlyy/ONE_Vue" target="_blank" rel="noopener">ONE_Vue</a>:基于vue.js框架的「ONE一个」SPA应用</li>
-</ul>
-</li>
-<li><a href="https://github.com/Anonlyy/shareMusic" target="_blank" rel="noopener">shareMusic</a>：这是一款基于Anuglar4框架的音乐播放器,并使用网易云音乐API,样式布局则参考QQ音乐客户端.</li>
+<li><a href="https://github.com/Anonlyy/shareMusic" target="_blank" rel="noopener">ShareMusic</a>：这是一款基于Anuglar4框架的音乐播放器,并使用网易云音乐API,样式布局则参考QQ音乐客户端.</li>
 <li><a href="https://github.com/Anonlyy/loveWall" target="_blank" rel="noopener">loveWall</a>:毕设作品,基于微信小程序开发的APP</li>
 </ul>
 <h3 id="技术文章"><a href="#技术文章" class="headerlink" title="技术文章"></a>技术文章</h3><ul>
@@ -901,10 +899,8 @@ var postcss = require(&apos;gulp-postcss&apos;);
 </ul>
 <h3 id="日常开发笔记"><a href="#日常开发笔记" class="headerlink" title="日常开发笔记"></a>日常开发笔记</h3><ul>
 <li><a href="http://note.youdao.com/noteshare?id=344dd81175a57858749f8227e9f2b3d1&amp;sub=7F338E6365304F1A8B5892D35B64329A" target="_blank" rel="noopener">Anglar遇到的坑</a></li>
-<li><a href="http://note.youdao.com/noteshare?id=9e2dc73c02ab6307f3a76e94e279130b&amp;sub=0300A0EDA46A4C16B06E900F3C31F3EB" target="_blank" rel="noopener">Angular4-路由笔记</a><ul>
+<li><a href="http://note.youdao.com/noteshare?id=9e2dc73c02ab6307f3a76e94e279130b&amp;sub=0300A0EDA46A4C16B06E900F3C31F3EB" target="_blank" rel="noopener">Angular4-路由笔记</a></li>
 <li><a href="http://note.youdao.com/noteshare?id=e31eb119affef624d28832e8e36603d6" target="_blank" rel="noopener">日常收集并阅读的技术书籍</a></li>
-</ul>
-</li>
 </ul>
 <hr>
 <h2 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h2><p>感谢您花时间阅读我的简历，期待能有机会和您共事。</p>
