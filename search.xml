@@ -34,6 +34,8 @@
 <li>网络弹性处理: 安装依赖时，不会因为某个单次网络请求的失败导致整个安装挂掉。当请求失败时会进行自动重试。</li>
 <li>扁平模式: 当关联依赖中包括对某个软件包的重复引用，在实际安装时将尽量避免重复的创建 </li>
 </ol>
+<p><img src="http://7tszky.com1.z0.glb.clouddn.com/FifXFXX6rNLMtwA5xuvB85DzDL0M" alt=""></p>
+<h3 id="Yarn总结"><a href="#Yarn总结" class="headerlink" title="Yarn总结"></a>Yarn总结</h3><p>yarn 相比 npm 最直观优势就是快<br>目前项目在基本可以无痛迁移使用。<br>yarn 目前并不是非常稳定，不少反馈script run以及下载包有问题。<br>lock功能具有双面性，是否锁定版本需要看具体情况而定</p>
 ]]></content>
       
         
