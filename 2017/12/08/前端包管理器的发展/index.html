@@ -507,9 +507,12 @@
 <li>缺乏构建工具</li>
 <li>源数据问题</li>
 </ol>
+<hr>
 <h2 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h2><p><code>npm</code>(node package manager)有两层含义。一层含义是Node的开放式模块登记平台和管理系统，网址为npmjs.org。另一层含义是Node默认的模块管理器，是一个命令行下的软件，用来安装和管理Node模块。</p>
 <p><code>npm</code>不需要单独安装。在安装Node的时候，会连带一起安装npm。但是，Node附带的npm可能不是最新版本，最好用下面的命令，更新到最新版本。</p>
-<h3 id="CNPM"><a href="#CNPM" class="headerlink" title="CNPM"></a>CNPM</h3><p>淘宝镜像源</p>
+<h3 id="CNPM"><a href="#CNPM" class="headerlink" title="CNPM"></a>CNPM</h3><p>因为<code>npm</code>的服务器是在国外,所以被墙是经常的,这是就要介绍一下比较良心的<code>cnpm</code>了.<br>CNPM即时<a href="https://npm.taobao.org/" target="_blank" rel="noopener">淘宝镜像源</a>,这是一个完整 npmjs.org 镜像，用此代替官方版本(只读)，同步频率目前为 10分钟 一次以保证尽量与官方服务同步。</p>
+<p>使用<code>cnpm</code>后,<code>install</code>的速度可比<code>cnpm</code>快得多了。</p>
+<hr>
 <h2 id="Yarn"><a href="#Yarn" class="headerlink" title="Yarn"></a>Yarn</h2><p>facebook发布的新一代包管理工具，旨在解决以往使用npm作为包管理会遇到的一些问题。从其官方介绍可以看到其重点强调的3个点：快、可靠、安全。</p>
 <p>优势：</p>
 <ol>
@@ -520,7 +523,18 @@
 <li>网络弹性处理: 安装依赖时，不会因为某个单次网络请求的失败导致整个安装挂掉。当请求失败时会进行自动重试。</li>
 <li>扁平模式: 当关联依赖中包括对某个软件包的重复引用，在实际安装时将尽量避免重复的创建 </li>
 </ol>
-<p><img src="http://7tszky.com1.z0.glb.clouddn.com/FifXFXX6rNLMtwA5xuvB85DzDL0M" alt=""></p>
+<hr>
+<h3 id="yarn-amp-npm-常用命令比较"><a href="#yarn-amp-npm-常用命令比较" class="headerlink" title="yarn &amp; npm 常用命令比较"></a>yarn &amp; npm 常用命令比较</h3><ul>
+<li>npm install === yarn / yarn install</li>
+<li>npm install xxx —save === yarn add xxx</li>
+<li>npm uninstall xxx —save === yarn remove xxx</li>
+<li>npm install xxx —save-dev === yarn add xxx —dev</li>
+<li>npm update === yarn upgrade</li>
+<li>npm install xxx -g === yarn global add xxx<br>当然，在比较选择<code>yarn</code>与<code>npm</code>时，速度也是一个很重要的衡量指标。</li>
+</ul>
+<hr>
+<h3 id="yarn-amp-npm-速度比较"><a href="#yarn-amp-npm-速度比较" class="headerlink" title="yarn &amp; npm 速度比较"></a>yarn &amp; npm 速度比较</h3><p><img src="http://7tszky.com1.z0.glb.clouddn.com/FifXFXX6rNLMtwA5xuvB85DzDL0M" alt=""></p>
+<hr>
 <h3 id="Yarn总结"><a href="#Yarn总结" class="headerlink" title="Yarn总结"></a>Yarn总结</h3><p>yarn 相比 npm 最直观优势就是快<br>目前项目在基本可以无痛迁移使用。<br>yarn 目前并不是非常稳定，不少反馈script run以及下载包有问题。<br>lock功能具有双面性，是否锁定版本需要看具体情况而定</p>
 
         </div>
