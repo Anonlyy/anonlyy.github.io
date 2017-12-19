@@ -3,6 +3,81 @@
   
     
     <entry>
+      <title><![CDATA[谈谈现在的移动端调试]]></title>
+      <url>/2017/12/19/%E8%B0%88%E8%B0%88%E7%8E%B0%E5%9C%A8%E7%9A%84%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%B0%83%E8%AF%95/</url>
+      <content type="html"><![CDATA[<p>通常我们在日常开发手机版网页的时候，都是通过浏览器的移动设备模式来模拟移动设备访问网页,但总会出现以下的问题:</p>
+<p>开发时，在自己电脑上运行得好好的，在真机上打开就挂了，但是手机上又看不到错误的log信息；</p>
+<p>作为开发者，我们的诉求很简单：有没有快捷的工具可以让我们在真机运行网页的时候可以看到log信息。</p>
+<p>答案是肯定的。<br>接下来就给大家介绍一下这些工具:</p>
+<h2 id="vConsole"><a href="#vConsole" class="headerlink" title="vConsole"></a>vConsole</h2><p>由<strong>鹅厂</strong>开发的一个轻量、可拓展、针对手机网页的前端开发者调试面板。</p>
+<blockquote>
+<p>特性：</p>
+</blockquote>
+<ul>
+<li>使用简单</li>
+<li>查看 console 日志,包括报错、Objet/Array等信息</li>
+<li>查看网络请求</li>
+<li>手动执行 JS 命令行</li>
+<li>自定义插件</li>
+</ul>
+<h3 id="上手使用"><a href="#上手使用" class="headerlink" title="上手使用"></a>上手使用</h3><blockquote>
+<p>1.使用 npm 安装：</p>
+</blockquote>
+<pre><code>npm install vconsole
+</code></pre><blockquote>
+<p>2.直接引入:</p>
+</blockquote>
+<pre><code>&lt;script src=&quot;path/to/vconsole.min.js&quot;&gt;&lt;/script&gt;
+</code></pre><blockquote>
+<p>3.初始化 &amp; 配置</p>
+</blockquote>
+<pre><code>//引入后, 需要手动初始化 vConsole：
+var vConsole = new VConsole(option);
+</code></pre><blockquote>
+<p>4.打印日志</p>
+</blockquote>
+<pre><code>console.log(&apos;foo&apos;);   // 白底黑字
+console.info(&apos;bar&apos;);  // 白底紫字
+console.debug(&apos;oh&apos;);  // 白底黄字
+console.warn(&apos;foo&apos;);  // 黄底黄字
+console.error(&apos;bar&apos;); // 红底红字
+</code></pre><blockquote>
+<p>5.打印Object/Array</p>
+</blockquote>
+<pre><code>var obj = {};
+obj.foo = &apos;bar&apos;;
+console.log(obj);
+/*
+Object
+{
+  foo: &quot;bar&quot;
+}
+ */
+</code></pre><p>使用<code>vConsole</code>可以很方便的log我们想要的信息,只是需要引入一个库文件,而且不支持代码断点,以及不支持查看元素的样式是写在<code>css</code>第几行，也不支持显示在哪个文件，于是还有一种更加好的方案.</p>
+<hr>
+<h2 id="Chrome远程调试-Remote-Debugging"><a href="#Chrome远程调试-Remote-Debugging" class="headerlink" title="Chrome远程调试(Remote Debugging)"></a>Chrome远程调试(Remote Debugging)</h2><p><img src="http://images.cnitblog.com/blog/494920/201411/130923544443367.jpg" alt=""><br><code>Chrome</code>浏览器是可以通过USB连接移动设备进行远程Web页面调试的,上图的左边是pc端的chrome浏览器，右边是手机上的<code>Chrome</code> 然后可以看到当鼠标移动到某个<code>div</code>上时 手机上的这个区域高亮显示 跟pc上调试某段代码效果一样 你可以修改代码 并直接在手机上反馈修改结果</p>
+<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>在移动调试前我们需要以下准备工作:</p>
+<ol>
+<li>pc端安装最新的chrome</li>
+<li>(Android设备)手机端安装最新的chrome </li>
+<li>USB连接线</li>
+</ol>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p><strong>USB设置</strong> 在你的手机里打开”设置”-&gt;”开发人员工具”-&gt;”USB调试” 打开USB调试。 因为Android手机型号众多 很多人找不到”USB调试这个选项在哪” 而且大多数手机”开发者选项”默认是影藏的，你需要看下自己的手机说明然后将手机调到”开发者模式” 就可以找到 “USB调试了” </p>
+<p>假设你已经将手机设置为”USB调试”打开的状态 将手机连接到电脑 手机会弹出是否链接 点击确定,并安装好驱动,这是<strong>关键</strong>.</p>
+<p><img src="http://img.blog.csdn.net/20150108192728031" alt=""></p>
+<p>打开电脑的chrome 在地址栏输入 <code>chrome://inspect</code>  选中 <code>Discover USB devices</code>可以检测到你的设备 </p>
+<p><img src="http://images.cnitblog.com/blog/494920/201411/130927258353280.png" alt=""></p>
+<p>在移动设备上打开chrome,并访问要调试的网址</p>
+<p><img src="http://images.cnitblog.com/blog/494920/201411/130928474446813.jpg" alt=""></p>
+<p>点击<code>inspect</code> 如下图 就看到了文章开始一样的效果 此时就是可以审查手机页面上的元素了</p>
+<p><img src="http://images.cnitblog.com/blog/494920/201411/130929083038684.jpg" alt=""></p>
+<p>使用Chrome远程调试的方式可以更加全面的调试代码和审查元素,但有不好的地方就是只支持安卓设备,目前是不支持IOS苹果设备的.<br>不过这个也不是问题,IOS 的话，可以使用<code>iphone</code> 数据线链接 <code>Mac</code>，打开 <code>Safari</code> 就可以直接使用 <code>Ma</code>c 的 <code>Safari</code> 调试工具了,跟chrome的方法类似。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[前端包管理器的发展]]></title>
       <url>/2017/12/08/%E5%89%8D%E7%AB%AF%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8%E7%9A%84%E5%8F%91%E5%B1%95/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>我们在开发时，会用到很多开发者写的第三方库。如果我们要使用别人写的某个包，每次都根据名称搜索一下官方网站，下载代码，解压，再使用，非常繁琐。<br>于是一个集中管理的工具应运而生：大家都把自己开发的模块打包后放到一个包管理器的平台上，如果要使用，直接通过包管理器安装就可以直接用，不用管代码存在哪，应该从哪下载。</p>
