@@ -32,7 +32,7 @@
 <p>3.初始化 &amp; 配置</p>
 </blockquote>
 <pre><code>//引入后, 需要手动初始化 vConsole：
-var vConsole = new VConsole(option);
+var vConsole = new VConsole();
 </code></pre><blockquote>
 <p>4.打印日志</p>
 </blockquote>
