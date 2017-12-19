@@ -9,7 +9,7 @@
 <p>开发时，在自己电脑上运行得好好的，在真机上打开就挂了，但是手机上又看不到错误的log信息；</p>
 <p>作为开发者，我们的诉求很简单：有没有快捷的工具可以让我们在真机运行网页的时候可以看到log信息。</p>
 <p>答案是肯定的。<br>接下来就给大家介绍一下这些工具:</p>
-<h2 id="vConsole"><a href="#vConsole" class="headerlink" title="vConsole"></a>vConsole</h2><p>由<strong>鹅厂</strong>开发的一个轻量、可拓展、针对手机网页的前端开发者调试面板。</p>
+<h2 id="vConsole"><a href="#vConsole" class="headerlink" title="vConsole"></a>vConsole</h2><p>由<strong>鹅厂</strong>开发的一个轻量、可拓展、针对手机网页的前端开发者调试面板。<img src="https://github.com/Tencent/vConsole" alt="vConsole"></p>
 <blockquote>
 <p>特性：</p>
 </blockquote>
