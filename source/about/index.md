@@ -28,8 +28,8 @@ Github：[https://github.com/Anonlyy](https://github.com/Anonlyy)
 ### 开源项目
  - [ONE_Angular](https://github.com/Anonlyy/ONE_Angular)： 基于Angular4框架的「ONE一个」SPA应用。
    预览地址: http://Xposean.coding.me/ONE_Angular。
-- [ONE_Vue](https://github.com/Anonlyy/ONE_Vue):基于vue.js框架的「ONE一个」SPA应用
- - [shareMusic](https://github.com/Anonlyy/shareMusic)：这是一款基于Anuglar4框架的音乐播放器,并使用网易云音乐API,样式布局则参考QQ音乐客户端.
+ - [ONE_Vue](https://github.com/Anonlyy/ONE_Vue):基于vue.js框架的「ONE一个」SPA应用
+ - [ShareMusic](https://github.com/Anonlyy/shareMusic)：这是一款基于Anuglar4框架的音乐播放器,并使用网易云音乐API,样式布局则参考QQ音乐客户端.
  - [loveWall](https://github.com/Anonlyy/loveWall):毕设作品,基于微信小程序开发的APP
 
 
@@ -106,7 +106,7 @@ Github：[https://github.com/Anonlyy](https://github.com/Anonlyy)
 ### 日常开发笔记
  - [Anglar遇到的坑](http://note.youdao.com/noteshare?id=344dd81175a57858749f8227e9f2b3d1&sub=7F338E6365304F1A8B5892D35B64329A)
  - [Angular4-路由笔记](http://note.youdao.com/noteshare?id=9e2dc73c02ab6307f3a76e94e279130b&sub=0300A0EDA46A4C16B06E900F3C31F3EB)
-- [日常收集并阅读的技术书籍](http://note.youdao.com/noteshare?id=e31eb119affef624d28832e8e36603d6)
+ - [日常收集并阅读的技术书籍](http://note.youdao.com/noteshare?id=e31eb119affef624d28832e8e36603d6)
 ---
 
 ## 致谢
