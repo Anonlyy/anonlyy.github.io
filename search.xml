@@ -7,7 +7,8 @@
       <url>/2017/12/25/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B5%85%E6%8B%B7%E8%B4%9D/</url>
       <content type="html"><![CDATA[<p>在掌握深浅拷贝前,我们要知道,<code>JavaScript</code>的变量可以分为以下两种类型：</p>
 <ul>
-<li><p>基本类型</p>
+<li>基本类型</li>
+</ul>
 <ul>
 <li>undefined</li>
 <li>null</li>
@@ -15,8 +16,6 @@
 <li>string</li>
 <li>boolean</li>
 <li>symbol</li>
-</ul>
-</li>
 </ul>
 <blockquote>
 <p>基本变量是直接按值存放的，存放在栈内存中的简单数据段，可以直接访问。</p>
