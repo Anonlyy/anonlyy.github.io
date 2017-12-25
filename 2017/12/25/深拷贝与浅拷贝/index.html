@@ -552,17 +552,18 @@ console.log(obj2.b.c); // { a: 0 , b: { c: 3}};
 
 console.log(obj1.b.c); // { a: 0 , b: { c: 0}};
 </code></pre><p>该方法够处理<code>JSON</code>格式能表示的所有数据类型，但是无法拷贝对象里面的函数，正则表达式等，而且会丧失所有的<code>constructor</code>，也就是说，将是破坏整条<code>prototype</code>链。</p>
-<h4 id="2-JQuery的extend"><a href="#2-JQuery的extend" class="headerlink" title="2.JQuery的extend()"></a>2.JQuery的extend()</h4><pre><code>var x = {
-    a: 1,
-    b: { f: { g: 1 } },
-    c: [ 1, 2, 3 ]
-};
-
-var y = $.extend({}, x),          //shallow copy
+<h4 id="2-JQuery的extend"><a href="#2-JQuery的extend" class="headerlink" title="2.JQuery的extend()"></a>2.JQuery的extend()</h4><p>我们在 jQuery 中可以通过添加一个参数来实现递归extend。调用<code>$.extend(true, {}, ...)</code>就可以实现深复制啦，参考下面的例子：<br>    var x = {<br>        a: 1,<br>        b: { f: { g: 1 } },<br>        c: [ 1, 2, 3 ]<br>    };</p>
+<pre><code>var y = $.extend({}, x),          //shallow copy
     z = $.extend(true, {}, x);    //deep copy
 
 y.b.f === x.b.f       // true
 z.b.f === x.b.f       // false
+</code></pre><h4 id="3-Lodash的深拷贝"><a href="#3-Lodash的深拷贝" class="headerlink" title="3.Lodash的深拷贝"></a>3.Lodash的深拷贝</h4><p>jQuery无法深拷贝JSON    对象以外的对象,但Lodash在源代码已经兼顾到许多ES6引入的新标准对象,所以在可用性上,比其他第三方库文件反馈更好,可用性更强.</p>
+<pre><code>var objects = [{ &apos;a&apos;: 1 }, { &apos;b&apos;: 2 }];
+
+var deep = _.cloneDeep(objects);
+console.log(deep[0] === objects[0]);
+// =&gt; false
 </code></pre>
         </div>
     
