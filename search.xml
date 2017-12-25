@@ -3,6 +3,87 @@
   
     
     <entry>
+      <title><![CDATA[深拷贝与浅拷贝]]></title>
+      <url>/2017/12/25/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B5%85%E6%8B%B7%E8%B4%9D/</url>
+      <content type="html"><![CDATA[<p>在掌握深浅拷贝前,我们要知道,<code>JavaScript</code>的变量可以分为以下两种类型：</p>
+<ul>
+<li><p>基本类型</p>
+<ul>
+<li>undefined</li>
+<li>null</li>
+<li>number</li>
+<li>string</li>
+<li>boolean</li>
+<li>symbol</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>基本变量是直接按值存放的，存放在栈内存中的简单数据段，可以直接访问。</p>
+</blockquote>
+<ul>
+<li>引用类型 Object</li>
+</ul>
+<blockquote>
+<p>存放在堆内存中的对象，变量保存的是一个<strong>指针</strong>，这个指针指向另一个位置。当需要访问引用类型（如对象，数组等）的值时，首先从栈内存中获得该对象的地址指针，然后再从堆内存中取得所需的数据。</p>
+</blockquote>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><strong>浅拷贝(shallowCopy)</strong>:<br>对于字符串类型，浅拷贝是对值的复制，对于对象来说，浅拷贝是对对象地址的复制，并不会开辟新的内存地址，也就是复制的结果是两个对象指向同一个地址，修改其中一个对象的属性，则另一个对象的属性也会改变;</p>
+<p><strong>深拷贝(deepCopy)</strong>:<br>而深拷贝则是开辟新的内存地址，将原对象的各个属性逐个复制进去，两个对象对应两个不同的地址，修改一个对象的属性，不会改变另一个对象的属性。</p>
+<h2 id="深浅拷贝的实现"><a href="#深浅拷贝的实现" class="headerlink" title="深浅拷贝的实现"></a>深浅拷贝的实现</h2><h3 id="实现浅拷贝"><a href="#实现浅拷贝" class="headerlink" title="实现浅拷贝"></a>实现浅拷贝</h3><h4 id="1-直接赋值"><a href="#1-直接赋值" class="headerlink" title="1.直接赋值"></a>1.直接赋值</h4><pre><code>var a = 2;
+var obj1 = {b:2};
+var obj2 = obj1;
+
+obj2.b = 3; 
+
+console.log(obj1.b); // 3
+console.log(obj2.b); // 3
+</code></pre><h4 id="2-遍历对象属性赋值"><a href="#2-遍历对象属性赋值" class="headerlink" title="2.遍历对象属性赋值"></a>2.遍历对象属性赋值</h4><p>之前一直有一个错误实现深拷贝的想法，就是遍历一个对象的Key-Value对并一一复制给另一个对象便可以实现深拷贝。</p>
+<p>但是是错误的，这个是浅拷贝(shallowCopy)</p>
+<p>原因很简单，当Kry-Value对里value是Object的时候，复制过去便仍然是复制引用。</p>
+<pre><code>let obj = {
+    a: 1,
+    b:{
+        c: 2,
+        d: 3
+    }
+}
+
+let obj2 = {}
+
+for(let item of Object.keys(obj)){
+    obj2[item] = obj[item]
+}
+
+obj2.b.d = 2; 
+
+obj.b.d // 此时obj.b.d 变成了2,所以是浅拷贝
+</code></pre><hr>
+<h3 id="实现深拷贝"><a href="#实现深拷贝" class="headerlink" title="实现深拷贝"></a>实现深拷贝</h3><h4 id="1-JSON对象的parse和stringify-最简单的"><a href="#1-JSON对象的parse和stringify-最简单的" class="headerlink" title="1.JSON对象的parse和stringify(最简单的)"></a>1.JSON对象的parse和stringify(最简单的)</h4><pre><code>let obj1 = { a: 0 , b: { c: 0}};
+
+let obj2 = JSON.parse(JSON.stringify(obj1));
+
+obj2.b.c = 3;
+console.log(obj2.b.c); // { a: 0 , b: { c: 3}};
+
+console.log(obj1.b.c); // { a: 0 , b: { c: 0}};
+</code></pre><p>该方法够处理<code>JSON</code>格式能表示的所有数据类型，但是无法拷贝对象里面的函数，正则表达式等，而且会丧失所有的<code>constructor</code>，也就是说，将是破坏整条<code>prototype</code>链。</p>
+<h4 id="2-JQuery的extend"><a href="#2-JQuery的extend" class="headerlink" title="2.JQuery的extend()"></a>2.JQuery的extend()</h4><pre><code>var x = {
+    a: 1,
+    b: { f: { g: 1 } },
+    c: [ 1, 2, 3 ]
+};
+
+var y = $.extend({}, x),          //shallow copy
+    z = $.extend(true, {}, x);    //deep copy
+
+y.b.f === x.b.f       // true
+z.b.f === x.b.f       // false
+</code></pre>]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[谈谈现在的移动端页面调试]]></title>
       <url>/2017/12/19/%E8%B0%88%E8%B0%88%E7%8E%B0%E5%9C%A8%E7%9A%84%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2%E8%B0%83%E8%AF%95/</url>
       <content type="html"><![CDATA[<p>通常我们在日常开发手机版网页的时候，都是通过PC浏览器的移动设备模式来模拟移动设备访问网页,但总会出现以下的问题:</p>
