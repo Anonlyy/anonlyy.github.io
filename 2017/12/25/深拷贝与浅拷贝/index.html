@@ -12,7 +12,7 @@
     
     <title>
         
-            深拷贝与浅拷贝 | 
+            JavaScript的深拷贝与浅拷贝 | 
         
         Xposean&#39;s Blog
     </title>
@@ -67,7 +67,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://xposean.xin">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="深拷贝与浅拷贝 | Xposean&#39;s Blog">
+    <meta property="og:title" content="JavaScript的深拷贝与浅拷贝 | Xposean&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="做一个刚刚好的前端仔">
     
@@ -78,7 +78,7 @@
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="深拷贝与浅拷贝 | Xposean&#39;s Blog">
+    <meta name="twitter:title" content="JavaScript的深拷贝与浅拷贝 | Xposean&#39;s Blog">
     <meta name="twitter:description" content="做一个刚刚好的前端仔">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -112,7 +112,7 @@
         },
         "description": "做一个刚刚好的前端仔,——关于我"
     },
-    "headline": "深拷贝与浅拷贝",
+    "headline": "JavaScript的深拷贝与浅拷贝",
     "url": "http://xposean.xin/2017/12/25/深拷贝与浅拷贝/index.html",
     "datePublished": "12月 25, 2017",
     "dateModified": "12月 25, 2017",
@@ -489,13 +489,11 @@
     
         <div class="post-content_wrapper">
             <p class="post-title">
-                深拷贝与浅拷贝
+                JavaScript的深拷贝与浅拷贝
             </p>
             <p>在掌握深浅拷贝前,我们要知道,<code>JavaScript</code>的变量可以分为以下两种类型：</p>
 <ul>
-<li>基本类型</li>
-</ul>
-<ul>
+<li>基本类型<ul>
 <li>undefined</li>
 <li>null</li>
 <li>number</li>
@@ -503,26 +501,21 @@
 <li>boolean</li>
 <li>symbol</li>
 </ul>
+</li>
+</ul>
 <blockquote>
 <p>基本变量是直接按值存放的，存放在栈内存中的简单数据段，可以直接访问。</p>
 </blockquote>
 <ul>
-<li>引用类型 Object</li>
+<li>引用类型 Object、Function、Array</li>
 </ul>
 <blockquote>
 <p>存放在堆内存中的对象，变量保存的是一个<strong>指针</strong>，这个指针指向另一个位置。当需要访问引用类型（如对象，数组等）的值时，首先从栈内存中获得该对象的地址指针，然后再从堆内存中取得所需的数据。</p>
 </blockquote>
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><strong>浅拷贝(shallowCopy)</strong>:<br>对于字符串类型，浅拷贝是对值的复制，对于对象来说，浅拷贝是对对象地址的复制，并不会开辟新的内存地址，也就是复制的结果是两个对象指向同一个地址，修改其中一个对象的属性，则另一个对象的属性也会改变;</p>
 <p><strong>深拷贝(deepCopy)</strong>:<br>而深拷贝则是开辟新的内存地址，将原对象的各个属性逐个复制进去，两个对象对应两个不同的地址，修改一个对象的属性，不会改变另一个对象的属性。</p>
-<h2 id="深浅拷贝的实现"><a href="#深浅拷贝的实现" class="headerlink" title="深浅拷贝的实现"></a>深浅拷贝的实现</h2><h3 id="实现浅拷贝"><a href="#实现浅拷贝" class="headerlink" title="实现浅拷贝"></a>实现浅拷贝</h3><h4 id="1-直接赋值"><a href="#1-直接赋值" class="headerlink" title="1.直接赋值"></a>1.直接赋值</h4><pre><code>var a = 2;
-var obj1 = {b:2};
-var obj2 = obj1;
-
-obj2.b = 3; 
-
-console.log(obj1.b); // 3
-console.log(obj2.b); // 3
-</code></pre><h4 id="2-遍历对象属性赋值"><a href="#2-遍历对象属性赋值" class="headerlink" title="2.遍历对象属性赋值"></a>2.遍历对象属性赋值</h4><p>之前一直有一个错误实现深拷贝的想法，就是遍历一个对象的Key-Value对并一一复制给另一个对象便可以实现深拷贝。</p>
+<h2 id="深浅拷贝的实现"><a href="#深浅拷贝的实现" class="headerlink" title="深浅拷贝的实现"></a>深浅拷贝的实现</h2><h3 id="实现浅拷贝"><a href="#实现浅拷贝" class="headerlink" title="实现浅拷贝"></a>实现浅拷贝</h3><h4 id="1-Object-assign"><a href="#1-Object-assign" class="headerlink" title="1.Object.assign"></a>1.Object.assign</h4><p>Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象,这也是实现浅拷贝常用的方法之一.<br>    let obj1 = { a: 0 , b: { c: 0}};<br>    let obj2 = Object.assign({}, obj1);<br>    console.log(JSON.stringify(obj2)); // { a: 0, b: { c: 0}}</p>
+<h4 id="2-遍历对象属性赋值"><a href="#2-遍历对象属性赋值" class="headerlink" title="2.遍历对象属性赋值"></a>2.遍历对象属性赋值</h4><p>之前一直有一个错误实现深拷贝的想法，就是遍历一个对象的Key-Value对并一一复制给另一个对象便可以实现深拷贝。</p>
 <p>但是是错误的，这个是浅拷贝(shallowCopy)</p>
 <p>原因很简单，当Kry-Value对里value是Object的时候，复制过去便仍然是复制引用。</p>
 <pre><code>let obj = {
@@ -558,13 +551,19 @@ console.log(obj1.b.c); // { a: 0 , b: { c: 0}};
 
 y.b.f === x.b.f       // true
 z.b.f === x.b.f       // false
-</code></pre><h4 id="3-Lodash的深拷贝"><a href="#3-Lodash的深拷贝" class="headerlink" title="3.Lodash的深拷贝"></a>3.Lodash的深拷贝</h4><p>jQuery无法深拷贝JSON    对象以外的对象,但Lodash在源代码已经兼顾到许多ES6引入的新标准对象,所以在可用性上,比其他第三方库文件反馈更好,可用性更强.</p>
+</code></pre><h4 id="3-Lodash的深拷贝"><a href="#3-Lodash的深拷贝" class="headerlink" title="3.Lodash的深拷贝"></a>3.Lodash的深拷贝</h4><p><code>Lodash</code> 是这样一套基于<code>JavaScript</code>的工具库，它内部封装了诸多对字符串、数组、对象等常见数据类型的处理函数，其中部分是目前 <code>ECMAScript</code> 尚未制定的规范，但同时被业界所认可的辅助函数。目前每天使用 <code>npm</code> 安装 <code>Lodash</code> 的数量在百万级以上，这在一定程度上证明了其代码的健壮性，值得我们在项目中一试。<br><code>jQuery</code>无法深拷贝<code>JSON</code>对象以外的对象,但<code>Lodash</code>在源代码已经兼顾到许多ES6引入的新标准对象,所以在可用性上,比其他第三方库文件反馈更好,可用性更强.</p>
 <pre><code>var objects = [{ &apos;a&apos;: 1 }, { &apos;b&apos;: 2 }];
 
 var deep = _.cloneDeep(objects);
 console.log(deep[0] === objects[0]);
 // =&gt; false
-</code></pre>
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>基本类型变量存贮在栈内存区,存放在堆内存中的对象，变量保存的是一个指针。</li>
+<li>直接遍历对象一一复制是浅拷贝(shallowCopy)</li>
+<li>深拷贝即是在堆内存区拷贝出一个对象来。</li>
+<li>深拷贝当然更占内存，请一定要针对不同的场景做不同的拷贝处理。</li>
+</ol>
+
         </div>
     
 </div>
