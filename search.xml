@@ -28,8 +28,11 @@
 </blockquote>
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><strong>浅拷贝(shallowCopy)</strong>:<br>对于字符串类型，浅拷贝是对值的复制，对于对象来说，浅拷贝是对对象地址的复制，并不会开辟新的内存地址，也就是复制的结果是两个对象指向同一个地址，修改其中一个对象的属性，则另一个对象的属性也会改变;</p>
 <p><strong>深拷贝(deepCopy)</strong>:<br>而深拷贝则是开辟新的内存地址，将原对象的各个属性逐个复制进去，两个对象对应两个不同的地址，修改一个对象的属性，不会改变另一个对象的属性。</p>
-<h2 id="深浅拷贝的实现"><a href="#深浅拷贝的实现" class="headerlink" title="深浅拷贝的实现"></a>深浅拷贝的实现</h2><h3 id="实现浅拷贝"><a href="#实现浅拷贝" class="headerlink" title="实现浅拷贝"></a>实现浅拷贝</h3><h4 id="1-Object-assign"><a href="#1-Object-assign" class="headerlink" title="1.Object.assign"></a>1.Object.assign</h4><p>Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象,这也是实现浅拷贝常用的方法之一.<br>    let obj1 = { a: 0 , b: { c: 0}};<br>    let obj2 = Object.assign({}, obj1);<br>    console.log(JSON.stringify(obj2)); // { a: 0, b: { c: 0}}</p>
-<h4 id="2-遍历对象属性赋值"><a href="#2-遍历对象属性赋值" class="headerlink" title="2.遍历对象属性赋值"></a>2.遍历对象属性赋值</h4><p>之前一直有一个错误实现深拷贝的想法，就是遍历一个对象的Key-Value对并一一复制给另一个对象便可以实现深拷贝。</p>
+<h2 id="深浅拷贝的实现"><a href="#深浅拷贝的实现" class="headerlink" title="深浅拷贝的实现"></a>深浅拷贝的实现</h2><h3 id="实现浅拷贝"><a href="#实现浅拷贝" class="headerlink" title="实现浅拷贝"></a>实现浅拷贝</h3><h4 id="1-Object-assign"><a href="#1-Object-assign" class="headerlink" title="1.Object.assign"></a>1.Object.assign</h4><p>Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象,这也是实现浅拷贝常用的方法之一.</p>
+<pre><code>let obj1 = { a: 0 , b: { c: 0}};
+let obj2 = Object.assign({}, obj1);
+console.log(JSON.stringify(obj2)); // { a: 0, b: { c: 0}}
+</code></pre><h4 id="2-遍历对象属性赋值"><a href="#2-遍历对象属性赋值" class="headerlink" title="2.遍历对象属性赋值"></a>2.遍历对象属性赋值</h4><p>之前一直有一个错误实现深拷贝的想法，就是遍历一个对象的Key-Value对并一一复制给另一个对象便可以实现深拷贝。</p>
 <p>但是是错误的，这个是浅拷贝(shallowCopy)</p>
 <p>原因很简单，当Kry-Value对里value是Object的时候，复制过去便仍然是复制引用。</p>
 <pre><code>let obj = {
