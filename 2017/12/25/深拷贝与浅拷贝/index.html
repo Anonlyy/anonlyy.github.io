@@ -551,7 +551,7 @@ console.log(obj1.b.c); // { a: 0 , b: { c: 0}};
 
 y.b.f === x.b.f       // true
 z.b.f === x.b.f       // false
-</code></pre><h4 id="3-Lodash的深拷贝"><a href="#3-Lodash的深拷贝" class="headerlink" title="3.Lodash的深拷贝"></a>3.Lodash的深拷贝</h4><p><code>Lodash</code> 是这样一套基于<code>JavaScript</code>的工具库，它内部封装了诸多对字符串、数组、对象等常见数据类型的处理函数，其中部分是目前 <code>ECMAScript</code> 尚未制定的规范，但同时被业界所认可的辅助函数。目前每天使用 <code>npm</code> 安装 <code>Lodash</code> 的数量在百万级以上，这在一定程度上证明了其代码的健壮性，值得我们在项目中一试。<br><code>jQuery</code>无法深拷贝<code>JSON</code>对象以外的对象,但<code>Lodash</code>在源代码已经兼顾到许多ES6引入的新标准对象,所以在可用性上,比其他第三方库文件反馈更好,可用性更强.</p>
+</code></pre><h4 id="3-Lodash的深拷贝"><a href="#3-Lodash的深拷贝" class="headerlink" title="3.Lodash的深拷贝"></a>3.Lodash的深拷贝</h4><p><code>Lodash</code> 是一套基于<code>JavaScript</code>的工具库，它内部封装了诸多对字符串、数组、对象等常见数据类型的处理函数，其中部分是目前 <code>ECMAScript</code> 尚未制定的规范，但同时被业界所认可的辅助函数。目前每天使用 <code>npm</code> 安装 <code>Lodash</code> 的数量在百万级以上，这在一定程度上证明了其代码的健壮性，值得我们在项目中一试。<br><code>jQuery</code>无法深拷贝<code>JSON</code>对象以外的对象,但<code>Lodash</code>在源代码已经兼顾到许多ES6引入的新标准对象,所以在可用性上,比其他第三方库文件反馈更好,可用性更强.</p>
 <pre><code>var objects = [{ &apos;a&apos;: 1 }, { &apos;b&apos;: 2 }];
 
 var deep = _.cloneDeep(objects);
