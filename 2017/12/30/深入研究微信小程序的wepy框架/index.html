@@ -12,7 +12,7 @@
     
     <title>
         
-            JavaScript的深拷贝与浅拷贝 | 
+            深入研究微信小程序的wepy框架 | 
         
         Xposean&#39;s Blog
     </title>
@@ -67,18 +67,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://xposean.xin">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="JavaScript的深拷贝与浅拷贝 | Xposean&#39;s Blog">
+    <meta property="og:title" content="深入研究微信小程序的wepy框架 | Xposean&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="做一个刚刚好的前端仔">
     
 
     
-        <meta property="article:published_time" content="12月 25, 2017" />
-        <meta property="article:modified_time" content="12月 26, 2017" />
+        <meta property="article:published_time" content="12月 30, 2017" />
+        <meta property="article:modified_time" content="12月 30, 2017" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="JavaScript的深拷贝与浅拷贝 | Xposean&#39;s Blog">
+    <meta name="twitter:title" content="深入研究微信小程序的wepy框架 | Xposean&#39;s Blog">
     <meta name="twitter:description" content="做一个刚刚好的前端仔">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -86,7 +86,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://xposean.xin/2017/12/25/深拷贝与浅拷贝/index.html" />
+        <link rel="canonical" href="http://xposean.xin/2017/12/30/深入研究微信小程序的wepy框架/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -112,10 +112,10 @@
         },
         "description": "做一个刚刚好的前端仔,——关于我"
     },
-    "headline": "JavaScript的深拷贝与浅拷贝",
-    "url": "http://xposean.xin/2017/12/25/深拷贝与浅拷贝/index.html",
-    "datePublished": "12月 25, 2017",
-    "dateModified": "12月 26, 2017",
+    "headline": "深入研究微信小程序的wepy框架",
+    "url": "http://xposean.xin/2017/12/30/深入研究微信小程序的wepy框架/index.html",
+    "datePublished": "12月 30, 2017",
+    "dateModified": "12月 30, 2017",
     "description": "做一个刚刚好的前端仔",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -489,88 +489,13 @@
     
         <div class="post-content_wrapper">
             <p class="post-title">
-                JavaScript的深拷贝与浅拷贝
+                深入研究微信小程序的wepy框架
             </p>
-            <p>在掌握深浅拷贝前,我们要知道,<code>JavaScript</code>的变量可以分为以下两种类型：</p>
-<ul>
-<li>基本类型<ul>
-<li>undefined</li>
-<li>null</li>
-<li>number</li>
-<li>string</li>
-<li>boolean</li>
-<li>symbol</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>基本变量是直接按值存放的，存放在栈内存中的简单数据段，可以直接访问。</p>
-</blockquote>
-<ul>
-<li>引用类型 Object、Function、Array</li>
-</ul>
-<blockquote>
-<p>存放在堆内存中的对象，变量保存的是一个<strong>指针</strong>，这个指针指向另一个位置。当需要访问引用类型（如对象，数组等）的值时，首先从栈内存中获得该对象的地址指针，然后再从堆内存中取得所需的数据。</p>
-</blockquote>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><strong>浅拷贝(shallowCopy)</strong>:<br>对于字符串类型，浅拷贝是对值的复制，对于对象来说，浅拷贝是对对象地址的复制，并不会开辟新的内存地址，也就是复制的结果是两个对象指向同一个地址，修改其中一个对象的属性，则另一个对象的属性也会改变;</p>
-<p><strong>深拷贝(deepCopy)</strong>:<br>而深拷贝则是开辟新的内存地址，将原对象的各个属性逐个复制进去，两个对象对应两个不同的地址，修改一个对象的属性，不会改变另一个对象的属性。</p>
-<h2 id="深浅拷贝的实现"><a href="#深浅拷贝的实现" class="headerlink" title="深浅拷贝的实现"></a>深浅拷贝的实现</h2><h3 id="实现浅拷贝"><a href="#实现浅拷贝" class="headerlink" title="实现浅拷贝"></a>实现浅拷贝</h3><h4 id="1-Object-assign"><a href="#1-Object-assign" class="headerlink" title="1.Object.assign"></a>1.Object.assign</h4><p>Object.assign() 方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象,这也是实现浅拷贝常用的方法之一.</p>
-<pre><code>let obj1 = { a: 0 , b: { c: 0}};
-let obj2 = Object.assign({}, obj1);
-console.log(JSON.stringify(obj2)); // { a: 0, b: { c: 0}}
-</code></pre><h4 id="2-遍历对象属性赋值"><a href="#2-遍历对象属性赋值" class="headerlink" title="2.遍历对象属性赋值"></a>2.遍历对象属性赋值</h4><p>之前一直有一个错误实现深拷贝的想法，就是遍历一个对象的Key-Value对并一一复制给另一个对象便可以实现深拷贝。</p>
-<p>但是是错误的，这个是浅拷贝(shallowCopy)</p>
-<p>原因很简单，当Kry-Value对里value是Object的时候，复制过去便仍然是复制引用。</p>
-<pre><code>let obj = {
-    a: 1,
-    b:{
-        c: 2,
-        d: 3
-    }
-}
-
-let obj2 = {}
-
-for(let item of Object.keys(obj)){
-    obj2[item] = obj[item]
-}
-
-obj2.b.d = 2; 
-
-obj.b.d // 此时obj.b.d 变成了2,所以是浅拷贝
-</code></pre><hr>
-<h3 id="实现深拷贝"><a href="#实现深拷贝" class="headerlink" title="实现深拷贝"></a>实现深拷贝</h3><h4 id="1-JSON对象的parse和stringify-最简单的"><a href="#1-JSON对象的parse和stringify-最简单的" class="headerlink" title="1.JSON对象的parse和stringify(最简单的)"></a>1.JSON对象的parse和stringify(最简单的)</h4><pre><code>let obj1 = { a: 0 , b: { c: 0}};
-
-let obj2 = JSON.parse(JSON.stringify(obj1));
-
-obj2.b.c = 3;
-console.log(obj2.b.c); // { a: 0 , b: { c: 3}};
-
-console.log(obj1.b.c); // { a: 0 , b: { c: 0}};
-</code></pre><p>该方法思路就是将一个对象转成json字符串，然后又将字符串转回对象。<br>能够处理<code>JSON</code>格式能表示的所有数据类型，但是无法拷贝对象里面的函数，正则表达式等，而且会丧失所有的<code>constructor</code>，也就是说，将是破坏整条<code>prototype</code>链。</p>
-<h4 id="2-JQuery的extend"><a href="#2-JQuery的extend" class="headerlink" title="2.JQuery的extend()"></a>2.JQuery的extend()</h4><p>我们在 jQuery 中可以通过添加一个参数来实现递归extend。调用<code>$.extend(true, {}, ...)</code>就可以实现深复制啦，参考下面的例子：</p>
-<pre><code>var x = {
-    a: 1,
-    b: { f: { g: 1 } },
-    c: [ 1, 2, 3 ]
-};
-
-var y = $.extend({}, x),          //shallow copy
-    z = $.extend(true, {}, x);    //deep copy
-
-y.b.f === x.b.f       // true
-z.b.f === x.b.f       // false
-</code></pre><h4 id="3-Lodash的深拷贝"><a href="#3-Lodash的深拷贝" class="headerlink" title="3.Lodash的深拷贝"></a>3.Lodash的深拷贝</h4><p><code>Lodash</code> 是一套基于<code>JavaScript</code>的工具库，它内部封装了诸多对字符串、数组、对象等常见数据类型的处理函数，其中部分是目前 <code>ECMAScript</code> 尚未制定的规范，但同时被业界所认可的辅助函数。目前每天使用 <code>npm</code> 安装 <code>Lodash</code> 的数量在百万级以上，这在一定程度上证明了其代码的健壮性，值得我们在项目中一试。<br><code>jQuery</code>无法深拷贝<code>JSON</code>对象以外的对象,但<code>Lodash</code>在源代码已经兼顾到许多ES6引入的新标准对象,所以在可用性上,比其他第三方库文件反馈更好,可用性更强.</p>
-<pre><code>var objects = [{ &apos;a&apos;: 1 }, { &apos;b&apos;: 2 }];
-
-var deep = _.cloneDeep(objects);
-console.log(deep[0] === objects[0]);
-// =&gt; false
-</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
-<li>基本类型变量存贮在栈内存区,存放在堆内存中的对象，变量保存的是一个指针。</li>
-<li>直接遍历对象一一复制是浅拷贝(shallowCopy)</li>
-<li>深拷贝即是在堆内存区拷贝出一个对象来。</li>
-<li>深拷贝当然更占内存，请一定要针对不同的场景做不同的拷贝处理。</li>
+            <h2 id="小程序目前现状"><a href="#小程序目前现状" class="headerlink" title="小程序目前现状"></a>小程序目前现状</h2><p>微信小程序自发布到如今已经有半年多的时间了,凭借微信平台的强大影响力，越来越多企业加入小程序开发。 小程序于传统web页和APP比相比，有以下优势： </p>
+<ol>
+<li>小程序拥有更多的能力，包括定位、录音、文件、媒体、各种硬件能力等，想象空间更大 </li>
+<li>运行在微信内部，体验更接近APP</li>
+<li>在过度竞争的互联网行业中，获取一个有效APP用户的成本已经非常高了，小程序相比APP更加轻量、即用即走， 更容易获取用户</li>
 </ol>
 
         </div>
@@ -593,21 +518,13 @@ console.log(deep[0] === objects[0]);
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/12/30/深入研究微信小程序的wepy框架/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/12/19/谈谈现在的移动端页面调试/" id="post_nav-older" class="next-content">
+        <a href="/2017/12/25/深拷贝与浅拷贝/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
