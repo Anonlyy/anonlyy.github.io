@@ -503,7 +503,7 @@
 <p>3、小程序支持部分ES6语法,不支持ES7、ES8的新语法.</p>
 <p>4、在开发模式上,如果是<code>Angular</code>、<code>VUE</code>的开发者,在适应小程序的开发模式上,还需要时间适应.</p>
 <h2 id="Wepy框架"><a href="#Wepy框架" class="headerlink" title="Wepy框架"></a>Wepy框架</h2><p>基于小程序存在的问题,腾讯的官方团队推出了<code>wepy</code>框架，该框架是腾讯内部基于小程序的开发框架，设计思路基本参考<strong>VUE</strong>，开发模式和编码风格上80%以上接近VUE，开发者可以以很小的成本从VUE开发切换成小程序开发。<br>WePY 是一款让小程序真正支持组件化开发的框架，通过预编译的手段让开发者可以选择自己喜欢的开发风格去开发小程序。框架的细节优化，<code>Promise</code>，<code>Async</code>、<code>await</code>的引入都是为了能让开发小程序项目变得更加简单，高效。</p>
-<h3 id="Wepy框架的优势"><a href="#Wepy框架的优势" class="headerlink" title="Wepy框架的优势"></a>Wepy框架的优势</h3><p>1.<strong>针对原生API进行优化</strong><br>对现在API进行promise处理，同时修复一些现有API的缺陷，比如：<code>wx.request</code>并发问题等。</p>
+<h3 id="Wepy框架的优势"><a href="#Wepy框架的优势" class="headerlink" title="Wepy框架的优势"></a>Wepy框架的优势</h3><p>1.<strong>新增属性,并针对原生API进行优化</strong><br>对现在API进行promise处理，同时修复一些现有API的缺陷，比如：<code>wx.request</code>并发问题等。</p>
 <pre><code>// 官方
 wx.request({
     url: &apos;xxx&apos;,
@@ -515,23 +515,15 @@ wx.request({
 // wepy 使用方式
 // request 接口从只接收Object变为可接收String
 wx.request(&apos;xxxx&apos;).then((d) =&gt; console.log(d));
-</code></pre><p>在同时并发10个request请求测试时：<br>不使用wepy:<br><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554651/5185f740-b198-11e6-88f8-45e359090dc3.png&amp;objectId=1190000007580866&amp;token=fd4bd72096cf29af2f7aa954056f459a" alt=""></p>
+</code></pre><p>在同时并发10个request请求测试时：<br>不使用wepy:<br><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554651/5185f740-b198-11e6-88f8-45e359090dc3.png&amp;objectId=1190000007580866&amp;token=fd4bd72096cf29af2f7aa954056f459a" alt=""><br><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554886/c30e802a-b199-11e6-927d-08cd4e5ed0b0.png&amp;objectId=1190000007580866&amp;token=4cfef2840665f05dc9359b979eb2bb74" alt=""></p>
 <p>使用wepy后：<br><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554663/65704c2e-b198-11e6-8277-abb77e0c7b3e.png&amp;objectId=1190000007580866&amp;token=eb5231dacbbab14ae42efeea2c4fee82" alt=""></p>
-<h4 id="改变数据绑定方式"><a href="#改变数据绑定方式" class="headerlink" title="改变数据绑定方式"></a>改变数据绑定方式</h4><pre><code>// 官方
-&lt;view&gt; {{ message }} &lt;/view&gt;
-
-onLoad: function () {
-    this.setData({message: &apos;hello world&apos;});
-}
-
-
-// wepy
-&lt;view&gt; {{ message }} &lt;/view&gt;
-
-onLoad () {
-    this.message = &apos;hello world&apos;;
-}
-</code></pre><hr>
+<h3 id="新增属性-vue移植"><a href="#新增属性-vue移植" class="headerlink" title="新增属性(vue移植)"></a>新增属性(vue移植)</h3><ul>
+<li>computed 计算属性</li>
+<li>watcher 监听器</li>
+<li>props 传值</li>
+<li>slot 组件内容分发插槽</li>
+</ul>
+<hr>
 <p>2.<strong>单文件模式</strong><br>使得目录结构更加清晰 小程序官方目录结构要求app必须有三个文件<code>app.json</code>，<code>app.js</code>，<code>app.wxss</code>，页面有4个文件 <code>index.json</code>，<code>index.js</code>，<code>index.wxml</code>，<code>index.wxss</code>。而且文件必须同名。 所以使用wepy开发前后开发目录对比如下：</p>
 <p>官方DEMO：</p>
 <pre><code>project
