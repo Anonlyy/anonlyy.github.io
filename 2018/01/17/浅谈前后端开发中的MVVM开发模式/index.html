@@ -493,15 +493,62 @@
             </p>
             <p>之前在我的博客也写过关于MVVM模式的简单介绍,但不够详细,也因为对 MVVM 模式一直只是模模糊糊的认识，现在就给大家讲一下详细讲下MVVM模式为何物.</p>
 <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>MVVM</code> 源自于经典的 Model–View–Controller（MVC）模式（期间还演化出了 Model-View-Presenter（MVP）模式，可忽略不计）。<code>MVVM</code> 的出现促进了 GUI 前端开发与后端业务逻辑的分离，极大地提高了前端开发效率。MVVM 的核心是 <strong>ViewModel 层</strong>，它就像是一个中转站（value converter），负责转换 Model 中的数据对象来让数据变得更容易管理和使用，该层向上与视图层进行双向数据绑定，向下与 Model 层通过接口请求进行数据交互，起呈上启下作用。如下图所示：</p>
-<p><img src="https://images2017.cnblogs.com/blog/882926/201711/882926-20171115175942921-775941263.png" alt=""></p>
+<p><img src="https://i.imgur.com/naMyZKg.png" alt=""></p>
 <p>MVVM 已经相当成熟了，主要运用但不仅仅在网络应用程序开发中。KnockoutJS 是最早实现 MVVM 模式的前端框架之一，当下流行的 MVVM 框架有 <code>Vue</code>，<code>Angular</code> 等。</p>
-<h2 id="MVVM架构组成"><a href="#MVVM架构组成" class="headerlink" title="MVVM架构组成"></a>MVVM架构组成</h2><p><img src="https://images2017.cnblogs.com/blog/882926/201711/882926-20171115175958671-1955710845.png" alt=""></p>
+<h2 id="MVVM架构组成"><a href="#MVVM架构组成" class="headerlink" title="MVVM架构组成"></a>MVVM架构组成</h2><p><img src="https://i.imgur.com/seNdEI9.png" alt=""></p>
 <h3 id="View-层"><a href="#View-层" class="headerlink" title="View 层"></a>View 层</h3><p>View 是视图层，也就是用户界面。前端主要由 HTML 和 CSS 来构建，为了更方便地展现 ViewModel 或者 Model 层的数据，已经产生了各种各样的前后端模板语言，比如 FreeMarker、Marko、Pug、Jinja2等等，各大 MVVM 框架如 KnockoutJS，Vue，Angular 等也都有自己用来构建用户界面的内置模板语言。</p>
 <hr>
 <h3 id="Model-层"><a href="#Model-层" class="headerlink" title="Model 层"></a>Model 层</h3><p>Model 是指数据模型，泛指后端进行的各种业务逻辑处理和数据操控，主要围绕数据库系统展开。后端的处理通常会非常复杂：</p>
 <p>后端业务处理再复杂跟我们前端也没有半毛钱关系，只要后端保证对外接口足够简单就行了，我请求api，你把数据返出来，咱俩就这点关系，其他都扯淡。</p>
 <hr>
-<h3 id="ViewModel-层"><a href="#ViewModel-层" class="headerlink" title="ViewModel 层"></a>ViewModel 层</h3><p>ViewModel 是由前端开发人员组织生成和维护的视图数据层。在这一层，前端开发者对从后端获取的 Model 数据进行转换处理，做二次封装，以生成符合 View 层使用预期的视图数据模型。需要注意的是 ViewModel 所封装出来的数据模型包括视图的状态和行为两部分，而 Model 层的数据模型是只包含状态的，比如页面的这一块展示什么，那一块展示什么这些都属于视图状态（展示），而页面加载进来时发生什么，点击这一块发生什么，这一块滚动时发生什么这些都属于视图行为（交互），视图状态和行为都封装在了 ViewModel 里。这样的封装使得 ViewModel 可以完整地去描述 View 层。由于实现了双向绑定，ViewModel 的内容会实时展现在 View 层，这是激动人心的，因为前端开发者再也不必低效又麻烦地通过操纵 DOM 去更新视图，MVVM 框架已经把最脏最累的一块做好了，我们开发者只需要处理和维护 ViewModel，更新数据视图就会自动得到相应更新，真正实现数据驱动开发。看到了吧，View 层展现的不是 Model 层的数据，而是 ViewModel 的数据，由 ViewModel 负责与 Model 层交互，这就完全解耦了 View 层和 Model 层，这个解耦是至关重要的，它是前后端分离方案实施的重要一环。</p>
+<h3 id="ViewModel-层"><a href="#ViewModel-层" class="headerlink" title="ViewModel 层"></a>ViewModel 层</h3><p><code>ViewModel</code> 是由前端开发人员组织生成和维护的视图数据层。在这一层，前端开发者对从后端获取的 <code>Model</code> 数据进行转换处理，做二次封装，以生成符合 View 层使用预期的视图数据模型。需要注意的是 <code>ViewModel</code> 所封装出来的数据模型包括视图的状态和行为两部分，而 Model 层的数据模型是只包含状态的，比如页面的这一块展示什么，那一块展示什么这些都属于视图状态（展示），而页面加载进来时发生什么，点击这一块发生什么，这一块滚动时发生什么这些都属于视图行为（交互），视图状态和行为都封装在了 <code>ViewModel</code> 里。这样的封装使得 ViewModel 可以完整地去描述 View 层。由于实现了双向绑定，<code>ViewModel</code> 的内容会实时展现在 <code>View</code> 层，这是激动人心的，因为前端开发者再也不必低效又麻烦地通过操纵 <code>DOM</code> 去更新视图，<code>MVVM</code> 框架已经把最脏最累的一块做好了，我们开发者只需要处理和维护 <code>ViewModel</code>，更新数据视图就会自动得到相应更新，真正实现数据驱动开发。看到了吧，<code>View</code> 层展现的不是 <code>Model</code> 层的数据，而是 <code>ViewModel</code> 的数据，由 <code>ViewModel</code> 负责与 <code>Model</code> 层交互，这就完全解耦了<code>View</code> 层和 <code>Model</code> 层，这个解耦是至关重要的，它是前后端分离方案实施的重要一环。</p>
+<hr>
+<h2 id="举一个栗子"><a href="#举一个栗子" class="headerlink" title="举一个栗子"></a>举一个栗子</h2><p>扯了这么多，并没有什么卵用。千言万语不如一个栗子来的干脆，下面用一个 Vue 实例来说明 MVVM 的具体表现。</p>
+<p>Vue 的 View 模板：</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+    &lt;p&gt;{{message}}&lt;/p&gt;
+    &lt;button v-on:click=&quot;showMessage()&quot;&gt;Click me&lt;/button&gt;
+&lt;/div&gt;
+</code></pre><p>Vue 的 ViewModel 层（下面是伪代码）：</p>
+<pre><code>var app = new Vue({
+    el: &apos;#app&apos;,
+    data: {     // 用于描述视图状态（有基于 Model 层数据定义的，也有纯前端定义）
+        message: &apos;Hello Vue!&apos;,  // 纯前端定义
+        server: {}, // 存放基于 Model 层数据的二次封装数据
+    },
+    methods: {  // 用于描述视图行为（完全前端定义）
+        showMessage(){
+            let vm = this;
+            alert(vm.message);
+        }
+    },
+    created(){
+        let vm = this;
+
+        // Ajax 获取 Model 层的数据
+        ajax({
+            url: &apos;/your/server/data/api&apos;,
+            success(res){
+                // TODO 对获取到的 Model 数据进行转换处理，做二次封装
+                vm.server = res;
+            }
+        });
+    }
+})
+</code></pre><p>服务端的 Model 层（省略业务逻辑处理，只描述对外接口）：</p>
+<pre><code>{
+    &quot;url&quot;: &quot;/your/server/data/api&quot;,
+    &quot;res&quot;: {
+        &quot;success&quot;: true,
+        &quot;name&quot;: &quot;IoveC&quot;,
+        &quot;domain&quot;: &quot;www.cnblogs.com&quot;
+    }
+}
+</code></pre><p>这就是完整的 MVVM 编程模式。</p>
+<h2 id="MVVM的优点"><a href="#MVVM的优点" class="headerlink" title="MVVM的优点"></a>MVVM的优点</h2><p>1.<strong>低耦合</strong><br>视图（View）可以独立于Model变化和修改，一个ViewModel可以绑定到不同的”View”上，当View变化的时候Model可以不变，当Model变化的时候View也可以不变。</p>
+<p>2.<strong>可重用性</strong><br>你可以把一些视图逻辑放在一个ViewModel里面，让很多view重用这段视图逻辑。</p>
+<p>3.<strong>前后端协同开发</strong><br>开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计。</p>
+<p>4.<strong>容易测试</strong><br>界面素来是比较难于测试的，而现在测试可以针对ViewModel来写。</p>
 
         </div>
     
