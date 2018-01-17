@@ -6,7 +6,7 @@
       <title><![CDATA[浅谈前后端开发中的MVVM开发模式]]></title>
       <url>/2018/01/17/%E6%B5%85%E8%B0%88%E5%89%8D%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84MVVM%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/</url>
       <content type="html"><![CDATA[<p>之前在我的博客也写过关于MVVM模式的简单介绍,但不够详细,也因为对 MVVM 模式一直只是模模糊糊的认识，现在就给大家讲一下详细讲下MVVM模式为何物.</p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>MVVM</code> 源自于经典的 Model–View–Controller（MVC）模式（期间还演化出了 Model-View-Presenter（MVP）模式，可忽略不计）。<code>MVVM</code> 的出现促进了 GUI 前端开发与后端业务逻辑的分离，极大地提高了前端开发效率。MVVM 的核心是 <strong>ViewModel 层</strong>，它就像是一个中转站（value converter），负责转换 Model 中的数据对象来让数据变得更容易管理和使用，该层向上与视图层进行双向数据绑定，向下与 Model 层通过接口请求进行数据交互，起呈上启下作用。如下图所示：</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>MVVM</code> 源自于经典的 Model–View–Controller（MVC）模式（期间还演化出了 Model-View-Presenter（MVP）模式，可忽略不计）。<code>MVVM</code> 的出现促进了 GUI 前端开发与后端业务逻辑的分离，极大地提高了前端开发效率。MVVM 的核心是 <strong>ViewModel层</strong>，它就像是一个中转站（value converter），负责转换 Model 中的数据对象来让数据变得更容易管理和使用，该层向上与视图层进行双向数据绑定，向下与 Model 层通过接口请求进行数据交互，起呈上启下作用。如下图所示：</p>
 <p><img src="https://i.imgur.com/naMyZKg.png" alt=""></p>
 <p>MVVM 已经相当成熟了，主要运用但不仅仅在网络应用程序开发中。KnockoutJS 是最早实现 MVVM 模式的前端框架之一，当下流行的 MVVM 框架有 <code>Vue</code>，<code>Angular</code> 等。</p>
 <h2 id="MVVM架构组成"><a href="#MVVM架构组成" class="headerlink" title="MVVM架构组成"></a>MVVM架构组成</h2><p><img src="https://i.imgur.com/seNdEI9.png" alt=""></p>
@@ -21,7 +21,7 @@
 <p>Vue 的 View 模板：</p>
 <pre><code>&lt;div id=&quot;app&quot;&gt;
     &lt;p&gt;{{message}}&lt;/p&gt;
-    &lt;button v-on:click=&quot;showMessage()&quot;&gt;Click me&lt;/button&gt;
+    &lt;button @click=&quot;showMessage()&quot;&gt;Click me&lt;/button&gt;
 &lt;/div&gt;
 </code></pre><p>Vue 的 ViewModel 层（下面是伪代码）：</p>
 <pre><code>var app = new Vue({
@@ -35,21 +35,9 @@
             let vm = this;
             alert(vm.message);
         }
-    },
-    created(){
-        let vm = this;
-
-        // Ajax 获取 Model 层的数据
-        ajax({
-            url: &apos;/your/server/data/api&apos;,
-            success(res){
-                // TODO 对获取到的 Model 数据进行转换处理，做二次封装
-                vm.server = res;
-            }
-        });
     }
 })
-</code></pre><p>服务端的 Model 层（省略业务逻辑处理，只描述对外接口）：</p>
+</code></pre><p>在MVVM中，我们可以把Model称为数据层，因为它仅仅关注数据本身，不关心任何行为（格式化数据由View的负责），这里可以把它理解为一个类似json的数据对象。</p>
 <pre><code>{
     &quot;url&quot;: &quot;/your/server/data/api&quot;,
     &quot;res&quot;: {
