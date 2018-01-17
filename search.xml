@@ -3,6 +3,25 @@
   
     
     <entry>
+      <title><![CDATA[浅谈前后端开发中的MVVM开发模式]]></title>
+      <url>/2018/01/17/%E6%B5%85%E8%B0%88%E5%89%8D%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84MVVM%E5%BC%80%E5%8F%91%E6%A8%A1%E5%BC%8F/</url>
+      <content type="html"><![CDATA[<p>之前在我的博客也写过关于MVVM模式的简单介绍,但不够详细,也因为对 MVVM 模式一直只是模模糊糊的认识，现在就给大家讲一下详细讲下MVVM模式为何物.</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><code>MVVM</code> 源自于经典的 Model–View–Controller（MVC）模式（期间还演化出了 Model-View-Presenter（MVP）模式，可忽略不计）。<code>MVVM</code> 的出现促进了 GUI 前端开发与后端业务逻辑的分离，极大地提高了前端开发效率。MVVM 的核心是 <strong>ViewModel 层</strong>，它就像是一个中转站（value converter），负责转换 Model 中的数据对象来让数据变得更容易管理和使用，该层向上与视图层进行双向数据绑定，向下与 Model 层通过接口请求进行数据交互，起呈上启下作用。如下图所示：</p>
+<p><img src="https://images2017.cnblogs.com/blog/882926/201711/882926-20171115175942921-775941263.png" alt=""></p>
+<p>MVVM 已经相当成熟了，主要运用但不仅仅在网络应用程序开发中。KnockoutJS 是最早实现 MVVM 模式的前端框架之一，当下流行的 MVVM 框架有 <code>Vue</code>，<code>Angular</code> 等。</p>
+<h2 id="MVVM架构组成"><a href="#MVVM架构组成" class="headerlink" title="MVVM架构组成"></a>MVVM架构组成</h2><p><img src="https://images2017.cnblogs.com/blog/882926/201711/882926-20171115175958671-1955710845.png" alt=""></p>
+<h3 id="View-层"><a href="#View-层" class="headerlink" title="View 层"></a>View 层</h3><p>View 是视图层，也就是用户界面。前端主要由 HTML 和 CSS 来构建，为了更方便地展现 ViewModel 或者 Model 层的数据，已经产生了各种各样的前后端模板语言，比如 FreeMarker、Marko、Pug、Jinja2等等，各大 MVVM 框架如 KnockoutJS，Vue，Angular 等也都有自己用来构建用户界面的内置模板语言。</p>
+<hr>
+<h3 id="Model-层"><a href="#Model-层" class="headerlink" title="Model 层"></a>Model 层</h3><p>Model 是指数据模型，泛指后端进行的各种业务逻辑处理和数据操控，主要围绕数据库系统展开。后端的处理通常会非常复杂：</p>
+<p>后端业务处理再复杂跟我们前端也没有半毛钱关系，只要后端保证对外接口足够简单就行了，我请求api，你把数据返出来，咱俩就这点关系，其他都扯淡。</p>
+<hr>
+<h3 id="ViewModel-层"><a href="#ViewModel-层" class="headerlink" title="ViewModel 层"></a>ViewModel 层</h3><p>ViewModel 是由前端开发人员组织生成和维护的视图数据层。在这一层，前端开发者对从后端获取的 Model 数据进行转换处理，做二次封装，以生成符合 View 层使用预期的视图数据模型。需要注意的是 ViewModel 所封装出来的数据模型包括视图的状态和行为两部分，而 Model 层的数据模型是只包含状态的，比如页面的这一块展示什么，那一块展示什么这些都属于视图状态（展示），而页面加载进来时发生什么，点击这一块发生什么，这一块滚动时发生什么这些都属于视图行为（交互），视图状态和行为都封装在了 ViewModel 里。这样的封装使得 ViewModel 可以完整地去描述 View 层。由于实现了双向绑定，ViewModel 的内容会实时展现在 View 层，这是激动人心的，因为前端开发者再也不必低效又麻烦地通过操纵 DOM 去更新视图，MVVM 框架已经把最脏最累的一块做好了，我们开发者只需要处理和维护 ViewModel，更新数据视图就会自动得到相应更新，真正实现数据驱动开发。看到了吧，View 层展现的不是 Model 层的数据，而是 ViewModel 的数据，由 ViewModel 负责与 Model 层交互，这就完全解耦了 View 层和 Model 层，这个解耦是至关重要的，它是前后端分离方案实施的重要一环。</p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[PWA的Service Worker]]></title>
       <url>/2018/01/09/PWA%E7%9A%84Service-Worker/</url>
       <content type="html"><![CDATA[<p><strong>PWA</strong>(Progressive Web Apps,渐进式增强 WEB 应用)由谷歌提出，用前沿的技术开发，让网页使用如同App般的体验的一系列方案。</p>
@@ -40,7 +59,7 @@
 <hr>
 <h2 id="关于事件"><a href="#关于事件" class="headerlink" title="关于事件"></a>关于事件</h2><p><strong>install</strong> 事件:当前<code>Service Worker</code>脚本被安装时，会触发 install 事件。</p>
 <p><strong>push</strong>事件:<br>push 事件是为推送通知而准备的。不过首先你需要了解一下 <code>Notification API</code> 和 <code>PUSH API</code>。</p>
-<p>通过 PUSH API，当订阅了推送服务后，可以使用推送方式唤醒 <code>Service Worker</code> 以响应来自系统消息传递服务的消息，即使用户已经关闭了页面。</p>
+<p>通过 <code>PUSH API</code>，当订阅了推送服务后，可以使用推送方式唤醒 <code>Service Worker</code> 以响应来自系统消息传递服务的消息，即使用户已经关闭了页面。</p>
 <p><strong>online/offline</strong>事件:<br>当网络状态发生变化时，会触发 <code>online</code> 或 <code>offline</code> 事件。结合这两个事件，可以与 <code>Service Worker</code> 结合实现更好的离线使用体验，例如当网络发生改变时，替换/隐藏需要在线状态才能使用的链接导航等。</p>
 <p><strong>fetch</strong> 事件：<br>当我们安装完<code>Service Worker</code>成功并进入激活状态后即运行于浏览器后台,我们的这个线程就会一直监控我们的页面应用,如果出现<code>HTTP</code>请求,那么就会触发<code>fetch</code>事件，并且给出自己的响应。<br>这个功能是十分强大的,借助 <code>Fetch API</code> 和 <code>Cache API</code> 可以编写出复杂的策略用来区分不同类型或者页面的资源的处理方式。它能够提供更加好的用户体验:<br>例如可以实现<strong>缓存优先、降级处理</strong>的策略逻辑：监控所有 http 请求，当请求资源已经在缓存里了，直接返回缓存里的内容；否则使用 fetch API 继续请求，如果是 图片或 css、js 资源，请求成功后将他们加入缓存中；如果是离线状态或请求出错，则降级返回预缓存的离线内容。</p>
 <p>还有一些常用的资源缓存的策略:</p>
