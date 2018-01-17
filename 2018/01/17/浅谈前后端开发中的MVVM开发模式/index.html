@@ -522,7 +522,15 @@
             let vm = this;
             alert(vm.message);
         }
-    }
+    },
+    created(){
+            let vm = this;
+
+            // Ajax 获取 Model 层的数据
+            this.$axios.get(&apos;/your/server/data/api&apos;).then(
+                result=&gt;{console.log(result);}
+            );
+        }
 })
 </code></pre><p>在MVVM中，我们可以把Model称为数据层，因为它仅仅关注数据本身，不关心任何行为（格式化数据由View的负责），这里可以把它理解为一个类似json的数据对象。</p>
 <pre><code>{
