@@ -12,7 +12,7 @@
     
     <title>
         
-            归档 | 
+            来聊聊优雅的Icon | 
         
         Xposean&#39;s Blog
     </title>
@@ -67,15 +67,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://xposean.xin">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档 | Xposean&#39;s Blog">
+    <meta property="og:title" content="来聊聊优雅的Icon | Xposean&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="做一个刚刚好的前端仔">
     
 
     
+        <meta property="article:published_time" content="1月 24, 2018" />
+        <meta property="article:modified_time" content="1月 24, 2018" />
+    
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="归档 | Xposean&#39;s Blog">
+    <meta name="twitter:title" content="来聊聊优雅的Icon | Xposean&#39;s Blog">
     <meta name="twitter:description" content="做一个刚刚好的前端仔">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -83,13 +86,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://xposean.xin/archives/index.html" />
+        <link rel="canonical" href="http://xposean.xin/2018/01/24/来聊聊优雅的icon/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Xposean&#39;s Blog",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Xposean",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "做一个刚刚好的前端仔,——关于我"
+    },
+    "headline": "来聊聊优雅的Icon",
+    "url": "http://xposean.xin/2018/01/24/来聊聊优雅的icon/index.html",
+    "datePublished": "1月 24, 2018",
+    "dateModified": "1月 24, 2018",
+    "description": "做一个刚刚好的前端仔",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://xposean.xin"
+    }
+}
+</script>
 
 
     
@@ -412,25 +445,29 @@
 
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
 
-    <!-- Normal Post -->
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
     
         <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
+        <div class="post-header_info without-thumbnail">
             <!-- Author Avatar & Name -->
             <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
             <span class="name-span">Xposean</span>
@@ -441,590 +478,149 @@
     
         </div>
 
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/01/24/来聊聊优雅的icon/">来聊聊优雅的Icon</a>
-        </p>
 
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言在做前端后台项...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/01/24/来聊聊优雅的icon/" target="_self">阅读全文</a>
-            </span>
-        </p>
 
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                1月 24, 2018
-            </div>
-            <div class="post_entry-footer-comment">
                 
-                
-            </div>
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                来聊聊优雅的Icon
+            </p>
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在做前端后台项目的时候经常会用到很多 <code>icon</code> 图标，刚开始还好，但随着项目的不断迭代，每次修改添加图标会变得很麻烦，而且总觉得不够优雅，就开始琢磨着有啥简单方便的工作流呢？</p>
+<h2 id="Icon发展史"><a href="#Icon发展史" class="headerlink" title="Icon发展史"></a>Icon发展史</h2><h3 id="雪碧图"><a href="#雪碧图" class="headerlink" title="雪碧图"></a>雪碧图</h3><p>在我刚开始实习时，大部分图标都是用 img 来实现的。渐渐发现一个页面的请求资源中图片 img 占了大部分，所以为了优化有了image sprite 就是所谓的雪碧图，就是将多个图片合成一个图片，然后利用 css 的 background-position 定位显示不同的 icon 图标。<br><img src="https://i.imgur.com/QrDbmyK.png" alt=""></p>
+<h4 id="制作雪碧图"><a href="#制作雪碧图" class="headerlink" title="制作雪碧图"></a>制作雪碧图</h4><p>1.photoShop手动制作后生成<br>  这种方式是最费时费力的方式,在多数情况并不使用。</p>
+<p>2.通过在线网站或客户端直接生成<br>  如<a href="http://alloyteam.github.io/gopng/###" target="_blank" rel="noopener">GO!PNG</a>、<a href="https://www.toptal.com/developers/css/sprite-generator" target="_blank" rel="noopener">sprite-generator</a>、<a href="http://www.99css.com/cssgaga/" target="_blank" rel="noopener">CssGaga</a><br>3.Gulp实现雪碧图自动合成<br>  安装Gulp插件<code>sprity</code>并配置icon路径,会生成对应的雪碧图和css,详情可查看<a href="https://segmentfault.com/a/1190000002910313" target="_blank" rel="noopener">教程</a></p>
+<p>4.Webpack实现<br>  配置webpack环境后,安装雪碧图依赖模块：<a href="https://www.npmjs.com/package/webpack-spritesmith" target="_blank" rel="noopener">webpack-spritesmith</a>,并配置即可,此种方式和gulp类似</p>
+<p>雪碧图虽好,但这个也有一个很大的痛点，<strong>维护困难</strong>。每新增一个图标，都需要改动原始图片，还可能不小心出错影响到前面定位好的图片.<br>于是就出现了下一种方式。</p>
+<hr>
+<h3 id="Iconfont"><a href="#Iconfont" class="headerlink" title="Iconfont"></a>Iconfont</h3><p>icon font ，图标字体，也叫字体图标，顾名思义，就是字体做的图标。因为他是矢量图标,能够自由的变化大小，且不会模糊,其次比图片小，加载快，还能够任意改变颜色，所以越来越多的图标都开始使用 icon font</p>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>每种字体在相同的字都是不一样的，比如 宋体 跟 微软雅黑 ，相同的字 ，由于调用的不同的字体，浏览器显示明显是有区别的。</p>
+<p>在我们还不识字的时候，每个字都是一个图案，所以老师会告诉你哪个图案念什么 ，是什么字，iconfont 同理，我认为 三角形 是 a，那对于我来说，只要是 a ，就应该是个 三角形。</p>
+<p>在电脑上，我给电脑规定 a 的样子是个 三角形，那么当显示 a 的时候，他就显示个三角形。</p>
+<p>当我把网页上的所有图标都对应一个字符的时候，你在代码里输入某个字符，那这个字符就显示你规定的形状，这就是 iconfont 图标。</p>
+<p>把所有的图标都放在一个字体里面，就是一个字体库了，然后按照正常字体库（本来就是正常的字体库）调用就行了。</p>
+<p>也就是说,我们可以理解为每一个字体就是一个矢量图标,只是现在我们这个矢量图标不是<strong>字</strong>,而是一个<strong>图案</strong>.<br><img src="https://i.imgur.com/U7aQO1i.gif" alt=""><br><img src="https://i.imgur.com/FtkFFNC.png" alt=""></p>
+<p>此外,为了保证兼容性,所以又有<code>.eot</code>、<code>.woff</code>、<code>.ttf</code>、<code>.svg</code>四种格式的字体文件.</p>
+<h4 id="iconfont-三种使用方式"><a href="#iconfont-三种使用方式" class="headerlink" title="iconfont 三种使用方式"></a>iconfont 三种使用方式</h4><p><strong>unicode</strong></p>
+<p>最开始我们使用了unicode的格式，它主要的特点是优势：</p>
+<ol>
+<li>兼容性最好，支持ie6+</li>
+<li>支持按字体的方式去动态调整图标大小，颜色等等</li>
+</ol>
+<p>劣势：</p>
+<ol>
+<li>书写不直观，语意不明确</li>
+<li>在不同的设备浏览器字体的渲染会略有差别</li>
+<li>不支持多色图标</li>
+</ol>
+<pre><code>&lt;i class=&quot;iconfont&quot;&gt;&amp;#xe604;&lt;/i&gt;
+</code></pre><p><img src="https://i.imgur.com/gmBCWBw.png" alt=""></p>
+<p><strong>font-class</strong></p>
+<p>相比它也是我们日常开发中最常用到的,相比于unicode语意明确，书写更直观。可以很容易分辨这个icon是什么，但只兼容IE8+。</p>
+<pre><code>&lt;i class=&quot;iconfont icon-xxx&quot;&gt;&lt;/i&gt;
+</code></pre><p><img src="https://i.imgur.com/ySVgFUc.png" alt=""></p>
+<p>它的主要原理其实是和 unicode 一样的，它只是多做了一步，将原先<code>&amp;#xe604</code>这种写法换成了<code>.icon-QQ</code>，它在每个 class 的 <code>before</code> 属性中写了<code>unicode</code>,省去了人为写的麻烦。如 </p>
+<pre><code>.icon-QQ:before { content: &quot;\e604&quot;; }
+</code></pre><p>相对于<code>unicode</code>它的修改更加的方便与直观。但也有一个大坑，之前楼主一个项目中用到了两组<code>font-class</code> 由于没有做好命名空间，所有的<code>class</code>都是放在<code>.iconfont</code> 命名空间下的，一上线引发了各种雪崩问题，修改了半天，所以使用<code>font-class</code>一定要注意命名空间的问题。</p>
+<p><strong>svg-sprite</strong></p>
+<p>一个普通的SVG图标是这样的:</p>
+<pre><code>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot; width=&quot;24px&quot; height=&quot;24px&quot; viewBox=&quot;0 0 24 24&quot;&gt; 
+    &lt;path fill=&quot;#E86C60&quot; d=&quot;M17,0c-1.9,0-3.7,0.8-5,2.1C10.7,0.8,8.9,0,7,0C3.1,0,0,3.1,0,7c0,6.4,10.9,15.4,11.4,15.8 c0.2,0.2,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2C13.1,22.4,24,13.4,24,7C24,3.1,20.9,0,17,0z&quot;&gt;&lt;/path&gt;
+&lt;/svg&gt;
+</code></pre><p>我们可以把SVG元素看成一个舞台，而symbol则是舞台上一个一个组装好的元件，这这些一个一个的元件就是我们即将使用的一个一个SVG图标。</p>
+<p>于是,集合了三个SVG图标的SVG元素的代码就是这样的:</p>
+<pre><code>&lt;svg&gt;
+    &lt;symbol id=&quot;icon-share&quot;&gt;
+        &lt;!-- 第1个图标路径形状之类代码 --&gt;
+        &lt;path fill=&quot;#E86C60&quot; d=&quot;M17,0c-1.9,0-3.7,0.8-5,2.1C10.7,0.8,8.9,0,7,0C3.1,0,0,3.1,0,7c0,6.4,10.9,15.4,11.4,15.8 c0.2,0.2,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2C13.1,22.4,24,13.4,24,7C24,3.1,20.9,0,17,0z&quot;&gt;&lt;/path&gt;
+    &lt;/symbol&gt;
+    &lt;symbol id=&quot;icon-edit&quot;&gt;
+        &lt;!-- 第2个图标路径形状之类代码 --&gt;
+        &lt;path fill=&quot;#E86C60&quot; d=&quot;M17,0c-1.9,0-3.7,0.8-5,2.1C10.7,0.8,8.9,0,7,0C3.1,0,0,3.1,0,7c0,6.4,10.9,15.4,11.4,15.8 c0.2,0.2,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2C13.1,22.4,24,13.4,24,7C24,3.1,20.9,0,17,0z&quot;&gt;&lt;/path&gt;
+    &lt;/symbol&gt;
+    &lt;symbol  id=&quot;icon-top&quot;&gt;
+        &lt;!-- 第3个图标路径形状之类代码 --&gt;
+        &lt;path fill=&quot;#E86C60&quot; d=&quot;M17,0c-1.9,0-3.7,0.8-5,2.1C10.7,0.8,8.9,0,7,0C3.1,0,0,3.1,0,7c0,6.4,10.9,15.4,11.4,15.8 c0.2,0.2,0.4,0.2,0.6,0.2s0.4-0.1,0.6-0.2C13.1,22.4,24,13.4,24,7C24,3.1,20.9,0,17,0z&quot;&gt;&lt;/path&gt;
+    &lt;/symbol&gt;
+&lt;/svg&gt;
+</code></pre><p>但是，<code>&lt;symbol&gt;</code>元素不会被直接显示，大概相当于定义一个模板，然后使用<code>&lt;use&gt;</code>元素引用并进行渲染。</p>
+<p>也就是说上面的svg元素还要加上这样的一句话才能显示:</p>
+<pre><code>&lt;svg&gt;&lt;use xlink:href=&quot;#icon-share&quot; /&gt;&lt;/svg&gt;
+</code></pre><p><img src="http://image.zhangxinxu.com/image/blog/201407/2014-07-10_103255.png" alt=""></p>
+<p>使用方法：第一步：拷贝项目下面生成的symbol代码,该js包含了所有SVG图标：</p>
+<pre><code>&lt;script src=&quot;./iconfont.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>第二步：加入通用css代码（引入一次就行）：</p>
+<pre><code>&lt;style type=&quot;text/css&quot;&gt;
+    .icon {
+       width: 1em; height: 1em;
+       vertical-align: -0.15em;
+       fill: currentColor;
+       overflow: hidden;
+    }
+&lt;/style&gt;
+</code></pre><p>第三步：挑选相应图标并获取类名，应用于页面：</p>
+<pre><code>&lt;svg class=&quot;icon&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;use xlink:href=&quot;#icon-xxx&quot;&gt;&lt;/use&gt;
+&lt;/svg&gt;
+</code></pre><p>SVGIcon的好处:</p>
+<ul>
+<li>支持多色图标了，不再受单色限制。</li>
+<li>支持像字体那样通过font-size,color来调整样式。</li>
+<li>无须像font那样引入多个字体库文件(woff|eot|ttf)</li>
+<li>支持 ie9+</li>
+<li>可利用CSS实现动画。</li>
+<li>减少HTTP请求。</li>
+<li>矢量，缩放不失真</li>
+<li>可以很精细的控制SVG图标的每一部分</li>
+</ul>
+<h4 id="如何生成或制作SVG图标"><a href="#如何生成或制作SVG图标" class="headerlink" title="如何生成或制作SVG图标"></a>如何生成或制作SVG图标</h4><p>生成的方式有很多种:</p>
+<p>1.设计师使用AI(Adobe illustrator)的时候就可以直接生成SVG图标。<br>2.<a href="http://iconfont.cn" target="_blank" rel="noopener">阿里iconfont</a>直接生成SVG，极其方便<br>3.<a href="https://icomoon.io/" target="_blank" rel="noopener">IcoMoon</a>导出时可选择SVG和iconfont、PNG三种方式<br>4.<code>webpack</code>的<code>svg-sprite-loader</code>,可将多个svg打包成<code>SVG-sprite</code></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文大概的讲述了一下ICON使用的发展史<br>总的来说还是那句话，适合的才是最好的。根据自己项目的兼容性和业务场景选择自己合适的icon方式,所有方案都没有绝对的优与劣之分，适合自己业务场景，解决自己实际痛点，提高自己开发效率的方案就是好的方案。</p>
+
         </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/01/17/浅谈前后端开发中的MVVM开发模式/">浅谈前后端开发中的MVVM开发模式</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                之前在我的博客也写过关于MVVM模式的简单介绍,但不够详细,也因为对 MVVM 模式一直只是模模糊糊的认识，现在就给大家讲一下详细讲下MVVM模式为...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/01/17/浅谈前后端开发中的MVVM开发模式/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                1月 17, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/01/09/PWA的Service-Worker/">PWA的Service Worker</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                PWA(Progressive Web Apps,渐进式增强 WEB 应用)由谷歌提出，用前沿的技术开发，让网页使...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/01/09/PWA的Service-Worker/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                1月 09, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/12/30/深入研究微信小程序的wepy框架/">深入研究微信小程序的wepy框架</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                小程序现状
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/12/30/深入研究微信小程序的wepy框架/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                12月 30, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/12/25/深拷贝与浅拷贝/">JavaScript的深拷贝与浅拷贝</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                在掌握深浅拷贝前,我们要知道,JavaScript的变量可以分为以下两种类型：
-
-基本类型...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/12/25/深拷贝与浅拷贝/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                12月 25, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/12/19/谈谈现在的移动端页面调试/">谈谈现在的移动端页面调试</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                通常我们在日常开发手机版网页的时候，都是通过PC浏览器的移动设备模式来模拟移动设备访问网页,但总会出现以下的问题:
-开发时，在自己电脑...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/12/19/谈谈现在的移动端页面调试/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                12月 19, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/12/08/前端包管理器的发展/">前端包管理器的发展</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言我们在开发时，...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/12/08/前端包管理器的发展/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                12月 08, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/11/28/谈谈我们日常接触的APP/">谈谈我们日常接触的APP</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                AP...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/11/28/谈谈我们日常接触的APP/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                11月 28, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/11/23/MPA和SPA-你选哪一个/">MPA和SPA,你选哪一个</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                背景旧的桌面应用程...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/11/23/MPA和SPA-你选哪一个/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                11月 23, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/11/17/JavaScript的高级运用节流与防抖/">JavaScript的高级运用之节流与防抖</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                概念与目的
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/11/17/JavaScript的高级运用节流与防抖/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                11月 17, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_forward</i></button></a>
-        </nav>
-    
-
     
 </div>
+
+
+                
+                    <!-- Paradox Post Info -->
+                    
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/01/17/浅谈前后端开发中的MVVM开发模式/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
