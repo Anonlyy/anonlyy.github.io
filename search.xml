@@ -3,6 +3,37 @@
   
     
     <entry>
+      <title><![CDATA[微信小程序生态数据分析和报告]]></title>
+      <url>/2018/02/08/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E6%80%81%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%92%8C%E6%8A%A5%E5%91%8A/</url>
+      <content type="html"><![CDATA[<p>以下数据来源于 <a href="http://index.aldwx.com/bg" target="_blank" rel="noopener">阿拉丁指数行业报告</a></p>
+<blockquote>
+<p>月独立设备数（Monthly Unique Devices）<br>该月使用过该APP的设备总数，单个设备重复使用不重复统计。</p>
+</blockquote>
+<p><img src="https://i.imgur.com/9wd0JEB.png" alt=""></p>
+<p><img src="https://i.imgur.com/H322QSY.png" alt=""></p>
+<p><img src="https://i.imgur.com/nK8LDnX.png" alt=""></p>
+<p><img src="https://i.imgur.com/FMmGJoc.png" alt=""></p>
+<p><img src="https://i.imgur.com/naYDNHJ.png" alt=""></p>
+<p><img src="https://i.imgur.com/UN8QqY8.png" alt=""></p>
+<p><img src="https://i.imgur.com/Hk3uaN3.png" alt=""></p>
+<p><img src="https://i.imgur.com/Uz8rvqC.png" alt=""></p>
+<p><img src="https://i.imgur.com/Bo5vZMe.png" alt=""></p>
+<p><img src="https://i.imgur.com/2iaHaKG.png" alt=""></p>
+<h2 id="典型案例：麦当劳小程序用积分兑换提高用户粘性和注册会员数"><a href="#典型案例：麦当劳小程序用积分兑换提高用户粘性和注册会员数" class="headerlink" title="典型案例：麦当劳小程序用积分兑换提高用户粘性和注册会员数"></a>典型案例：麦当劳小程序用积分兑换提高用户粘性和注册会员数</h2><p><img src="https://i.imgur.com/7b5RAEg.png" alt=""></p>
+<p><img src="https://i.imgur.com/lLMBWli.png" alt=""></p>
+<p><img src="https://i.imgur.com/UtRYFuY.png" alt=""></p>
+<h2 id="摩拜单车、OFO"><a href="#摩拜单车、OFO" class="headerlink" title="摩拜单车、OFO"></a>摩拜单车、OFO</h2><p><img src="https://i.imgur.com/djaQaYJ.png" alt=""></p>
+<p><img src="https://i.imgur.com/lsF4xjm.png" alt=""></p>
+<p><img src="https://i.imgur.com/YjvqSOh.png" alt=""></p>
+<h2 id="2018趋势"><a href="#2018趋势" class="headerlink" title="2018趋势"></a>2018趋势</h2><p><img src="https://i.imgur.com/C29PJpX.png" alt=""></p>
+<p><img src="https://i.imgur.com/XjxGfjF.png" alt=""></p>
+<p><img src="https://i.imgur.com/kbKeDrK.png" alt=""></p>
+]]></content>
+      
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[来聊聊优雅的Icon]]></title>
       <url>/2018/01/24/%E6%9D%A5%E8%81%8A%E8%81%8A%E4%BC%98%E9%9B%85%E7%9A%84icon/</url>
       <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在做前端后台项目的时候经常会用到很多 <code>icon</code> 图标，刚开始还好，但随着项目的不断迭代，每次修改添加图标会变得很麻烦，而且总觉得不够优雅，就开始琢磨着有啥简单方便的工作流呢？</p>
