@@ -139,7 +139,7 @@ icon font ，图标字体，也叫字体图标，顾名思义，就是字体做�
 
 
 
-![](http://image.zhangxinxu.com/image/blog/201407/2014-07-10_103255.png)
+![](https://i.imgur.com/uYBI3Mv.png)
 
 使用方法：第一步：拷贝项目下面生成的symbol代码,该js包含了所有SVG图标：
 
