@@ -496,11 +496,13 @@
 <p>你可以使用 srcset 属性并且带上它自有的 x 修饰符来描述每一个图片的像素比例, 如果用户的像素比例等于 3，就会显示 high-res 这张图片。</p>
 <pre><code>&lt;img src=&quot;clicks/low-res.jpg&quot; srcset=&quot;clicks/low-res.jpg 500w, clicks/medium-res.jpg 1000w,clicks/high-res.jpg 1600w&quot;&gt;
 </code></pre><h4 id="picture标签"><a href="#picture标签" class="headerlink" title="picture标签"></a>picture标签</h4><p>picture 元素让你可以针对不同的屏幕尺寸声明图片。这个可以通过用 <picture> 元素封装 <img> ，并且描述多个 <source> 子元素来实现。</picture></p>
-<picture> 标记单独使用并不会显示任何东西。你已经被假定会声明默认的图像来源作为 src 属性的取值，而可选的图像来源则会放在 scrset 属性之中，如下所示：<br><br>    <picture><br>        <source srcset="mobile.jpg, mobile-hd.jpg 2x" media="(max-width: 360px)"><br>        <source srcset="large.jpg, large-hd.jpg 2x" media="(min-width: 1920px)"><br>        <img src="default.jpg" srcset="default-hd.jpg 2x" alt="your image"><br>    </picture>
-
-
-
-<h3 id="2-iframe支持更多的权限"><a href="#2-iframe支持更多的权限" class="headerlink" title="2.iframe支持更多的权限"></a>2.iframe支持更多的权限</h3><h4 id="iframe可以使用支付请求接口-allowpaymentrequest"><a href="#iframe可以使用支付请求接口-allowpaymentrequest" class="headerlink" title="iframe可以使用支付请求接口 allowpaymentrequest"></a>iframe可以使用支付请求接口 allowpaymentrequest</h4><p>在HTML5.2之前.对于支付请求的API是不能在iframe中来完成的.所以每次我们在进行移动支付时都需要跳转到另外一个支付页面才能完成付款.而现在,使用allowpaymentrequest属性应用在iframe上</p>
+<p><code>&lt;picture&gt;</code> 标记单独使用并不会显示任何东西。你已经被假定会声明默认的图像来源作为 src 属性的取值，而可选的图像来源则会放在 scrset 属性之中，如下所示：</p>
+<pre><code>&lt;picture&gt; 
+    &lt;source srcset=&quot;mobile.jpg, mobile-hd.jpg 2x&quot; media=&quot;(max-width: 360px)&quot;&gt; 
+    &lt;source srcset=&quot;large.jpg, large-hd.jpg 2x&quot; media=&quot;(min-width: 1920px)&quot;&gt; 
+    &lt;img src=&quot;default.jpg&quot; srcset=&quot;default-hd.jpg 2x&quot; alt=&quot;your image&quot;&gt; 
+&lt;/picture&gt;
+</code></pre><h3 id="2-iframe支持更多的权限"><a href="#2-iframe支持更多的权限" class="headerlink" title="2.iframe支持更多的权限"></a>2.iframe支持更多的权限</h3><h4 id="iframe可以使用支付请求接口-allowpaymentrequest"><a href="#iframe可以使用支付请求接口-allowpaymentrequest" class="headerlink" title="iframe可以使用支付请求接口 allowpaymentrequest"></a>iframe可以使用支付请求接口 allowpaymentrequest</h4><p>在HTML5.2之前.对于支付请求的API是不能在iframe中来完成的.所以每次我们在进行移动支付时都需要跳转到另外一个支付页面才能完成付款.而现在,使用allowpaymentrequest属性应用在iframe上</p>
 <pre><code>&lt;iframe allowpaymentrequest&gt;
 </code></pre><p>这样,就可以让iframe使用<code>Payment Request API</code>从而让</p>
 <blockquote>
@@ -526,7 +528,7 @@ if  (window.opener)  {
 <h4 id="防御措施"><a href="#防御措施" class="headerlink" title="防御措施"></a>防御措施</h4><p>为了安全，现代浏览器都支持在 <a> 标签的 rel 属性中指定 rel=”noopener”，这样，在打开的新标签页中，将无法再使用 <code>opener</code> 对象了，它为设置为了 null。</a></p>
 <pre><code>&lt;a href=&quot;https://an.evil.site&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;进入一个“邪恶”的网站&lt;/a&gt;
 </code></pre><h5 id="性能问题。"><a href="#性能问题。" class="headerlink" title="性能问题。"></a>性能问题。</h5><p>如果网站使用了 <code>&lt;a target=&quot;_blank&quot;&gt;</code>，那么新打开的标签页的性能将会影响到当前页面。此时如果新打开的页面中执行了一个非常庞大的 <code>JavaScript</code> 脚本，那么原始标签页也会受到影响，会出现卡顿的现象（当然不至于卡死）。<br>而如果在链接中加入了 <code>noopener</code>，则此时两个标签页将会互不干扰，使得原页面的性能不会受到新页面的影响。</p>
-</picture>
+
         </div>
     
 </div>
