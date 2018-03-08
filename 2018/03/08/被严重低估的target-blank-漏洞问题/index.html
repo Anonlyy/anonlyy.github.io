@@ -504,10 +504,18 @@
     }
 &lt;/script&gt;
 </code></pre><p>那么此时，用户在继续浏览这个新的标签页，而原来的网站所在的标签页此时已经被导航到了 <code>https://www.baidu.com</code></p>
-<p>这样是十分可怕的,这就会有不法分子利用</p>
-<h4 id="防御措施"><a href="#防御措施" class="headerlink" title="防御措施"></a>防御措施</h4><p>为了安全，现代浏览器都支持在 <a> 标签的 rel 属性中指定 rel=”noopener”，这样，在打开的新标签页中，将无法再使用 <code>opener</code> 对象了，它为设置为了 null。</a></p>
+<p>上面的攻击步骤是在跨域的情况下的，在跨域情况下，opener 对象和 parent 一样，是受到限制的，仅提供非常有限的属性访问，并且在这仅有的几个属性中，大部分也都是不允许访问的（访问会直接抛出 DOMException）。<br>但是与 parent 不同的是，在跨域的情况下，opener 仍然可以调用 location.replace 方法而 parent 则不可以。</p>
+<p>这样是十分可怕的,这就会有不法分子利用在论坛或是某些博客上的链接跳转到对应的钓鱼网站,而你的源网站可能已经被钓鱼网站给更改为高仿的登录页,当你关掉钓鱼网站,就会在高仿的登录页输入你的账号密码,导致账号密码泄露。</p>
+<h4 id="防御措施"><a href="#防御措施" class="headerlink" title="防御措施"></a>防御措施</h4><p>为了安全，现代浏览器都支持在<code>&lt;a&gt;</code>标签的 <code>rel</code> 属性中指定 <code>rel=&quot;noopener&quot;</code>，这样，在打开的新标签页中，将无法再使用 <code>opener</code> 对象了，它设置为了 null。</p>
 <pre><code>&lt;a href=&quot;https://an.evil.site&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;进入一个“邪恶”的网站&lt;/a&gt;
-</code></pre><h5 id="性能问题。"><a href="#性能问题。" class="headerlink" title="性能问题。"></a>性能问题。</h5><p>如果网站使用了 <code>&lt;a target=&quot;_blank&quot;&gt;</code>，那么新打开的标签页的性能将会影响到当前页面。此时如果新打开的页面中执行了一个非常庞大的 <code>JavaScript</code> 脚本，那么原始标签页也会受到影响，会出现卡顿的现象（当然不至于卡死）。<br>而如果在链接中加入了 <code>noopener</code>，则此时两个标签页将会互不干扰，使得原页面的性能不会受到新页面的影响。</p>
+</code></pre><p><code>noopener</code> 属性看似是解决了所有问题，但是…浏览器的兼容性问题…<br><img src="http://p53ff6x0c.bkt.clouddn.com/18-3-8/57689117.jpg" alt=""><br>可以看到，现在绝大多数浏览器都已经兼容了 <code>rel=&quot;noopener&quot;</code> 属性了。但是，为了保护稍旧的“近代”浏览器或是很旧的“古代”浏览器甚至是“远古”浏览器，只有<code>noopener</code> 属性还是远远不够的。</p>
+<p>这时，就只能请出下面这段原生 JavaScript 来帮忙了。</p>
+<pre><code>function openUrl(url) {
+  var newTab = window.open();
+  newTab.opener = null;
+  newTab.location = url;
+}
+</code></pre><h4 id="性能问题"><a href="#性能问题" class="headerlink" title="性能问题"></a>性能问题</h4><p>如果网站使用了 <code>&lt;a target=&quot;_blank&quot;&gt;</code>，那么新打开的标签页的性能将会影响到当前页面。此时如果新打开的页面中执行了一个非常庞大的 <code>JavaScript</code> 脚本，那么原始标签页也会受到影响，会出现卡顿的现象（当然不至于卡死）。<br>而如果在链接中加入了 <code>noopener</code>，则此时两个标签页将会互不干扰，使得原页面的性能不会受到新页面的影响。</p>
 
         </div>
     
