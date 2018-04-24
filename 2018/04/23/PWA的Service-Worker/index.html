@@ -12,7 +12,7 @@
     
     <title>
         
-            深入研究微信小程序的wepy框架 | 
+            PWA的Service Worker | 
         
         Xposean&#39;s Blog
     </title>
@@ -67,18 +67,18 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://xposean.xin">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="深入研究微信小程序的wepy框架 | Xposean&#39;s Blog">
+    <meta property="og:title" content="PWA的Service Worker | Xposean&#39;s Blog">
     <meta property="og:image" content="/img/favicon.png" />
     <meta property="og:description" content="做一个刚刚好的前端仔">
     
 
     
-        <meta property="article:published_time" content="12月 30, 2017" />
-        <meta property="article:modified_time" content="1月 02, 2018" />
+        <meta property="article:published_time" content="4月 23, 2018" />
+        <meta property="article:modified_time" content="4月 24, 2018" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="深入研究微信小程序的wepy框架 | Xposean&#39;s Blog">
+    <meta name="twitter:title" content="PWA的Service Worker | Xposean&#39;s Blog">
     <meta name="twitter:description" content="做一个刚刚好的前端仔">
     <meta name="twitter:image" content="/img/favicon.png">
     <meta name="twitter:card" content="summary_large_image" />
@@ -86,7 +86,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://xposean.xin/2017/12/30/深入研究微信小程序的wepy框架/index.html" />
+        <link rel="canonical" href="http://xposean.xin/2018/04/23/PWA的Service-Worker/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -112,10 +112,10 @@
         },
         "description": "做一个刚刚好的前端仔,——关于我"
     },
-    "headline": "深入研究微信小程序的wepy框架",
-    "url": "http://xposean.xin/2017/12/30/深入研究微信小程序的wepy框架/index.html",
-    "datePublished": "12月 30, 2017",
-    "dateModified": "1月 02, 2018",
+    "headline": "PWA的Service Worker",
+    "url": "http://xposean.xin/2018/04/23/PWA的Service-Worker/index.html",
+    "datePublished": "4月 23, 2018",
+    "dateModified": "4月 24, 2018",
     "description": "做一个刚刚好的前端仔",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -489,152 +489,66 @@
     
         <div class="post-content_wrapper">
             <p class="post-title">
-                深入研究微信小程序的wepy框架
+                PWA的Service Worker
             </p>
-            <h2 id="小程序现状"><a href="#小程序现状" class="headerlink" title="小程序现状"></a>小程序现状</h2><p>微信小程序自发布到如今已经有半年多的时间了,凭借微信平台的强大影响力，越来越多企业加入小程序开发。 小程序于传统web页和APP比相比，有以下优势： </p>
-<ol>
-<li>小程序拥有更多的能力，包括定位、录音、文件、媒体、各种硬件能力等，想象空间更大 </li>
-<li>运行在微信内部，体验更接近APP</li>
-<li>在过度竞争的互联网行业中，获取一个有效APP用户的成本已经非常高了，小程序相比APP更加轻量、即用即走， 更容易获取用户</li>
-</ol>
-<h2 id="小程序问题"><a href="#小程序问题" class="headerlink" title="小程序问题"></a>小程序问题</h2><p>从<strong>开发角度</strong>来讲，，但同时也带来很多不便： </p>
-<p>1、虽然小程序官方封装了很多常用组件给开发带来很多便利性,但在自定义组件复用性上十分薄弱,仅仅支持模板片段层面的复用,业务代码与交互事件都不支持。</p>
-<p>2、小程序不支持SASS、LESS等预编译器,而小程序的<code>WXSS</code>语法在学习成本和功能性比不上我们日常开发的预编译器.</p>
-<p>3、小程序支持部分ES6语法,不支持ES7、ES8的新语法.</p>
-<p>4、在开发模式上,如果是<code>Angular</code>、<code>VUE</code>的开发者,在适应小程序的开发模式上,还需要时间适应.</p>
-<h2 id="Wepy框架"><a href="#Wepy框架" class="headerlink" title="Wepy框架"></a>Wepy框架</h2><p>基于小程序存在的问题,腾讯的官方团队推出了<code>wepy</code>框架，该框架是腾讯内部基于小程序的开发框架，设计思路基本参考<strong>VUE</strong>，开发模式和编码风格上80%以上接近VUE，开发者可以以很小的成本从VUE开发切换成小程序开发。<br>WePY 是一款让小程序真正支持组件化开发的框架，通过预编译的手段让开发者可以选择自己喜欢的开发风格去开发小程序。框架的细节优化，<code>Promise</code>，<code>Async</code>、<code>await</code>的引入都是为了能让开发小程序项目变得更加简单，高效。</p>
-<h3 id="Wepy框架的优势"><a href="#Wepy框架的优势" class="headerlink" title="Wepy框架的优势"></a>Wepy框架的优势</h3><p>1.<strong>新增属性,并针对原生API进行优化</strong><br>对现在API进行promise处理，同时修复一些现有API的缺陷，比如：<code>wx.request</code>并发问题等。</p>
-<pre><code>// 官方
-wx.request({
-    url: &apos;xxx&apos;,
-    success: function (data) {
-        console.log(data);
-    }
-});
-
-// wepy 使用方式
-// request 接口从只接收Object变为可接收String
-wx.request(&apos;xxxx&apos;).then((d) =&gt; console.log(d));
-</code></pre><p>在同时并发10个request请求测试时：<br>不使用wepy:<br><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554651/5185f740-b198-11e6-88f8-45e359090dc3.png&amp;objectId=1190000007580866&amp;token=fd4bd72096cf29af2f7aa954056f459a" alt=""><br><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554886/c30e802a-b199-11e6-927d-08cd4e5ed0b0.png&amp;objectId=1190000007580866&amp;token=4cfef2840665f05dc9359b979eb2bb74" alt=""></p>
-<p>使用wepy后：<br><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554663/65704c2e-b198-11e6-8277-abb77e0c7b3e.png&amp;objectId=1190000007580866&amp;token=eb5231dacbbab14ae42efeea2c4fee82" alt=""></p>
-<h3 id="新增属性-vue移植"><a href="#新增属性-vue移植" class="headerlink" title="新增属性(vue移植)"></a>新增属性(vue移植)</h3><ul>
-<li>computed 计算属性</li>
-<li>watcher 监听器</li>
-<li>props 传值</li>
-<li>slot 组件内容分发插槽</li>
+            <p><strong>PWA</strong>(Progressive Web Apps,渐进式增强 WEB 应用)最早是由谷歌提出，致力于用前沿的技术开发，让网页使用如同原生App般的体验的一系列方案。</p>
+<p>用来自谷歌工程师的解答<code>Progressive Web Apps</code>:</p>
+<ul>
+<li><strong>响应式用户界面</strong> – 适应任何环境：桌面电脑，智能手机，笔记本电脑，或者其他设备。</li>
+<li><strong>不依赖网络连接</strong> – 通过 <code>Service Worker</code> 可以在离线或者网速极差的环境下工作。</li>
+<li><strong>类原生应用</strong> – 有像原生应用般的交互和导航给用户原生应用般的体验，因为它是建立在 app shell model 上的。</li>
+<li><strong>支持热更新</strong> – 受益于 <code>Service Worker</code> 的更新进程，应用能够始终保持更新。</li>
+<li><strong>再次访问</strong> – 通过消息推送等特性让用户再次访问变得容易。</li>
+<li><strong>可安装</strong> – 允许用户保留对他们有用的应用在主屏幕上，不需要通过应用商店。</li>
 </ul>
+<p>我们也可以通过一个DEMO看看实际效果=&gt;<a href="https://weatherpwa.baidu.com/" target="_blank" rel="noopener">天气 PWA</a></p>
+<p>而其中,<strong>PWA</strong>的最主要核心功能实现就是依赖<code>Service Worker</code>这个API.</p>
 <hr>
-<p>2.<strong>单文件模式</strong><br>使得目录结构更加清晰 小程序官方目录结构要求app必须有三个文件<code>app.json</code>，<code>app.js</code>，<code>app.wxss</code>，页面有4个文件 <code>index.json</code>，<code>index.js</code>，<code>index.wxml</code>，<code>index.wxss</code>。而且文件必须同名。 所以使用wepy开发前后开发目录对比如下：</p>
-<p>官方DEMO：</p>
-<pre><code>project
-
-├── pages
-
-|   ├── index
-
-|   |   ├── index.json  index 页面配置
-
-|   |   ├── index.js    index 页面逻辑
-
-|   |   ├── index.wxml  index 页面结构
-
-|   |   └── index.wxss  index 页面样式表
-
-|   └── log
-
-|       ├── log.json    log 页面配置
-
-|       ├── log.wxml    log 页面逻辑
-
-|       ├── log.js      log 页面结构
-
-|       └── log.wxss    log 页面样式表
-
-├── app.js              小程序逻辑
-
-├── app.json            小程序公共设置
-
-└── app.wxss            小程序公共样式表
-</code></pre><p>使用wepy框架后目录结构：</p>
-<pre><code>project
-
-└── src
-
-    ├── pages
-
-    |   ├── index.wpy    index 页面配置、结构、样式、逻辑
-
-    |   └── log.wpy      log 页面配置、结构、样式、逻辑
-
-    └──app.wpy           小程序配置项（全局样式配置、声明钩子等）
-</code></pre><p>3.<strong>真正的组件化开发</strong><br> 小程序虽然有 标签可以实现组件复用，但仅限于模板片段层面的复用，业务代码与交互事件 仍需在页面处理。无法实现组件化的松耦合与复用的效果.<br>但<strong>wepy</strong>能够真正实现组件化开发,这也是使用它的最大优势之一,而且<code>wepy</code>在使用上更靠近<code>vue</code>框架的书写风格,使用起来更得心应手。</p>
-<pre><code>/ index.wpy
-
-&lt;template&gt;
-    &lt;view&gt;
-        &lt;panel&gt;
-            &lt;h1 slot=&quot;title&quot;&gt;&lt;/h1&gt;
-        &lt;/panel&gt;
-        &lt;counter1 :num=&quot;myNum&quot;&gt;&lt;/counter1&gt;
-        &lt;counter2 :num.sync=&quot;syncNum&quot;&gt;&lt;/counter2&gt;
-        &lt;list :item=&quot;items&quot;&gt;&lt;/list&gt;
-    &lt;/view&gt;
-&lt;/template&gt;
-&lt;script&gt;
-
-import wepy from &apos;wepy&apos;;
-
-import List from &apos;../components/list&apos;;
-
-import Panel from &apos;../components/panel&apos;;
-
-import Counter from &apos;../components/counter&apos;;
-
-
-export default class Index extends wepy.page {
-    config = {
-        &quot;navigationBarTitleText&quot;: &quot;test&quot;
-    };
-
-    components = {
-        panel: Panel,
-        counter1: Counter,
-        counter2: Counter,
-        list: List
-    };
-
-    data = {
-        myNum: 50,
-        syncNum: 100,
-        items: [1, 2, 3, 4]
-    }
-}
-
-&lt;/script&gt;
-</code></pre><h3 id="组件通信与交互"><a href="#组件通信与交互" class="headerlink" title="组件通信与交互"></a>组件通信与交互</h3><p><code>wepy.component</code>基类提供三个方法<code>$broadcast</code>，<code>$emit</code>，<code>$invoke</code>，因此任一页面或任一组件都可以调用上述三种方法实现通信与交互，如：<br>1.<strong>$broadcast</strong><br>$broadcast事件是由父组件发起，所有子组件都会收到此广播事件，除非事件被手动取消。事件广播的顺序为广度优先搜索顺序，如上图，如果Page_Index发起一个$broadcast事件，那么接收到事件的先后顺序为：A, B, C, D, E, F, G, H。如下图：</p>
-<p><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554688/800089e6-b198-11e6-84c5-352d2d0e2f7e.png&amp;objectId=1190000007580866&amp;token=61f8192d48b7640ebef69ed8700726bf" alt=""></p>
-<p>2.<strong>$emit</strong><br><code>$emit</code>与<code>$broadcast</code>正好相反，事件发起组件的父组件会依次接收到<code>$emit</code>事件，如上图，如果E发起一个$emit事件，那么接收到事件的先后顺序为：A, Page_Index。如下图：<br><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554704/9997932c-b198-11e6-9840-3edae2194f47.png&amp;objectId=1190000007580866&amp;token=707913104beb5c2ee310c64f22e37140" alt=""></p>
-<p>3.<strong>$invoke</strong><br>$invoke是一个组件对另一个组件的直接调用，通过传入的组件路径找到相应组件，然后再调用其方法。</p>
-<p>如果想在<code>Page_Index</code>中调用组件A的某个方法：</p>
-<pre><code>this.$invoke(&apos;ComA&apos;, &apos;someMethod&apos;, &apos;someArgs&apos;);
-</code></pre><p>如果想在组件A中调用组件G的某个方法：</p>
-<pre><code>this.$invoke(&apos;./../ComB/ComG&apos;, &apos;someMethod&apos;, &apos;someArgs&apos;);
-</code></pre><hr>
-<p>4.<strong>支持加载外部NPM包</strong><br>小程序较大的缺陷是不支持<code>NPM</code>包，导致无法直接使用大量优秀的开源内容，<code>wepy</code>在编译过程当中，会递归 遍历代码中的<code>require</code>然后将对应依赖文件从<code>node_modules</code>当中拷贝出来，并且修改<code>require</code>为相对路径， 从而实现对外部NPM包的支持。</p>
-<p><img src="https://cloud.githubusercontent.com/assets/2182004/20554645/482b0f64-b198-11e6-8d4e-70c92326004f.png" alt=""></p>
-<p>5.默认使用<code>babel</code>编译，支持ES6/7的一些新特性，如promise，async/await等等</p>
-<p>6.wepy支持使用<code>LESS</code>、<code>SASS</code>、<code>Styus</code>；</p>
-<h3 id="wepy编译原理"><a href="#wepy编译原理" class="headerlink" title="wepy编译原理"></a>wepy编译原理</h3><p><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554671/70a797a0-b198-11e6-8355-b7c234713d0c.png&amp;objectId=1190000007580866&amp;token=a4993b9e79afe4e9af0e6866dfebdab9" alt=""></p>
-<h3 id="weby快速起步"><a href="#weby快速起步" class="headerlink" title="weby快速起步"></a>weby快速起步</h3><p>weby配备了专门的构建工具脚手架<code>wepy-cli</code>协助开发,帮助快速起步</p>
-<p>1.安装</p>
-<pre><code>npm install wepy-cli -g
-</code></pre><p>2.脚手架</p>
-<pre><code>wepy new myproject
-</code></pre><p>3.切换至项目目录</p>
-<pre><code>cd myproject
-</code></pre><p>4.实时编译</p>
-<pre><code>wepy build --watch
-</code></pre><p><code>wepy</code>作为一款优秀的微信小程序框架，可以帮我们大幅提高开发效率，在为数不多的小程序框架中一枝独秀，希望有更多的团队选择wepy。</p>
+<h2 id="Service-Worker是什么呢"><a href="#Service-Worker是什么呢" class="headerlink" title="Service Worker是什么呢?"></a>Service Worker是什么呢?</h2><p><code>Service Worker</code> 是 Chromium 团队提出和力推的一个 <code>WEB API</code>，用于给 <code>web</code> 应用提供高级的可持续的后台处理能力。</p>
+<p><code>Service Worker</code> 最主要的特点是：在页面中注册并安装成功后，运行于浏览器后台，不受页面刷新的影响，可以监听和截拦作用域范围内所有页面的 HTTP 请求。</p>
+<p>基于 <code>Service Worker API</code> 的特性，结合 <code>Fetch API</code>、<code>Cache API</code>、<code>Push API</code>、<code>postMessage API</code> 和 <code>Notification API</code>，可以在基于浏览器的 web 应用中实现如离线缓存、消息推送、静默更新等 native 应用常见的功能，以给 web 应用提供更好更丰富的使用体验。</p>
+<h3 id="Service-Worker工作原理"><a href="#Service-Worker工作原理" class="headerlink" title="Service Worker工作原理"></a>Service Worker工作原理</h3><p><code>Service Worker</code>的技术核心是<code>Service Worker</code>脚本，它 是一种由<code>Javascript</code>编写的浏览器端代理脚本。</p>
+<p>前端页面向内核发起注册时会将脚本地址通知内核，内核会启动独立进/线程加载<code>Service Worker</code>脚本并执行<code>Service Worker</code>安装及激活动作。成功激活后便进入空闲等待状态，若当前的<code>Service Worker</code>进/线程一直没有管辖的页面或者事件消息时会自动终止（具体的终止策略视不同浏览器及版本而定，不会影响前端编写逻辑，但前端勿在<code>Service Worker</code>脚本中保存需要持久化的信息，可以借助<code>localstorage</code>），当打开新的可管辖页面或者已管辖页面发起<code>message</code>等消息时，<code>Service Worker</code>进/线程会被重新唤起。</p>
+<p>每当已安装的<code>Service Worker</code>有管辖页面被打开时，便会触发<code>Service Worker</code>脚本更新，当上次脚本更新写入Service Worker数据库的时间戳与本次更新超过24小时，便会忽略本地网络<code>cache</code>的<code>Service Worker</code>脚本直接从网络拉取。若网络拉取的与本地有一个字节的差异都会触发<code>Service Worker</code>脚本的更新，更新流程与安装类似，只是在更新安装成功后不会立即进入<code>active</code>状态，需要等待旧版本的<code>Service Worker</code>进/线程终止。</p>
+<p><img src="https://x5.tencent.com/tbs/img/article/sw-1.png" alt=""></p>
+<hr>
+<h3 id="Service-Worker-特点"><a href="#Service-Worker-特点" class="headerlink" title="Service Worker 特点"></a>Service Worker 特点</h3><ol>
+<li>网站必须使用 <code>HTTPS</code>。除了使用本地开发环境调试时(如域名使用 localhost)</li>
+<li>运行于浏览器后台，可以控制打开的作用域范围下所有的页面请求</li>
+<li>单独的作用域范围，单独的运行环境和执行线程</li>
+<li>不能操作页面 DOM。但可以通过事件机制来处理</li>
+</ol>
+<hr>
+<h3 id="Service-Worker生命周期"><a href="#Service-Worker生命周期" class="headerlink" title="Service Worker生命周期"></a>Service Worker生命周期</h3><p><code>Service Worker</code> 脚本通过 <code>navigator.serviceWorker.register</code> 方法注册到页面, 之后就可以脱离页面在浏览器后台运行:<br><img src="https://pic1.zhimg.com/50/v2-2cf08481cdf4e1bd8448c8daef88dd76_hd.jpg" alt=""></p>
+<p>1.<strong>parsed</strong>: 注册完成, 脚本解析成功, 尚未安装</p>
+<p>2.<strong>installing</strong>: 对应 Service Worker 脚本 install 事件执行, 如果事件里有<code>event.waitUntil()</code>则会等待传入的 Promise 完成才会成功</p>
+<p>3.<strong>installed(waiting)</strong>: 页面被旧的<code>Service Worker</code>脚本控制, 所以当前的脚本尚未激活。可以通过<code>self.skipWaiting()</code>激活新的 Service Worker</p>
+<p>4.<strong>activating</strong>: 对应<code>Service Worker</code>脚本<code>activate</code>事件执行, 如果事件里有<code>event.waitUntil()</code>则会等待这个<code>Promise</code>完成才会成功。这时可以调用 Clients.claim() 接管页面</p>
+<p>5.<strong>activated</strong>: 激活成功, 可以处理<code>fetch</code>, <code>message</code>等事件</p>
+<p>6.<strong>redundant</strong>: 安装失败, 或者激活失败, 或者被新的 <code>Service Worker</code>替代掉</p>
+<hr>
+<h2 id="关于事件"><a href="#关于事件" class="headerlink" title="关于事件"></a>关于事件</h2><p><strong>install</strong> 事件:当前<code>Service Worker</code>脚本被安装时，会触发 install 事件。</p>
+<p><strong>push</strong>事件:<br>push 事件是为推送通知而准备的。不过首先你需要了解一下 <code>Notification API</code> 和 <code>PUSH API</code>。</p>
+<p>通过 <code>PUSH API</code>，当订阅了推送服务后，可以使用推送方式唤醒 <code>Service Worker</code> 以响应来自系统消息传递服务的消息，即使用户已经关闭了页面。</p>
+<p><strong>online/offline</strong>事件:<br>当网络状态发生变化时，会触发 <code>online</code> 或 <code>offline</code> 事件。结合这两个事件，可以与 <code>Service Worker</code> 结合实现更好的离线使用体验，例如当网络发生改变时，替换/隐藏需要在线状态才能使用的链接导航等。</p>
+<p><strong>fetch</strong> 事件：<br>当我们安装完<code>Service Worker</code>成功并进入激活状态后即运行于浏览器后台,我们的这个线程就会一直监控我们的页面应用,如果出现<code>HTTP</code>请求,那么就会触发<code>fetch</code>事件，并且给出自己的响应。<br>这个功能是十分强大的,借助 <code>Fetch API</code> 和 <code>Cache API</code> 可以编写出复杂的策略用来区分不同类型或者页面的资源的处理方式。它能够提供更加好的用户体验:<br>例如可以实现<strong>缓存优先、降级处理</strong>的策略逻辑：监控所有 http 请求，当请求资源已经在缓存里了，直接返回缓存里的内容；否则使用 fetch API 继续请求，如果是 图片或 css、js 资源，请求成功后将他们加入缓存中；如果是离线状态或请求出错，则降级返回预缓存的离线内容。</p>
+<p>还有一些常用的资源缓存的策略:</p>
+<ul>
+<li>网络优先: 从网络获取, 失败或者超时再尝试从缓存读取</li>
+<li>缓存优先: 从缓存获取, 缓存插叙不到再尝试从网络抓取</li>
+<li>速度优先: 同时查询缓存和网络, 返回最先拿到的</li>
+<li>仅限网络: 仅从网络获取</li>
+<li>仅限缓存: 仅从缓存获取</li>
+</ul>
+<h4 id="关于Fetch-API"><a href="#关于Fetch-API" class="headerlink" title="关于Fetch API"></a>关于Fetch API</h4><p>w3c提供了一个新的<code>fetch API</code>，用于取代<code>XMLHttpRequest</code>，与<code>XMLHttpRequest</code>最大不同有两点：</p>
+<p>1.fetch()方法返回的是Promise对象，通过then方法进行连续调用，减少嵌套。ES6的Promise在成为标准之后，会越来越方便开发人员。</p>
+<p>2.fetch api与XMLHttpRequest相比，更加简洁，并且提供的功能更全面，资源获取方式比ajax更优雅.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 由于是get请求，直接把参数作为query string传递了 */</span></span><br><span class="line"><span class="keyword">var</span> URL = <span class="string">'https://api.flickr.com/services/rest/?method=flickr.photos.search&amp;api_key=your_api_key&amp;format=json&amp;nojsoncallback=1&amp;tags=penguins'</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fetchDemo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// fetch(url, option)支持两个参数，option中可以设置header、body、method信息</span></span><br><span class="line">  fetch(URL).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 通过promise 对象获得相应内容，并且将响应内容按照json格式转成对象，json()方法调用之后返回的依然是promise对象</span></span><br><span class="line">    <span class="comment">// 也可以把内容转化成arraybuffer、blob对象</span></span><br><span class="line">    <span class="keyword">return</span> response.json();</span><br><span class="line">  &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">json</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 渲染页面</span></span><br><span class="line">    dosomething(json)；</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">fetchDemo();</span><br></pre></td></tr></table></figure>
+<h3 id="PWA的浏览器支持情况"><a href="#PWA的浏览器支持情况" class="headerlink" title="PWA的浏览器支持情况"></a>PWA的浏览器支持情况</h3><p>毕竟是自家产品,chrome浏览器肯定是支持度最高的浏览器,chrome64版本是支持所有PWA功能的。</p>
+<p>但国内的支持情况相对差一些,毕竟chrome的使用人群还是偏少的,不过在UC的支持程度不也低</p>
+<p><img src="http://p53ff6x0c.bkt.clouddn.com/18-4-24/56137583.jpg" alt=""></p>
+<p><img src="http://p53ff6x0c.bkt.clouddn.com/18-4-24/70665880.jpg" alt=""></p>
+<p><img src="http://p53ff6x0c.bkt.clouddn.com/18-4-24/79002804.jpg" alt=""></p>
 
         </div>
     
@@ -656,21 +570,13 @@ export default class Index extends wepy.page {
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2018/01/17/浅谈前后端开发中的MVVM开发模式/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2017/12/25/深拷贝与浅拷贝/" id="post_nav-older" class="next-content">
+        <a href="/2018/03/08/被严重低估的target-blank-漏洞问题/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
