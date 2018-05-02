@@ -74,7 +74,7 @@
 
     
         <meta property="article:published_time" content="4月 23, 2018" />
-        <meta property="article:modified_time" content="4月 25, 2018" />
+        <meta property="article:modified_time" content="5月 02, 2018" />
     
 
     <!-- The Twitter Card protocol -->
@@ -115,7 +115,7 @@
     "headline": "PWA的Service Worker",
     "url": "http://xposean.xin/2018/04/23/PWA的Service-Worker/index.html",
     "datePublished": "4月 23, 2018",
-    "dateModified": "4月 25, 2018",
+    "dateModified": "5月 02, 2018",
     "description": "做一个刚刚好的前端仔",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -494,15 +494,17 @@
             <p><strong>PWA</strong>(Progressive Web Apps,渐进式增强 WEB 应用)最早是由谷歌提出，致力于用前沿的技术开发，让网页使用如同原生App般的体验的一系列方案。</p>
 <p>用来自谷歌工程师的解答<code>Progressive Web Apps</code>:</p>
 <ul>
-<li><strong>响应式用户界面</strong> – 适应任何环境：桌面电脑，智能手机，笔记本电脑，或者其他设备。</li>
-<li><strong>支持离线访问</strong> – 通过 <code>Service Worker</code> 可以在离线或者网速极差的环境下工作。</li>
-<li><strong>类原生应用</strong> – 有像原生应用般的交互和导航给用户原生应用般的体验，因为它是建立在 app shell model 上的。</li>
-<li><strong>支持持续更新</strong> – 受益于 <code>Service Worker</code> 的更新进程，应用能够始终保持更新。</li>
-<li><strong>再次访问</strong> – 通过消息推送等特性让用户再次访问变得容易。</li>
-<li><strong>可安装</strong> – 允许用户保留对他们有用的应用在主屏幕上，不需要通过应用商店。</li>
+<li><strong>渐进式</strong> - 适用于所有浏览器，因为它是以渐进式增强作为宗旨开发的</li>
+<li><strong>连接无关性</strong> - 能够借助 <code>Service Worker</code> 在离线或者网络较差的情况下正常访问</li>
+<li><strong>类似应用</strong> - 由于是在 <code>App Shell</code> 模型基础上开发，因为应具有 <code>Native App</code> 的交互和导航，给用户 <code>Native App</code> 的体验</li>
+<li><strong>持续更新</strong> - 始终是最新的，无版本和更新问题</li>
+<li><strong>安全</strong> - 通过 <code>HTTPS</code> 协议提供服务，防止窥探和确保内容不被篡改</li>
+<li><strong>可索引</strong> - 应用清单文件和 <code>Service Worker</code> 可以让搜索引擎索引到，从而将其识别为『应用』</li>
+<li><strong>粘性</strong> - 通过推送<a href="https://zhangxinxu.github.io/https-demo/notification/basic.html" target="_blank" rel="noopener">离线通知</a>等，可以让用户回流</li>
+<li><strong>可安装</strong> - 用户可以添加常用的 webapp 到桌面，免去去应用商店下载的麻烦</li>
 </ul>
 <p>我们也可以通过一个DEMO看看实际效果=&gt;<a href="https://weatherpwa.baidu.com/" target="_blank" rel="noopener">天气 PWA</a></p>
-<p>而其中,<strong>PWA</strong>的最主要核心功能实现就是依赖<code>Service Worker</code>这个API.</p>
+<p>而其中,<strong>PWA</strong>的最主要核心功能就是依赖于<code>Service Worker</code>这个API来实现的.</p>
 <hr>
 <h2 id="Service-Worker是什么呢"><a href="#Service-Worker是什么呢" class="headerlink" title="Service Worker是什么呢?"></a>Service Worker是什么呢?</h2><p><code>Service Worker</code> 是 Chromium 团队提出和力推的一个 <code>WEB API</code>，用于给 <code>web</code> 应用提供高级的可持续的后台处理能力。</p>
 <p><code>Service Worker</code> 最主要的特点是：在页面中注册并安装成功后，运行于浏览器后台，不受页面刷新的影响，可以监听和截拦作用域范围内所有页面的 HTTP 请求。</p>
@@ -519,25 +521,38 @@
 <li>不能操作页面 DOM。但可以通过事件机制来处理</li>
 </ol>
 <hr>
-<h2 id="关于事件"><a href="#关于事件" class="headerlink" title="关于事件"></a>关于事件</h2><p><strong>install</strong> 事件:当前<code>Service Worker</code>脚本被安装时，会触发 install 事件。</p>
+<h3 id="关于事件"><a href="#关于事件" class="headerlink" title="关于事件"></a>关于事件</h3><p><strong>install</strong> 事件:当前<code>Service Worker</code>脚本被安装时，会触发 install 事件。</p>
 <p><strong>push</strong>事件:<br>push 事件是为推送通知而准备的。不过首先你需要了解一下 <code>Notification API</code> 和 <code>PUSH API</code>。</p>
 <p>通过 <code>PUSH API</code>，当订阅了推送服务后，可以使用推送方式唤醒 <code>Service Worker</code> 以响应来自系统消息传递服务的消息，即使用户已经关闭了页面。</p>
 <p><strong>online/offline</strong>事件:<br>当网络状态发生变化时，会触发 <code>online</code> 或 <code>offline</code> 事件。结合这两个事件，可以与 <code>Service Worker</code> 结合实现更好的离线使用体验，例如当网络发生改变时，替换/隐藏需要在线状态才能使用的链接导航等。</p>
 <p><strong>fetch</strong> 事件：<br>当我们安装完<code>Service Worker</code>成功并进入激活状态后即运行于浏览器后台,我们的这个线程就会一直监控我们的页面应用,如果出现<code>HTTP</code>请求,那么就会触发<code>fetch</code>事件，并且给出自己的响应。<br>这个功能是十分强大的,借助 <code>Fetch API</code> 和 <code>Cache API</code> 可以编写出复杂的策略用来区分不同类型或者页面的资源的处理方式。它能够提供更加好的用户体验:<br>例如可以实现<strong>缓存优先、降级处理</strong>的策略逻辑：监控所有 http 请求，当请求资源已经在缓存里了，直接返回缓存里的内容；否则使用 fetch API 继续请求，如果是 图片或 css、js 资源，请求成功后将他们加入缓存中；如果是离线状态或请求出错，则降级返回预缓存的离线内容。</p>
-<p>还有一些常用的资源缓存的策略:</p>
-<ul>
-<li>网络优先: 从网络获取, 失败或者超时再尝试从缓存读取</li>
-<li>缓存优先: 从缓存获取, 缓存插叙不到再尝试从网络抓取</li>
-<li>速度优先: 同时查询缓存和网络, 返回最先拿到的</li>
-<li>仅限网络: 仅从网络获取</li>
-<li>仅限缓存: 仅从缓存获取</li>
-</ul>
-<h4 id="关于Fetch-API"><a href="#关于Fetch-API" class="headerlink" title="关于Fetch API"></a>关于Fetch API</h4><p>w3c提供了一个新的<code>fetch API</code>，用于取代<code>XMLHttpRequest</code>，与<code>XMLHttpRequest</code>最大不同有两点：</p>
-<p>1.fetch()方法返回的是Promise对象，通过then方法进行连续调用，减少嵌套。ES6的Promise在成为标准之后，会越来越方便开发人员。</p>
-<p>2.fetch api与XMLHttpRequest相比，更加简洁，并且提供的功能更全面，资源获取方式比ajax更优雅.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 由于是get请求，直接把参数作为query string传递了 */</span></span><br><span class="line"><span class="keyword">var</span> URL = <span class="string">'https://api.flickr.com/services/rest/?method=flickr.photos.search&amp;api_key=your_api_key&amp;format=json&amp;nojsoncallback=1&amp;tags=penguins'</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fetchDemo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// fetch(url, option)支持两个参数，option中可以设置header、body、method信息</span></span><br><span class="line">  fetch(URL).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 通过promise 对象获得相应内容，并且将响应内容按照json格式转成对象，json()方法调用之后返回的依然是promise对象</span></span><br><span class="line">    <span class="comment">// 也可以把内容转化成arraybuffer、blob对象</span></span><br><span class="line">    <span class="keyword">return</span> response.json();</span><br><span class="line">  &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">json</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 渲染页面</span></span><br><span class="line">    dosomething(json)；</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">fetchDemo();</span><br></pre></td></tr></table></figure>
-<h3 id="PWA的浏览器支持情况"><a href="#PWA的浏览器支持情况" class="headerlink" title="PWA的浏览器支持情况"></a>PWA的浏览器支持情况</h3><p>毕竟是自家产品,chrome浏览器肯定是支持度最高的浏览器,chrome64版本是支持所有PWA功能的。</p>
-<p>但国内的支持情况相对差一些,毕竟chrome的使用人群还是偏少的,不过在UC的支持程度不也低</p>
+<hr>
+<h4 id="了解Serveice-worker的几种常见资源缓存策略"><a href="#了解Serveice-worker的几种常见资源缓存策略" class="headerlink" title="了解Serveice worker的几种常见资源缓存策略"></a>了解<code>Serveice worker</code>的几种常见资源缓存策略</h4><ol>
+<li><p><strong>不影响安装的资源预缓存</strong></p>
+<p>对于某些固定不变的静态资源，我们习惯在Service Worker初次安装的install事件中将其缓存，但资源过大或者网络不佳都会造成资源并未全部下载成功而导致Service Worker安装被中断，只有等下次用户在打开相应页面。这里可以将静态资源按优先级分为两类，一类是重要资源，一类是非重要资源，将重要资源放到安装等待队列中，非重要资源放到独立的队列中，这样只需要重要资源全部都加载成功就可以成功安装Service Worker了，可以提高Service Worker安装成功率。</p>
+</li>
+<li><p><strong>渐进式缓存</strong></p>
+<p>对于在install中发现没有缓存，页面又依赖但又不经常变化的资源，可以在页面打开或发生用户交互时触发fetch然后使用fetch api再去网络拉取，将返回正常的response缓存起来以便下次使用</p>
+</li>
+<li><p><strong>仅使用网络</strong></p>
+<p>在fetch事件中，仅将request重新抽出用fetch去网络加载并返回给前端页面。适用于资源大多是动态资源、实时性要求高的场景。</p>
+</li>
+<li><p><strong>缓存优先</strong></p>
+<p>简单的资源缓存中使用的就是缓存优先策略，先去缓存匹配，匹配失败折回网络，这算是最常用、容错性能好的一种策略。</p>
+</li>
+<li><p><strong>网络优先</strong></p>
+<p>在fetch事件中先去网络fetch，当出现服务器故障或者网络不良时，折回本地缓存，目的是为了展示最新的数据，对实时性要求比较高但又能够带来良好体验的应用，比如天气类型应用。</p>
+</li>
+<li><p><strong>速度优先</strong></p>
+<p>在fetch事件中同时发起本地缓存匹配及网络请求，谁先返回使用谁的，该方案适用于对性能要求比较高的站点，缩短了缓存优先策略中有可能缓存中没有资源再折回网络的时间消耗。</p>
+</li>
+</ol>
+<hr>
+<h3 id="PWA的浏览器支持情况"><a href="#PWA的浏览器支持情况" class="headerlink" title="PWA的浏览器支持情况"></a>PWA的浏览器支持情况</h3><blockquote>
+<p><a href="https://lavas.baidu.com/ready" target="_blank" rel="noopener">兼容性查看</a></p>
+</blockquote>
+<p>毕竟是自家产品,chrome浏览器肯定是支持度最高的浏览器,chrome64版本是基本支持所有PWA功能<code>API</code>的。</p>
+<p>但国内的浏览器·支持情况相对差一些,而且chrome移动版的使用人群还是偏少的,不过在UC的支持程度不也低</p>
 <p><img src="http://p53ff6x0c.bkt.clouddn.com/18-4-24/56137583.jpg" alt=""></p>
 <p><img src="http://p53ff6x0c.bkt.clouddn.com/18-4-24/70665880.jpg" alt=""></p>
 <p><img src="http://p53ff6x0c.bkt.clouddn.com/18-4-24/79002804.jpg" alt=""></p>
