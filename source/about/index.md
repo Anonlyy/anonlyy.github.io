@@ -1,7 +1,12 @@
 
 #  个人简历
-
+@(WEB前端)[Markdown|简历]
 线上简历地址:[http://www.xposean.xin/about](http://www.xposean.xin/about)
+
+> 个人技术博客：[http://www.xposean.xin/](http://www.xposean.xin/)
+
+> Github：[https://github.com/Anonlyy](https://github.com/Anonlyy)
+
 
 ---
 
@@ -11,14 +16,13 @@
 工作年限：1.5年
 github中度使用者/强迫症
 喜好用户体验领域
-个人技术博客：[http://www.xposean.xin/](http://www.xposean.xin/)
-Github：[https://github.com/Anonlyy](https://github.com/Anonlyy)
+
 
 
 
 ## 联系方式
 
-- 手机：<span style="color:#7cafc2">13160663115</span> or <span style="color:#a1b56c">13592742070</span>
+- 手机：<span style="color:#7cafc2">13160663115</spanor <span style="color:#a1b56c">13592742070</span>
 - Email：843095666@qq.com / qq843095666@gmail.com
 - QQ/微信号：843095666
 
@@ -32,13 +36,14 @@ Github：[https://github.com/Anonlyy](https://github.com/Anonlyy)
  - [ONE_Angular](https://github.com/Anonlyy/ONE_Angular)： 基于Angular4框架的「ONE一个」SPA应用。
    预览地址: http://www.xposean.xin/ONE/
  - [ONE_Vue](https://github.com/Anonlyy/ONE_Vue):基于vue.js框架的「ONE一个」SPA应用
+   预览地址: http://www.xposean.xin/ONE_vue
  - [iWeather](https://github.com/Anonlyy/iWeather)： vue2.0构建的天气webAPP。
  - [ShareMusic](https://github.com/Anonlyy/shareMusic)：这是一款基于Anuglar4框架的音乐播放器,并使用网易云音乐API,样式布局则参考QQ音乐客户端.
  - [loveWall](https://github.com/Anonlyy/loveWall):毕设作品,基于原生微信小程序开发的APP
 
 
 ### 技术文章
-
+- [被严重低估的target='_blank'漏洞问题](http://www.xposean.xin/2018/03/08/%E8%A2%AB%E4%B8%A5%E9%87%8D%E4%BD%8E%E4%BC%B0%E7%9A%84target-blank-%E6%BC%8F%E6%B4%9E%E9%97%AE%E9%A2%98/)
 - [来聊聊优雅的Icon](http://www.xposean.xin/2018/01/24/%E6%9D%A5%E8%81%8A%E8%81%8A%E4%BC%98%E9%9B%85%E7%9A%84icon/)
 - [前端性能优化之图片](http://www.xposean.xin/2017/10/27/%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%9B%BE%E7%89%87/)
 - [Virtual DOM原理概述](http://www.xposean.xin/2017/10/24/VirtualDOM%E5%8E%9F%E7%90%86%E6%A6%82%E8%BF%B0/)
