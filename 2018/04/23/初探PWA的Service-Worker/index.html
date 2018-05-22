@@ -74,7 +74,7 @@
 
     
         <meta property="article:published_time" content="4月 23, 2018" />
-        <meta property="article:modified_time" content="5月 15, 2018" />
+        <meta property="article:modified_time" content="5月 21, 2018" />
     
 
     <!-- The Twitter Card protocol -->
@@ -115,7 +115,7 @@
     "headline": "初探PWA的Service Worker",
     "url": "http://xposean.xin/2018/04/23/初探PWA的Service-Worker/index.html",
     "datePublished": "4月 23, 2018",
-    "dateModified": "5月 15, 2018",
+    "dateModified": "5月 21, 2018",
     "description": "做一个刚刚好的前端仔",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -491,7 +491,7 @@
             <p class="post-title">
                 初探PWA的Service Worker
             </p>
-            <p><strong>PWA</strong>(Progressive Web Apps,渐进式增强 WEB 应用)最早是由谷歌提出，致力于用前沿的技术开发，让网页使用如同原生App般的体验的一系列方案。</p>
+            <p><strong>Progressive Web App</strong>, 简称 <strong>PWA</strong>，是提升<code>Web App</code>的体验的一种新方法，能给用户原生应用的体验，致力于用前沿的技术开发，让网页使用如同原生App般的体验的一系列方案。</p>
 <p>用来自谷歌工程师的解答<code>Progressive Web Apps</code>:</p>
 <ul>
 <li><strong>渐进式</strong> - 适用于所有浏览器，因为它是以渐进式增强作为宗旨开发的</li>
@@ -506,20 +506,28 @@
 <p>我们也可以通过一个DEMO看看实际效果=&gt;<a href="https://weatherpwa.baidu.com/" target="_blank" rel="noopener">天气 PWA</a></p>
 <p>而其中,<strong>PWA</strong>的最主要核心功能就是依赖于<code>Service Worker</code>这个API来实现的.</p>
 <hr>
-<h2 id="Service-Worker是什么呢"><a href="#Service-Worker是什么呢" class="headerlink" title="Service Worker是什么呢?"></a>Service Worker是什么呢?</h2><p><code>Service Worker</code> 是 Chromium 团队提出和力推的一个 <code>WEB API</code>，用于给 <code>web</code> 应用提供高级的可持续的后台处理能力。</p>
-<p><code>Service Worker</code> 最主要的特点是：在页面中注册并安装成功后，运行于浏览器后台，不受页面刷新的影响，可以监听和截拦作用域范围内所有页面的 HTTP 请求。</p>
-<p>基于 <code>Service Worker API</code> 的特性，结合 <code>Fetch API</code>、<code>Cache API</code>、<code>Push API</code>、<code>postMessage API</code> 和 <code>Notification API</code>，可以在基于浏览器的 web 应用中实现如离线缓存、消息推送、静默更新等 native 应用常见的功能，以给 web 应用提供更好更丰富的使用体验。</p>
+<h2 id="Service-Worker是什么呢"><a href="#Service-Worker是什么呢" class="headerlink" title="Service Worker是什么呢?"></a>Service Worker是什么呢?</h2><p>W3C 组织早在 2014 年 5 月就提出过 Service Worker 这样的一个 HTML5 API ，主要用来做持久的离线缓存。</p>
+<p>当然这个 API 不是凭空而来，至于其中的由来我们可以简单的捋一捋：</p>
+<p>浏览器中的 javaScript 都是运行在一个单一主线程上的，在同一时间内只能做一件事情。随着 Web 业务不断复杂，我们逐渐在 js 中加了很多耗资源、耗时间的复杂运算过程，这些过程导致的性能问题在 WebApp 的复杂化过程中更加凸显出来。</p>
+<p>W3C 组织早早的洞察到了这些问题可能会造成的影响，这个时候有个叫 Web Worker 的 API 被造出来了，这个 API 的唯一目的就是解放主线程，Web Worker 是脱离在主线程之外的，将一些复杂的耗时的活交给它干，完成后通过 postMessage 方法告诉主线程，而主线程通过 onMessage 方法得到 Web Worker 的结果反馈。</p>
+<p>一切问题好像是解决了，但 Web Worker 是临时的，我们能不能有一个东东是一直持久存在的，并且随时准备接受主线程的命令呢？基于这样的需求推出了最初版本的 Service Worker ，Service Worker 在 Web Worker 的基础上加上了持久离线缓存能力.</p>
+<p><code>Service Worker</code> 有以下功能和特性：</p>
+<ul>
+<li>一个独立的 worker 线程，独立于当前网页进程，有自己独立的 worker context。</li>
+<li>一旦被 install，就永远存在，除非被 uninstall</li>
+<li>需要的时候可以直接唤醒，不需要的时候自动睡眠（有效利用资源，此处有坑）</li>
+<li>可编程拦截代理请求和返回，缓存文件，缓存的文件可以被网页进程取到（包括网络离线状态）</li>
+<li>离线内容开发者可控</li>
+<li>能向客户端推送消息</li>
+<li>不能直接操作 DOM</li>
+<li>出于安全的考虑，必须在 HTTPS 环境下才能工作</li>
+<li>异步实现，内部大都是通过 Promise 实现</li>
+</ul>
+<p>所以我们基本上知道了 Service Worker 的伟大使命，就是让缓存做到优雅和极致，让 Web App 相对于 Native App 的缺点更加弱化，也为开发者提供了对性能和体验的无限遐想。</p>
 <h3 id="Service-Worker工作原理"><a href="#Service-Worker工作原理" class="headerlink" title="Service Worker工作原理"></a>Service Worker工作原理</h3><p><code>Service Worker</code>的技术核心是<code>Service Worker</code>脚本，它 是一种由<code>Javascript</code>编写的浏览器端代理脚本。</p>
 <p>前端页面向内核发起注册时会将脚本地址通知内核，内核会启动独立进/线程加载<code>Service Worker</code>脚本并执行<code>Service Worker</code>安装及激活动作。成功激活后便进入空闲等待状态，若当前的<code>Service Worker</code>进/线程一直没有管辖的页面或者事件消息时会自动终止（具体的终止策略视不同浏览器及版本而定，不会影响前端编写逻辑，但前端勿在<code>Service Worker</code>脚本中保存需要持久化的信息，可以借助<code>localstorage</code>），当打开新的可管辖页面或者已管辖页面发起<code>message</code>等消息时，<code>Service Worker</code>进/线程会被重新唤起。</p>
 <p>每当已安装的<code>Service Worker</code>有管辖页面被打开时，便会触发<code>Service Worker</code>脚本更新，当上次脚本更新写入Service Worker数据库的时间戳与本次更新超过24小时，便会忽略本地网络<code>cache</code>的<code>Service Worker</code>脚本直接从网络拉取。若网络拉取的与本地有一个字节的差异都会触发<code>Service Worker</code>脚本的更新，更新流程与安装类似，只是在更新安装成功后不会立即进入<code>active</code>状态，需要等待旧版本的<code>Service Worker</code>进/线程终止。</p>
 <p><img src="https://x5.tencent.com/tbs/img/article/sw-1.png" alt=""></p>
-<hr>
-<h3 id="Service-Worker-特点"><a href="#Service-Worker-特点" class="headerlink" title="Service Worker 特点"></a>Service Worker 特点</h3><ol>
-<li>网站必须使用 <code>HTTPS</code>。除了使用本地开发环境调试时(如域名使用 localhost)</li>
-<li>运行于浏览器后台，可以控制打开的作用域范围下所有的页面请求</li>
-<li>单独的作用域范围，单独的运行环境和执行线程</li>
-<li>不能操作页面 DOM。但可以通过事件机制来处理</li>
-</ol>
 <hr>
 <h3 id="关于事件"><a href="#关于事件" class="headerlink" title="关于事件"></a>关于事件</h3><p><strong>install</strong> 事件:当前<code>Service Worker</code>脚本被安装时，会触发 install 事件。</p>
 <p><strong>push</strong>事件:<br>push 事件是为推送通知而准备的。不过首先你需要了解一下 <code>Notification API</code> 和 <code>PUSH API</code>。</p>
@@ -576,14 +584,6 @@
             <!-- Post Prev & Next Nav -->
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
-    
-        <a href="/2018/04/23/PWA的Service-Worker/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
     
 
     <!-- Section Spacer -->
