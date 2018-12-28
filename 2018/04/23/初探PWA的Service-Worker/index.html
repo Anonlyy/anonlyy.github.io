@@ -496,12 +496,12 @@
 <ul>
 <li><strong>渐进式</strong> - 适用于所有现代浏览器，因为它是以渐进式增强作为宗旨开发的</li>
 <li><strong>离线使用</strong> - 借助 <code>Service Worker</code> 能够在离线或者网络较差的情况下正常访问</li>
+<li><strong>可安装</strong> - 用户可以添加到桌面并生成快捷方式,一键访问</li>
 <li><strong>类似应用</strong> - 由于是在 <a href="https://developers.google.cn/web/fundamentals/architecture/app-shell" target="_blank" rel="noopener"><code>App Shell</code></a> 模型基础上开发，因为应具有 <code>Native App</code> 的交互和导航，给用户 <code>Native App</code> 的体验</li>
 <li><strong>持续更新</strong> - 始终是最新的，无版本和更新问题</li>
 <li><strong>安全</strong> - 通过 <code>HTTPS</code> 协议提供服务，防止窥探和确保内容不被篡改</li>
 <li><strong>可索引</strong> - 应用清单文件和 <code>Service Worker</code> 可以让搜索引擎索引到，从而将其识别为『应用』</li>
 <li><strong>粘性</strong> - 网页已经关闭的情况下还可以通过<a href="https://zhangxinxu.github.io/https-demo/notification/basic.html" target="_blank" rel="noopener">推送后台通知</a>等，让用户回流</li>
-<li><strong>可安装</strong> - 用户可以添加到桌面并生成快捷方式,一键访问</li>
 </ul>
 <p>我们也可以通过一个DEMO看看实际效果=&gt;<a href="https://weatherpwa.baidu.com/" target="_blank" rel="noopener">天气 PWA</a></p>
 <p>而其中,<strong>PWA方案</strong>的最主要核心功能都是依赖于<code>Service Worker</code>这个API来实现的.</p>
@@ -519,8 +519,8 @@
 <li>可编程拦截代理请求和返回，缓存文件，缓存的文件可以被网页进程取到（包括网络离线状态）</li>
 <li>离线内容开发者可控</li>
 <li>能向客户端推送消息</li>
-<li>不能直接操作 DOM</li>
-<li>出于安全的考虑，必须在 HTTPS 环境下才能工作</li>
+<li><strong>不能直接操作 DOM</strong></li>
+<li>出于安全的考虑，必须在 <strong>HTTPS</strong> 环境下才能工作</li>
 </ul>
 <p>所以我们基本上知道了 <code>Service Worker</code> 的伟大使命，就是让缓存做到优雅和极致，让 Web App 相对于 Native App 的缺点更加弱化，也为开发者提供了对性能和体验的无限遐想。</p>
 <h3 id="Service-Worker工作原理"><a href="#Service-Worker工作原理" class="headerlink" title="Service Worker工作原理"></a>Service Worker工作原理</h3><p><code>Service Worker</code>的技术核心是<code>Service Worker</code>脚本，它 是一种由<code>Javascript</code>编写的浏览器端代理脚本。</p>
@@ -588,6 +588,14 @@
             <!-- Post Prev & Next Nav -->
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
+    
+        <a href="/2018/09/05/浏览器渲染与Virtual-DOM相关/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
     
 
     <!-- Section Spacer -->

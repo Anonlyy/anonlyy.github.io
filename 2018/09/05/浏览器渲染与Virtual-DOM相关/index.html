@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.4.0 -->
+    <script>window.materialVersion = "1.4.0"</script>
+
+    <!-- Title -->
+    
+    <title>
+        
+            浏览器渲染与Virtual DOM相关 | 
+        
+        Xposean&#39;s Blog
+    </title>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Xposean">
+    <meta name="description" itemprop="description" content="做一个刚刚好的前端仔">
+    <meta name="keywords" content="">
+
+    <!--百度搜索-->
+    <meta name="baidu-site-verification" content="J5O1G13OwG" />
+    <!-- Site Verification -->
+    
+    <meta name="baidu-site-verification" content="J5O1G13OwG" />
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/img/favicon.png">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Xposean&#39;s Blog">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://xposean.xin">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="浏览器渲染与Virtual DOM相关 | Xposean&#39;s Blog">
+    <meta property="og:image" content="/img/favicon.png" />
+    <meta property="og:description" content="做一个刚刚好的前端仔">
+    
+
+    
+        <meta property="article:published_time" content="9月 05, 2018" />
+        <meta property="article:modified_time" content="9月 10, 2018" />
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="浏览器渲染与Virtual DOM相关 | Xposean&#39;s Blog">
+    <meta name="twitter:description" content="做一个刚刚好的前端仔">
+    <meta name="twitter:image" content="/img/favicon.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="http://xposean.xin" />
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://xposean.xin/2018/09/05/浏览器渲染与Virtual-DOM相关/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Xposean&#39;s Blog",
+        "logo": "/img/favicon.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Xposean",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/favicon.png"
+        },
+        "description": "做一个刚刚好的前端仔,——关于我"
+    },
+    "headline": "浏览器渲染与Virtual DOM相关",
+    "url": "http://xposean.xin/2018/09/05/浏览器渲染与Virtual-DOM相关/index.html",
+    "datePublished": "9月 05, 2018",
+    "dateModified": "9月 10, 2018",
+    "description": "做一个刚刚好的前端仔",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://xposean.xin"
+    }
+}
+</script>
+
+
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+
+    <!-- Import CSS & jQuery -->
+    
+        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?rQINO5zTsIU+q3pC9SiDFQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        
+            <style id="/css/fontawesome.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("/css/fontawesome.min.css","/css/fontawesome.min.css?oOeExMqUwnGwM437AgVb5g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+        
+        
+        <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #03A9F4 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #03A9F4 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #03A9F4 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #ffffff;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+
+    <style>
+        @font-face {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 300;
+            src: url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.eot);
+            src: local('Roboto'),local('Roboto-Normal'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.eot?#iefix) format('embedded-opentype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.woff2) format('woff2'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.woff) format('woff'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.ttf) format('truetype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-300.svg#Roboto) format('svg')
+        }
+
+        @font-face {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: regular;
+            src: url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.eot);
+            src: local('Roboto'),local('Roboto-Normal'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.eot?#iefix) format('embedded-opentype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.woff2) format('woff2'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.woff) format('woff'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.ttf) format('truetype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-regular.svg#Roboto) format('svg')
+        }
+
+        @font-face {
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: 500;
+            src: url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.eot);
+            src: local('Roboto'),local('Roboto-Normal'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.eot?#iefix) format('embedded-opentype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.woff2) format('woff2'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.woff) format('woff'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.ttf) format('truetype'),url(https://lib.baomitu.com/fonts/roboto/roboto-v15-latin-500.svg#Roboto) format('svg')
+        }
+
+        @font-face {
+            font-family: 'Material Icons';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://lib.baomitu.com/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.eot);
+            src: url(https://lib.baomitu.com/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.woff2) format('woff2'),url(https://lib.baomitu.com/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.woff) format('woff'),url(https://lib.baomitu.com/material-design-icons/3.0.1/iconfont/MaterialIcons-Regular.ttf) format('truetype')
+        }
+    </style>
+
+
+        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==")</script>
+    
+    
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Analytics -->
+    
+
+    <!-- Custom Head -->
+    
+</head>
+
+
+    
+        <body id="scheme-Isolation" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+                    <!-- Isolation Header -->
+                    <header class="header">
+    <div class="header-wrapper">
+        <!-- Header Copyright -->
+        <div class="header-copyright">
+            <div class="header-site">
+                ©&nbsp;
+                <script type="text/javascript">
+                    var fd = new Date();
+                    document.write(fd.getFullYear());
+                </script>
+                &nbsp;Xposean's Blog
+            </div>
+            <!--
+            I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+            It will not impact the appearance and can give developers a lot of support :)
+
+            很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+            它不会影响美观并可以给开发者很大的支持。 :)
+            -->
+            <div>
+                Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a>
+                <br>
+                Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a>
+            </div>
+        </div>
+
+        <!-- Header Title -->
+        <span class="header-title header-item">
+            <a href="/" title="Xposean&#39;s Blog">
+                 <img src="/img/avatar.png" alt="Xposean's avatar" style="width: 44px;height: 44px;">
+                Xposean&#39;s Blog
+            </a>
+        </span>
+
+        <p class="header-slogan header-item">
+        
+            
+                做一个刚刚好的前端仔<br>——关于我
+            
+        
+        </p>
+
+
+        <!--Weather-->
+        <div id="tp-weather-widget" style="width: 100%;clear: both;margin-bottom: 30px;"></div>
+        <script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
+        <script>tpwidget("init", {
+                "flavor": "slim",
+                "location": "WX4FBXXFKE4F",
+                "geolocation": "enabled",
+                "language": "zh-chs",
+                "unit": "c",
+                "theme": "chameleon",
+                "container": "tp-weather-widget",
+                "bubble": "enabled",
+                "alarmType": "badge",
+                "uid": "U225B44085",
+                "hash": "12165cf5877927f038e9fb32ccccbd49"
+            });
+            tpwidget("show");</script>
+        <!--Weather-->
+
+        <!-- Header Nav -->
+        <nav class="header-nav header-item">
+            <span class="header-nav-item">
+                <a href="/" title="Home">
+                    <span>主页</span>
+                </a>
+            </span>
+
+            <!-- Pages  -->
+            
+                <span class="header-nav-item">
+                    <a href="/about" title="关于我">
+                        <span>关于我</span>
+                    </a>
+                </span>
+            
+                <span class="header-nav-item">
+                    <a href="/gallery" title="照片集">
+                        <span>照片集</span>
+                    </a>
+                </span>
+            
+            
+        </nav>
+
+        <!-- Header SNS -->
+        <div class="header-item header-sns_list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+        <a href="Anonlyy" target="_blank">
+            <i class="fa fa-weibo fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Anonlyy" target="_blank">
+            <i class="fa fa-github fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Telegram -->
+    
+        <a href="13160663115" target="_blank">
+            <i class="fa fa-telegram fa-lg" aria-hidden="true"></i>
+        </a>
+    
+</div>
+
+    </div>
+</header>
+
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+
+                    <!-- Post TOC -->
+
+    
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
+    
+        <!-- Post Header Info -->
+        <div class="post-header_info without-thumbnail">
+            <!-- Author Avatar & Name -->
+            <img src="/img/avatar.png" class="avatar-img" width="44px" height="44px" alt="Xposean's avatar">
+            <span class="name-span">Xposean</span>
+        </div>
+
+        <!-- Null Thumbnail -->
+        <div class="post_thumbnail-null">
+    
+        </div>
+
+
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                浏览器渲染与Virtual DOM相关
+            </p>
+            <p>##浏览器如何渲染页面</p>
+<p>作为一名web前端码农,每天都在接触着浏览器.长此以往我们都会有疑惑,浏览器是怎么解析我们的代码然后渲染的呢？弄明白浏览器的渲染原理,对于我们日常前端开发中的性能优化有重要意义。</p>
+<p>所以今天我们来给大家详细说说浏览器是怎么渲染<code>DOM</code>的。</p>
+<h3 id="浏览器渲染大致流程"><a href="#浏览器渲染大致流程" class="headerlink" title="浏览器渲染大致流程"></a>浏览器渲染大致流程</h3><p>首先,浏览器会通过请求的 <code>URL</code> 进行域名解析，向服务器发起请求,接收资源（<code>HTML</code>、<code>CSS</code>、<code>JS</code>、<code>Images</code>)等等,那么之后浏览器又会进行以下解析:</p>
+<ol>
+<li><p>解析HTML文档,生成<code>DOM Tree</code></p>
+</li>
+<li><p><code>CSS</code> 样式文件加载后，开始解析和构建 <code>CSS Rule Tree</code></p>
+</li>
+<li><p><code>Javascript</code> 脚本文件加载后， 通过 <code>DOM API</code> 和<code>CSSOM API</code> 来操作改动 <code>DOM Tree</code> 和 <code>CSS Rule Tree</code></p>
+</li>
+</ol>
+<p>而解析完以上步骤后, 浏览器会通过<code>DOM Tree</code> 和<code>CSS Rule Tree</code>来构建 <code>Render Tree</code>(<strong>渲染树</strong>)。</p>
+<p>根据渲染树来布局，以计算每个节点的几何信息。</p>
+<p>最后将各个节点绘制到页面上。</p>
+<h4 id="HTML解析"><a href="#HTML解析" class="headerlink" title="HTML解析"></a>HTML解析</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Web page parsing<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Web page parsing<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span>This is an example Web page.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>那么解析的<code>DOM</code>树就是以下这样</p>
+<p><img src="http://p53ff6x0c.bkt.clouddn.com/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6.png" alt=""></p>
+<h4 id="CSS解析"><a href="#CSS解析" class="headerlink" title="CSS解析"></a>CSS解析</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* rule 1 */</span> <span class="selector-tag">div</span> &#123; <span class="attribute">display</span>: block; <span class="attribute">text-indent</span>: <span class="number">1em</span>; &#125;</span><br><span class="line"><span class="comment">/* rule 2 */</span> <span class="selector-tag">h1</span> &#123; <span class="attribute">display</span>: block; <span class="attribute">font-size</span>: <span class="number">3em</span>; &#125;</span><br><span class="line"><span class="comment">/* rule 3 */</span> <span class="selector-tag">p</span> &#123; <span class="attribute">display</span>: block; &#125;</span><br><span class="line"><span class="comment">/* rule 4 */</span> <span class="selector-attr">[class="text"]</span> &#123; <span class="attribute">font-style</span>: italic; &#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://p53ff6x0c.bkt.clouddn.com/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%20%281%29.png" alt=""></p>
+<p><code>CSS Rule Tree</code>会比照着<code>DOM</code>树来对应生成,在这里需要注意的就是CSS匹配DOM的规则。很多人都以为CSS匹配DOM树的速度会很快,其实不然。</p>
+<blockquote>
+<p>样式系统从最右边的选择符开始向左侧移动来匹配一条规则。样式系统会一直向左匹配选择符直到规则匹配完毕或者由于出错停止匹配.</p>
+</blockquote>
+<p>这里就衍生出一个问题,为什么解析CSS的时候选择<strong>从右往左</strong>呢？</p>
+<p>为了匹配效率。</p>
+<p>所有样式规则极有可能数量很大，而且绝大多数不会匹配到当前的 DOM 元素，所以有一个快速的方法来判断「这个 selector 不匹配当前元素」就是极其重要的。</p>
+<p>如果正向解析，例如「div div p em」，我们首先就要检查当前元素到 html 的整条路径，找到最上层的 div，再往下找，如果遇到不匹配就必须回到最上层那个 div，往下再去匹配选择器中的第一个 <code>div</code>，回溯若干次才能确定匹配与否，效率很低。</p>
+<p>可以看以下的例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"jartto"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span> 111 <span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span> 222 <span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span> 333 <span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">'yellow'</span>&gt;</span> 444 <span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"jartto1"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span> 111 <span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span> 222 <span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span> 333 <span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">'red'</span>&gt;</span> 555 <span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &gt; <span class="selector-tag">div</span><span class="selector-class">.jartto</span> <span class="selector-tag">p</span> <span class="selector-tag">span</span><span class="selector-class">.yellow</span>&#123;</span><br><span class="line">   <span class="attribute">color</span>:yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于上述例子，如果按从左到右的方式进行查找：<br>1.先找到所有 <code>div</code> 节点；<br>2.在 div 节点内找到所有的子 <code>div</code> ,并且是 <code>class = “jartto”</code><br>3.然后再依次匹配 <code>p span.yellow</code> 等情况；<br>4.遇到不匹配的情况，就必须回溯到一开始搜索的 <code>div</code> 或者 <code>p</code> 节点，然后去搜索下个节点，重复这样的过程。</p>
+<p>试想一下，如果采用<code>从左至右</code>的方式读取 <code>CSS</code> 规则，那么大多数规则读到最后（最右）才会发现是不匹配的，这样会做费时耗能，最后有很多都是无用的；而如果采取<code>从右向左</code>的方式，那么只要发现最右边选择器不匹配，就可以直接舍弃了，避免了许多无效匹配。</p>
+<p>所以浏览器 <code>CSS</code> 匹配核心算法的规则是以<code>从右向左</code>方式匹配节点的。这样做是为了减少无效匹配次数，从而匹配快、性能更优。</p>
+<p><strong>CSS匹配HTML元素是一个相当复杂和有性能问题的事情。所以，你就会在N多地方看到很多人都告诉你，DOM树要小，CSS尽量用id和class，千万不要过渡层叠下去，……</strong></p>
+<h4 id="构建渲染树"><a href="#构建渲染树" class="headerlink" title="构建渲染树"></a>构建渲染树</h4><p>经运行过<code>Javascript</code>脚本后解析出了最终的<code>DOM Tree</code> 和 <code>CSS Rule Tree</code>, 根据这两者,就能合成我们的<strong><code>Render  Tree</code></strong>,网罗网页上所有可见的 <code>DOM</code> 内容，以及每个节点的所有 <code>CSSOM</code> 样式信息。</p>
+<p>为构建渲染树，浏览器大体上完成了下列工作：</p>
+<ol>
+<li>从 DOM 树的根节点开始遍历每个可见节点。<ul>
+<li>某些节点不可见（例如脚本标记、元标记等），因为它们不会体现在渲染输出中，所以会被忽略。</li>
+<li>某些节点通过 CSS 隐藏，因此在渲染树中也会被忽略，例如，上例中的 span 节点—不会出现在渲染树中，—因为有一个显式规则在该节点上设置了“display: none”属性。</li>
+</ul>
+</li>
+<li>对于每个可见节点，为其找到适配的 CSSOM 规则并应用它们。</li>
+<li>输出可见节点，连同其内容和计算的样式。</li>
+</ol>
+<h4 id="渲染的注意事项"><a href="#渲染的注意事项" class="headerlink" title="渲染的注意事项"></a>渲染的注意事项</h4><p>在这里要说下两个概念,一个是<code>repaint</code>和<code>reflow</code>，这两个是影响浏览器渲染的主要原因:</p>
+<ul>
+<li><p>Repaint–重绘,屏幕的某一部分要重新绘制,比如某个DOM元素的背景颜色改动了,但元素的位置大小没有改变。</p>
+</li>
+<li><p>Reflow–回流,代表着元素的几何尺寸(如位置、宽高、隐藏等)变了，我们需要重新<strong>验证并计算<code>Render Tree</code></strong>。是<code>Render Tree</code>的一部分或全部发生了变化。</p>
+<p>由此可以看出,我们的<code>Reflow</code>的成本要比<code>Repaint</code>高的多,<strong>在一些高性能的电脑上也许还没什么，但是如果reflow发生在手机上，那么这个过程是非常痛苦和耗电的</strong>。</p>
+<p>这也是<code>JQuery</code>在移动端页面上使用的障碍。、</p>
+</li>
+</ul>
+<p>我们来看一段<code>javascript</code>代码:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> bstyle = <span class="built_in">document</span>.body.style; <span class="comment">// cache</span></span><br><span class="line"> </span><br><span class="line">bstyle.padding = <span class="string">"20px"</span>; <span class="comment">// reflow, repaint</span></span><br><span class="line">bstyle.border = <span class="string">"10px solid red"</span>; <span class="comment">//  再一次的 reflow 和 repaint</span></span><br><span class="line"> </span><br><span class="line">bstyle.color = <span class="string">"blue"</span>; <span class="comment">// repaint</span></span><br><span class="line">bstyle.backgroundColor = <span class="string">"#fad"</span>; <span class="comment">// repaint</span></span><br><span class="line"> </span><br><span class="line">bstyle.fontSize = <span class="string">"2em"</span>; <span class="comment">// reflow, repaint</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">// new DOM element - reflow, repaint</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(<span class="built_in">document</span>.createTextNode(<span class="string">'dude!'</span>));</span><br></pre></td></tr></table></figure>
+<p>当然，我们的浏览器是聪明的，它不会像上面那样，你每改一次样式，它就reflow或repaint一次。<strong>一般来说，浏览器会把这样的操作积攒一批，然后做一次reflow，这又叫异步reflow或增量异步reflow</strong>。</p>
+<p>虽然浏览器会帮我们优化<code>reflow</code>的操作,但在实际开发过程中,我们还是得通过几种方法去减少<code>reflow</code>的操作</p>
+<h4 id="减少reflow-repaint的方法"><a href="#减少reflow-repaint的方法" class="headerlink" title="减少reflow/repaint的方法"></a>减少reflow/repaint的方法</h4><p><strong>1) 不要一条一条地修改DOM的样式。与其这样，还不如预先定义好css的class，然后修改DOM的className。</strong> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">var</span> left = <span class="number">10</span>,</span><br><span class="line">top = <span class="number">10</span>;</span><br><span class="line">el.style.left = left + <span class="string">"px"</span>;</span><br><span class="line">el.style.top  = top  + <span class="string">"px"</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// Good</span></span><br><span class="line">el.className += <span class="string">" theclassname"</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// Good</span></span><br><span class="line">el.style.cssText += <span class="string">"; left: "</span> + left + <span class="string">"px; top: "</span> + top + <span class="string">"px;"</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>2）把DOM离线后修改。如：</strong></p>
+<ul>
+<li>使用documentFragment 对象在内存里操作DOM</li>
+<li>先把DOM给display:none(有一次reflow)，然后你想怎么改就怎么改。比如修改100次，然后再把他显示出来。</li>
+<li>clone一个DOM结点到内存里，然后想怎么改就怎么改，改完后，和在线的那个的交换一下。</li>
+</ul>
+<p><strong>3）不要把DOM结点的属性值放在一个循环里当成循环里的变量。</strong>不然这会导致大量地读写这个结点的属性。</p>
+<p><strong>4）千万不要使用table布局</strong>。因为可能很小的一个小改动会造成整个table的重新布局。 </p>
+<p><strong>5）尽可能的修改层级比较低的DOM</strong>。当然，改变层级比较底的DOM有可能会造成大面积的reflow，但是也可能影响范围很小。 </p>
+<hr>
+<h2 id="Virtual-DOM"><a href="#Virtual-DOM" class="headerlink" title="Virtual DOM"></a>Virtual DOM</h2><h3 id="Virtual-DOM是什么"><a href="#Virtual-DOM是什么" class="headerlink" title="Virtual DOM是什么?"></a>Virtual DOM是什么?</h3><p>​    大部分前端开发者对<code>Virtual DOM</code>这个词都很熟悉了,简单来讲，<code>Virtual DOM</code>就是在数据和真实 <code>DOM</code> 之间建立了一层缓冲层。当数据变化触发渲染后，并不直接更新到<code>DOM</code>上，而是先生成 <code>Virtual DOM</code>，与上一次渲染得到的 <code>Virtual DOM</code> 进行比对，在渲染得到的 <code>Virtual DOM</code> 上发现变化，然后将变化的地方更新到真实 <code>DOM</code> 上。 </p>
+<h3 id="为什么说Virtual-DOM快"><a href="#为什么说Virtual-DOM快" class="headerlink" title="为什么说Virtual DOM快?"></a>为什么说Virtual DOM快?</h3><p><strong>1）DOM结构复杂,操作很慢 </strong></p>
+<p>我们在控制台输入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">''</span> </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> div) &#123;</span><br><span class="line">    str = str + key + <span class="string">"\n"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(str)</span><br></pre></td></tr></table></figure>
+<p>可以很容易发现,我们的一个空div对象,他的属性就有几百个,所以说DOM的操作慢是可以理解的。不是浏览器不想好好实现DOM，而是DOM设计得太复杂，没办法。 </p>
+<p><strong>2）JS计算很快</strong></p>
+<p><a href="https://julialang.org/benchmarks/" target="_blank" rel="noopener">https://julialang.org/benchmarks/</a></p>
+<p>Julia有一个Benchmark，<a href="https://link.zhihu.com/?target=http%3A//julialang.org/benchmarks/" target="_blank" rel="noopener">Julia Benchmarks</a>， 可以看到<code>Javascript</code>跟<code>C</code>语言很接近了，也就几倍的差距，跟Java基本也是一个量级。 这就说明，单纯的Javascript运行起来其实速度是很快的。 </p>
+<p>而相对于<code>DOM</code>,我们原生的<code>JavaScript</code>对象处理起来则会更快更简单.</p>
+<p>我们通过<code>JavaScript</code>,可以很容易的用<code>JavaScript</code>对象表示出来.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> olE = &#123;</span><br><span class="line">  tagName: <span class="string">'ul'</span>, <span class="comment">// 标签名</span></span><br><span class="line">  props: &#123; <span class="comment">// 属性用对象存储键值对</span></span><br><span class="line">    id: <span class="string">'ul-list'</span>,</span><br><span class="line">    class: 'list'</span><br><span class="line">  &#125;,</span><br><span class="line">  children: [ <span class="comment">// 子节点</span></span><br><span class="line">    &#123;<span class="attr">tagName</span>: <span class="string">'li'</span>, <span class="attr">props</span>: &#123;<span class="attr">class</span>: <span class="string">'item'</span>&#125;, <span class="attr">children</span>: [<span class="string">"Item 1"</span>]&#125;,</span><br><span class="line">    &#123;<span class="attr">tagName</span>: <span class="string">'li'</span>, <span class="attr">props</span>: &#123;<span class="attr">class</span>: <span class="string">'item'</span>&#125;, <span class="attr">children</span>: [<span class="string">"Item 2"</span>]&#125;,</span><br><span class="line">    &#123;<span class="attr">tagName</span>: <span class="string">'li'</span>, <span class="attr">props</span>: &#123;<span class="attr">class</span>: <span class="string">'item'</span>&#125;, <span class="attr">children</span>: [<span class="string">"Item 3"</span>]&#125;,</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对应的HTML写法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=&apos;ol-list&apos;&gt;</span><br><span class="line">  &lt;li class=&apos;item&apos;&gt;Item 1&lt;/li&gt;</span><br><span class="line">  &lt;li class=&apos;item&apos;&gt;Item 2&lt;/li&gt;</span><br><span class="line">  &lt;li class=&apos;item&apos;&gt;Item 3&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<p>那么,既然我们可以用<code>javascript</code>来表示<code>DOM</code>，那么代表我们可以用<code>JavaScript</code>来构造我们的真实<code>DOM</code>树,当我们的<code>DOM</code>树需要更新了,那我们先渲染更改这个<code>JavaScript</code>构造的<code>Virtual DOM</code>树,再更新到真实DOM树上。</p>
+<p> 所以<code>Virtual DOM</code>算法就是：</p>
+<p>一开始先用 JavaScript 对象结构表示 DOM 树的结构；然后用这个树构建一个真正的 DOM 树，插到文</p>
+<p>档当中。当状态变更时，重新构造一棵新的对象树。然后用新的树和旧的树进行比较两个树的差异。</p>
+<p>然后把差异更新到旧的树上，最后再把整个变更写入真实 DOM。 </p>
+<h3 id="简单Virtual-DOM-算法实现"><a href="#简单Virtual-DOM-算法实现" class="headerlink" title="简单Virtual DOM 算法实现"></a>简单Virtual DOM 算法实现</h3><h4 id="步骤一：用JS对象模拟DOM树-并构建"><a href="#步骤一：用JS对象模拟DOM树-并构建" class="headerlink" title="步骤一：用JS对象模拟DOM树,并构建"></a>步骤一：用JS对象模拟DOM树,并构建</h4><p>用 JavaScript 来表示一个 DOM 节点是很简单的事情，你只需要记录它的节点类型、属性，还有子节点： </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建虚拟DOM函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Element</span> (<span class="params">tagName, props, children</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.tagName = tagName <span class="comment">// 标签名</span></span><br><span class="line">  <span class="keyword">this</span>.props = props <span class="comment">// 对应属性（如ID、Class）</span></span><br><span class="line">  <span class="keyword">this</span>.children = children <span class="comment">// 子元素</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span> (<span class="params">tagName, props, children</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> Element(tagName, props, children)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实际应用如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> el = <span class="built_in">require</span>(<span class="string">'./element'</span>)</span><br><span class="line"><span class="comment">// 普通ul和li对象就可以表示为这样</span></span><br><span class="line"><span class="keyword">var</span> ul = el(<span class="string">'ul'</span>, &#123;<span class="attr">id</span>: <span class="string">'list'</span>&#125;, [</span><br><span class="line">  el(<span class="string">'li'</span>, &#123;<span class="attr">class</span>: <span class="string">'item'</span>&#125;, [<span class="string">'Item 1'</span>]),</span><br><span class="line">  el(<span class="string">'li'</span>, &#123;<span class="attr">class</span>: <span class="string">'item'</span>&#125;, [<span class="string">'Item 2'</span>]),</span><br><span class="line">  el(<span class="string">'li'</span>, &#123;<span class="attr">class</span>: <span class="string">'item'</span>&#125;, [<span class="string">'Item 3'</span>])</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+<p>现在<code>ul</code>只是一个 JavaScript 对象表示的 DOM 结构，页面上并没有这个结构。我们可以根据这个<code>ul</code>构建真正的<code>&lt;ul&gt;</code>元素： </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构建真实DOM函数</span></span><br><span class="line">Element.prototype.render = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> el = <span class="built_in">document</span>.createElement(<span class="keyword">this</span>.tagName) <span class="comment">// 根据tagName构建</span></span><br><span class="line">  <span class="keyword">var</span> props = <span class="keyword">this</span>.props</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> propName <span class="keyword">in</span> props) &#123; <span class="comment">// 设置节点的DOM属性</span></span><br><span class="line">    <span class="keyword">var</span> propValue = props[propName]</span><br><span class="line">    el.setAttribute(propName, propValue)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> children = <span class="keyword">this</span>.children || []</span><br><span class="line"></span><br><span class="line">  children.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">child</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> childEl = (child <span class="keyword">instanceof</span> Element)</span><br><span class="line">      ? child.render() <span class="comment">// 如果子节点也是虚拟DOM，递归构建DOM节点</span></span><br><span class="line">      : <span class="built_in">document</span>.createTextNode(child) <span class="comment">// 如果字符串，只构建文本节点</span></span><br><span class="line">    el.appendChild(childEl)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> el</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们的<code>render</code>方法会根据<code>tagName</code>去构建一个真实的<code>DOM</code>节点,设置节点属性,再递归到子元素构建:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ulRoot = ul.render() <span class="comment">// 将js构建的dom对象传给render构建</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(ulRoot) <span class="comment">// 真实的DOM对象塞入body</span></span><br></pre></td></tr></table></figure>
+<p>这样我们body中就有了ul和li的DOM元素了</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">'list'</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">'item'</span>&gt;</span>Item 1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">'item'</span>&gt;</span>Item 2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">'item'</span>&gt;</span>Item 3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="步骤二：比较两棵虚拟DOM树的差异"><a href="#步骤二：比较两棵虚拟DOM树的差异" class="headerlink" title="步骤二：比较两棵虚拟DOM树的差异"></a>步骤二：比较两棵虚拟DOM树的差异</h4><p>在这里我们假设对我们修改了某个状态或者某个数据,这就会产生新的虚拟DOM</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 新DOM</span></span><br><span class="line"><span class="keyword">var</span> ol = el(<span class="string">'ol'</span>, &#123;<span class="attr">id</span>: <span class="string">'ol-list'</span>&#125;, [</span><br><span class="line">  el(<span class="string">'li'</span>, &#123;<span class="attr">class</span>: <span class="string">'ol-item'</span>&#125;, [<span class="string">'Item 1'</span>]),</span><br><span class="line">  el(<span class="string">'li'</span>, &#123;<span class="attr">class</span>: <span class="string">'ol-item'</span>&#125;, [<span class="string">'Item 2'</span>]),</span><br><span class="line">  el(<span class="string">'li'</span>, &#123;<span class="attr">class</span>: <span class="string">'ol-item'</span>&#125;, [<span class="string">'Item 3'</span>]),</span><br><span class="line">  el(<span class="string">'li'</span>, &#123;<span class="attr">class</span>: <span class="string">'ol-item'</span>&#125;, [<span class="string">'Item 4'</span>])</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="comment">// 旧DOM</span></span><br><span class="line"><span class="keyword">var</span> ul = el(<span class="string">'ul'</span>, &#123;<span class="attr">id</span>: <span class="string">'list'</span>&#125;, [</span><br><span class="line">  el(<span class="string">'li'</span>, &#123;<span class="attr">class</span>: <span class="string">'item'</span>&#125;, [<span class="string">'Item 1'</span>]),</span><br><span class="line">  el(<span class="string">'li'</span>, &#123;<span class="attr">class</span>: <span class="string">'item'</span>&#125;, [<span class="string">'Item 3'</span>]),</span><br><span class="line">  el(<span class="string">'li'</span>, &#123;<span class="attr">class</span>: <span class="string">'item'</span>&#125;, [<span class="string">'Item 2'</span>])</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+<p>那么我们会和先和,刚刚上一次生成的虚拟DOM树进行比对.</p>
+<p>我们应该都很清楚,virtual DOM算法的核心部分,就在比较差异这一部分,也就是所谓的 <code>diff</code>算法。</p>
+<p>因为很少出现跨层级的移动。</p>
+<p><code>diff</code>算法一般来说,都是同一层级比对同一层级的</p>
+<p><img src="https://images2015.cnblogs.com/blog/328599/201704/328599-20170418103314493-66729150.png" alt=""></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> patch = &#123;</span><br><span class="line">    <span class="string">'REPLACE'</span> : <span class="number">0</span>, <span class="comment">// 替换</span></span><br><span class="line">    <span class="string">'REORDER'</span> : <span class="number">1</span>, <span class="comment">// 新增、删除、移动</span></span><br><span class="line">    <span class="string">'PROPS'</span> : <span class="number">2</span>, <span class="comment">// 属性更改</span></span><br><span class="line">    <span class="string">'TEXT'</span> : <span class="number">3</span> <span class="comment">// 文本内容更改</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例如，上面的<code>div</code>和新的<code>div</code>有差异，当前的标记是0，那么：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用数组存储新旧节点的不同</span></span><br><span class="line">patches = [</span><br><span class="line">    <span class="comment">// 每个数组表示一个元素的差异</span></span><br><span class="line">    [ </span><br><span class="line">        &#123;difference&#125;, </span><br><span class="line">    	&#123;difference&#125;</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        &#123;difference&#125;, </span><br><span class="line">    	&#123;difference&#125;</span><br><span class="line">    ]  </span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">patches[<span class="number">0</span>] = [</span><br><span class="line">  &#123;</span><br><span class="line">  	type: REPALCE,</span><br><span class="line">  	node: newNode <span class="comment">// el('section', props, children)</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">  	type: PROPS,</span><br><span class="line">    props: &#123;</span><br><span class="line">        id: <span class="string">"container"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,   </span><br><span class="line">  &#123;</span><br><span class="line">  	type: REORDER,</span><br><span class="line">      moves: [</span><br><span class="line">          &#123;<span class="attr">index</span>: <span class="number">2</span>, <span class="attr">item</span>: item, <span class="attr">type</span>: <span class="number">1</span>&#125;, <span class="comment">// 保留的节点</span></span><br><span class="line">          &#123;<span class="attr">index</span>: <span class="number">0</span>, <span class="attr">type</span>: <span class="number">0</span>&#125;, <span class="comment">// 该节点被删除</span></span><br><span class="line">          &#123;<span class="attr">index</span>: <span class="number">1</span>, <span class="attr">item</span>: item, <span class="attr">type</span>: <span class="number">1</span>&#125; <span class="comment">// 保留的节点</span></span><br><span class="line">      ]</span><br><span class="line">  &#125;</span><br><span class="line">];</span><br><span class="line">如果是文本节点内容更改，就记录下：</span><br><span class="line">patches[<span class="number">2</span>] = [&#123;</span><br><span class="line">  type: TEXT,</span><br><span class="line">  content: <span class="string">"我是新修改的文本内容"</span></span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 详细算法查看diff.js</span></span><br></pre></td></tr></table></figure>
+<p>每种差异都会有不同的对比方式,通过比对后会将差异记录下来,应用到真实DOM上,并把最近最新的虚拟DOM树保存下来,以便下次比对使用。</p>
+<h4 id="步骤三：把差异应用到真正的DOM树上"><a href="#步骤三：把差异应用到真正的DOM树上" class="headerlink" title="步骤三：把差异应用到真正的DOM树上"></a>步骤三：把差异应用到真正的DOM树上</h4><p>通过比对后,我们已经知道了,差异的节点是哪些,我们可以方便对真实DOM做最小化的修改。 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 详情看patch.js</span></span><br></pre></td></tr></table></figure>
+<h4 id="发现问题"><a href="#发现问题" class="headerlink" title="发现问题"></a>发现问题</h4><p>到这里我们发现一个问题,不是说 <code>Virtual DOM</code>更快吗? 可是最终你还是要进行DOM操作呀?那意义何在？还不如一开始我们就直接进行DOM操作来的方便。</p>
+<p>所以到这里我们要对<code>Virtual DOM</code> 有一个正确的认识</p>
+<p><a href="https://www.zhihu.com/question/31809713/answer/53544875" target="_blank" rel="noopener">网上都说操作真实 DOM 慢，但测试结果却比 React 更快，为什么？</a></p>
+<p><a href="http://chrisharrington.github.io/demos/performance/" target="_blank" rel="noopener">http://chrisharrington.github.io/demos/performance/</a></p>
+<blockquote>
+<p>最优更改</p>
+</blockquote>
+<p>Virtual DOM的算法能够向你保证的就是,每一次的DOM操作我都能达到算法上的理论最优,而如果是你自己去操作DOM,这并不能保证。</p>
+<p>其次</p>
+<blockquote>
+<p>开发模式的更改</p>
+</blockquote>
+<p><strong>为了让开发者把精力集中在操作数据，而非接管 DOM 操作</strong>。Virtual DOM能让我们在实际开发过程中,不需要去理会复杂的DOM结构,而只需理会绑定DOM结构的状态和数据即可,这从开发上来说 就是一个很大的进步</p>
+
+        </div>
+    
+</div>
+
+
+                
+                    <!-- Paradox Post Info -->
+                    
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/04/23/初探PWA的Service-Worker/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+
+
+
+</footer>
+
+
+                    <!-- Import File -->
+
+
+    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==")</script>
+    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+
+
+
+    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("js/smoothscroll.js","/js/smoothscroll.js?tNQK2Tw2SUL8a1Scn/Mgew==")</script>
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Window Load-->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Bing Background -->
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+            <script type="text/javascript" src="//github.atool.org/canvas-nest.min.js"></script>
+        </body>
+    
+</html>
