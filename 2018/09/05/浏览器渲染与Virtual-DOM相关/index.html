@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -36,13 +36,13 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Xposean">
     <meta name="description" itemprop="description" content="做一个刚刚好的前端仔">
-    <meta name="keywords" content="">
+    <meta name="keywords" content>
 
     <!--百度搜索-->
-    <meta name="baidu-site-verification" content="J5O1G13OwG" />
+    <meta name="baidu-site-verification" content="J5O1G13OwG">
     <!-- Site Verification -->
     
-    <meta name="baidu-site-verification" content="J5O1G13OwG" />
+    <meta name="baidu-site-verification" content="J5O1G13OwG">
 
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
@@ -68,25 +68,25 @@
     <meta property="og:url" content="http://xposean.xin">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="浏览器渲染与Virtual DOM相关 | Xposean&#39;s Blog">
-    <meta property="og:image" content="/img/favicon.png" />
+    <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="做一个刚刚好的前端仔">
     
 
     
-        <meta property="article:published_time" content="9月 05, 2018" />
-        <meta property="article:modified_time" content="9月 10, 2018" />
+        <meta property="article:published_time" content="9月 05, 2018">
+        <meta property="article:modified_time" content="9月 10, 2018">
     
 
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="浏览器渲染与Virtual DOM相关 | Xposean&#39;s Blog">
     <meta name="twitter:description" content="做一个刚刚好的前端仔">
     <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="http://xposean.xin" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="http://xposean.xin">
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://xposean.xin/2018/09/05/浏览器渲染与Virtual-DOM相关/index.html" />
+        <link rel="canonical" href="http://xposean.xin/2018/09/05/浏览器渲染与Virtual-DOM相关/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -508,9 +508,9 @@
 <p>最后将各个节点绘制到页面上。</p>
 <h4 id="HTML解析"><a href="#HTML解析" class="headerlink" title="HTML解析"></a>HTML解析</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Web page parsing<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Web page parsing<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"text"</span>&gt;</span>This is an example Web page.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>那么解析的<code>DOM</code>树就是以下这样</p>
-<p><img src="http://p53ff6x0c.bkt.clouddn.com/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6.png" alt=""></p>
+<p><img src="http://p53ff6x0c.bkt.clouddn.com/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6.png" alt></p>
 <h4 id="CSS解析"><a href="#CSS解析" class="headerlink" title="CSS解析"></a>CSS解析</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* rule 1 */</span> <span class="selector-tag">div</span> &#123; <span class="attribute">display</span>: block; <span class="attribute">text-indent</span>: <span class="number">1em</span>; &#125;</span><br><span class="line"><span class="comment">/* rule 2 */</span> <span class="selector-tag">h1</span> &#123; <span class="attribute">display</span>: block; <span class="attribute">font-size</span>: <span class="number">3em</span>; &#125;</span><br><span class="line"><span class="comment">/* rule 3 */</span> <span class="selector-tag">p</span> &#123; <span class="attribute">display</span>: block; &#125;</span><br><span class="line"><span class="comment">/* rule 4 */</span> <span class="selector-attr">[class="text"]</span> &#123; <span class="attribute">font-style</span>: italic; &#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://p53ff6x0c.bkt.clouddn.com/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%20%281%29.png" alt=""></p>
+<p><img src="http://p53ff6x0c.bkt.clouddn.com/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%20%281%29.png" alt></p>
 <p><code>CSS Rule Tree</code>会比照着<code>DOM</code>树来对应生成,在这里需要注意的就是CSS匹配DOM的规则。很多人都以为CSS匹配DOM树的速度会很快,其实不然。</p>
 <blockquote>
 <p>样式系统从最右边的选择符开始向左侧移动来匹配一条规则。样式系统会一直向左匹配选择符直到规则匹配完毕或者由于出错停止匹配.</p>
@@ -596,7 +596,7 @@
 <p>我们应该都很清楚,virtual DOM算法的核心部分,就在比较差异这一部分,也就是所谓的 <code>diff</code>算法。</p>
 <p>因为很少出现跨层级的移动。</p>
 <p><code>diff</code>算法一般来说,都是同一层级比对同一层级的</p>
-<p><img src="https://images2015.cnblogs.com/blog/328599/201704/328599-20170418103314493-66729150.png" alt=""></p>
+<p><img src="https://images2015.cnblogs.com/blog/328599/201704/328599-20170418103314493-66729150.png" alt></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> patch = &#123;</span><br><span class="line">    <span class="string">'REPLACE'</span> : <span class="number">0</span>, <span class="comment">// 替换</span></span><br><span class="line">    <span class="string">'REORDER'</span> : <span class="number">1</span>, <span class="comment">// 新增、删除、移动</span></span><br><span class="line">    <span class="string">'PROPS'</span> : <span class="number">2</span>, <span class="comment">// 属性更改</span></span><br><span class="line">    <span class="string">'TEXT'</span> : <span class="number">3</span> <span class="comment">// 文本内容更改</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>例如，上面的<code>div</code>和新的<code>div</code>有差异，当前的标记是0，那么：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用数组存储新旧节点的不同</span></span><br><span class="line">patches = [</span><br><span class="line">    <span class="comment">// 每个数组表示一个元素的差异</span></span><br><span class="line">    [ </span><br><span class="line">        &#123;difference&#125;, </span><br><span class="line">    	&#123;difference&#125;</span><br><span class="line">    ],</span><br><span class="line">    [</span><br><span class="line">        &#123;difference&#125;, </span><br><span class="line">    	&#123;difference&#125;</span><br><span class="line">    ]  </span><br><span class="line">]</span><br></pre></td></tr></table></figure>

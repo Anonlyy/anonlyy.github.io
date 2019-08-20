@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -36,13 +36,13 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Xposean">
     <meta name="description" itemprop="description" content="做一个刚刚好的前端仔">
-    <meta name="keywords" content="">
+    <meta name="keywords" content>
 
     <!--百度搜索-->
-    <meta name="baidu-site-verification" content="J5O1G13OwG" />
+    <meta name="baidu-site-verification" content="J5O1G13OwG">
     <!-- Site Verification -->
     
-    <meta name="baidu-site-verification" content="J5O1G13OwG" />
+    <meta name="baidu-site-verification" content="J5O1G13OwG">
 
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
@@ -68,25 +68,25 @@
     <meta property="og:url" content="http://xposean.xin">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="初探PWA的Service Worker | Xposean&#39;s Blog">
-    <meta property="og:image" content="/img/favicon.png" />
+    <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="做一个刚刚好的前端仔">
     
 
     
-        <meta property="article:published_time" content="4月 23, 2018" />
-        <meta property="article:modified_time" content="5月 24, 2018" />
+        <meta property="article:published_time" content="4月 23, 2018">
+        <meta property="article:modified_time" content="5月 24, 2018">
     
 
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="初探PWA的Service Worker | Xposean&#39;s Blog">
     <meta name="twitter:description" content="做一个刚刚好的前端仔">
     <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="http://xposean.xin" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="http://xposean.xin">
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://xposean.xin/2018/04/23/初探PWA的Service-Worker/index.html" />
+        <link rel="canonical" href="http://xposean.xin/2018/04/23/初探PWA的Service-Worker/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -526,7 +526,7 @@
 <h3 id="Service-Worker工作原理"><a href="#Service-Worker工作原理" class="headerlink" title="Service Worker工作原理"></a>Service Worker工作原理</h3><p><code>Service Worker</code>的技术核心是<code>Service Worker</code>脚本，它 是一种由<code>Javascript</code>编写的浏览器端代理脚本。</p>
 <p>前端页面向内核发起注册时会将脚本地址通知内核，内核会启动独立进/线程加载<code>Service Worker</code>脚本并执行<code>Service Worker</code>安装及激活动作。成功激活后便进入空闲等待状态，若当前的<code>Service Worker</code>进/线程一直没有管辖的页面或者事件消息时会自动终止（具体的终止策略视不同浏览器及版本而定，不会影响前端编写逻辑，但前端勿在<code>Service Worker</code>脚本中保存需要持久化的信息，可以借助<code>localstorage</code>），当打开新的可管辖页面或者已管辖页面发起<code>message</code>等消息时，<code>Service Worker</code>进/线程会被重新唤起。</p>
 <p>每当已安装的<code>Service Worker</code>有管辖页面被打开时，便会触发<code>Service Worker</code>脚本更新，当<code>Service Worker</code>脚本发生了更改，便会忽略本地网络<code>cache</code>的<code>Service Worker</code>脚本直接从网络拉取。若网络拉取的与本地有一个字节的差异都会触发<code>Service Worker</code>脚本的更新，更新流程与安装类似，只是在更新安装成功后不会立即进入<code>active</code>状态，需要等待旧版本的<code>Service Worker</code>进/线程终止。</p>
-<p><img src="https://x5.tencent.com/tbs/img/article/sw-1.png" alt=""></p>
+<p><img src="https://x5.tencent.com/tbs/img/article/sw-1.png" alt></p>
 <h3 id="实例代码"><a href="#实例代码" class="headerlink" title="实例代码"></a>实例代码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在html里注册service-worker</span></span><br><span class="line"><span class="keyword">if</span> (navigator.serviceWorker != <span class="literal">null</span>) &#123;</span><br><span class="line">    navigator.serviceWorker.register(<span class="string">'sw.js'</span>)</span><br><span class="line">      .then(<span class="function"><span class="keyword">function</span>(<span class="params">registration</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Registered events at scope: '</span>, registration.scope);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 首先定义需要缓存的路径, 以及需要缓存的静态文件的列表。</span></span><br><span class="line"><span class="keyword">var</span> cacheStorageKey = <span class="string">'minimal-pwa-8'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cacheList = [</span><br><span class="line">  <span class="string">'/'</span>,</span><br><span class="line">  <span class="string">"index.html"</span>,</span><br><span class="line">  <span class="string">"main.css"</span>,</span><br><span class="line">  <span class="string">"e.png"</span>,</span><br><span class="line">  <span class="string">"*.png"</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 借助 Service Worker, 可以在注册完成安装 Service Worker 时, 抓取资源写入缓存:</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'install'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Cache event!'</span>)</span><br><span class="line">  e.waitUntil(</span><br><span class="line">    caches.open(cacheStorageKey).then(<span class="function"><span class="keyword">function</span>(<span class="params">cache</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Adding to Cache:'</span>, cacheList)</span><br><span class="line">      <span class="keyword">return</span> cache.addAll(cacheList) </span><br><span class="line">    &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Skip waiting!'</span>)</span><br><span class="line">      <span class="keyword">return</span> self.skipWaiting()</span><br><span class="line">    &#125;)</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 网页抓取资源的过程中, 在 Service Worker 可以捕获到 fetch 事件, 可以编写代码决定如何响应资源的请求:</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'fetch'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// console.log('Fetch event:', e.request.url)</span></span><br><span class="line">  e.respondWith(</span><br><span class="line">    caches.match(e.request).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (response != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Using cache for:'</span>, e.request.url)</span><br><span class="line">        <span class="keyword">return</span> response</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'Fallback to fetch:'</span>, e.request.url)</span><br><span class="line">      <span class="keyword">return</span> fetch(e.request.url)</span><br><span class="line">    &#125;)</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <hr>
@@ -565,9 +565,9 @@
 </blockquote>
 <p>毕竟是自家产品,chrome浏览器肯定是支持度最高的浏览器,chrome64版本是基本支持所有PWA功能<code>API</code>的。</p>
 <p>但国内的浏览器·支持情况相对差一些,而且chrome移动版的使用人群还是偏少的,不过在UC的支持程度也不低</p>
-<p><img src="http://p53ff6x0c.bkt.clouddn.com/18-4-24/56137583.jpg" alt=""></p>
-<p><img src="http://p53ff6x0c.bkt.clouddn.com/18-4-24/70665880.jpg" alt=""></p>
-<p><img src="http://p53ff6x0c.bkt.clouddn.com/18-4-24/79002804.jpg" alt=""></p>
+<p><img src="http://p53ff6x0c.bkt.clouddn.com/18-4-24/56137583.jpg" alt></p>
+<p><img src="http://p53ff6x0c.bkt.clouddn.com/18-4-24/70665880.jpg" alt></p>
+<p><img src="http://p53ff6x0c.bkt.clouddn.com/18-4-24/79002804.jpg" alt></p>
 
         </div>
     

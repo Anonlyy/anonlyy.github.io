@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -36,13 +36,13 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Xposean">
     <meta name="description" itemprop="description" content="做一个刚刚好的前端仔">
-    <meta name="keywords" content="">
+    <meta name="keywords" content>
 
     <!--百度搜索-->
-    <meta name="baidu-site-verification" content="J5O1G13OwG" />
+    <meta name="baidu-site-verification" content="J5O1G13OwG">
     <!-- Site Verification -->
     
-    <meta name="baidu-site-verification" content="J5O1G13OwG" />
+    <meta name="baidu-site-verification" content="J5O1G13OwG">
 
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
@@ -68,25 +68,25 @@
     <meta property="og:url" content="http://xposean.xin">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="前端包管理器的发展 | Xposean&#39;s Blog">
-    <meta property="og:image" content="/img/favicon.png" />
+    <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="做一个刚刚好的前端仔">
     
 
     
-        <meta property="article:published_time" content="12月 08, 2017" />
-        <meta property="article:modified_time" content="12月 10, 2017" />
+        <meta property="article:published_time" content="12月 08, 2017">
+        <meta property="article:modified_time" content="12月 10, 2017">
     
 
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="前端包管理器的发展 | Xposean&#39;s Blog">
     <meta name="twitter:description" content="做一个刚刚好的前端仔">
     <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="http://xposean.xin" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="http://xposean.xin">
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://xposean.xin/2017/12/08/前端包管理器的发展/index.html" />
+        <link rel="canonical" href="http://xposean.xin/2017/12/08/前端包管理器的发展/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -516,7 +516,7 @@
 <hr>
 <h2 id="Yarn"><a href="#Yarn" class="headerlink" title="Yarn"></a>Yarn</h2><p>facebook发布的新一代包管理工具，旨在解决以往使用npm作为包管理会遇到的一些问题。从其官方介绍可以看到其重点强调的3个点：快、可靠、安全。</p>
 <h3 id="yarn的优势"><a href="#yarn的优势" class="headerlink" title="yarn的优势"></a>yarn的优势</h3><p>相比于<code>Node</code>的亲儿子<code>npm</code>来说，<code>yarn</code>有以下优势:</p>
-<p>1、安装模块速度更快<br><img src="http://7tszky.com1.z0.glb.clouddn.com/FifXFXX6rNLMtwA5xuvB85DzDL0M" alt=""></p>
+<p>1、安装模块速度更快<br><img src="http://7tszky.com1.z0.glb.clouddn.com/FifXFXX6rNLMtwA5xuvB85DzDL0M" alt></p>
 <p>2、支持离线模式(只要你安装过此模块，第二次安装就会从缓存文件中直接复制过来)<br><code>yarn</code>会有一个缓存目录，会缓存以前安装过的软件包，再次安装时就不必从网络下载了，大大加速安装速度。<br>这一点很重要，<code>npm</code> 饱受诟病的一点就是，每次安装依赖，都需要从网络下载一大堆东西，而且是全部重新下载，工程多的时候比较烦人。</p>
 <p>3、依赖关系确定性.<br>在每一台机器上针对同一个工程安装依赖时，生成的依赖关系顺序和版本是一致的。<br>之前 npm 在这里有一个处理得不好的地方 。举例来说，我写的工程依赖 A, B, C 三个库，我在编写 package.json 的时候，给 A, B, C 都指定了版本号。但是 A 库可能又依赖 D, E, F 库，D 库又依赖 G, H 库。这么多关联依赖关系中，<strong>很可能某个库在指定依赖时，没有指定版本号</strong>。<br>于是，这就导致了一个问题。如果我在另一台机器上对同样的工程安装依赖，或者把这台机器工程下的 node_modules 目录删除来重新安装依赖。由于关联依赖中，没有指定版本号的库，发生了版本更新，就会导致再次安装的依赖，其中具体某些软件包的版本是不一致的。在这种情况下，你会发现原来能够正常运行的程序，忽然变得不能工作或一堆 BUG.</p>
 <p>而<code>yarn</code>在解析package.json文件时，会对其每个依赖包进行遍历分析生成yarn.lock文件。该文件描述了项目中每个包以及每个包中所依赖的包的版本信息。</p>

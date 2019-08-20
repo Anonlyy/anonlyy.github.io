@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -36,13 +36,13 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Xposean">
     <meta name="description" itemprop="description" content="做一个刚刚好的前端仔">
-    <meta name="keywords" content="">
+    <meta name="keywords" content>
 
     <!--百度搜索-->
-    <meta name="baidu-site-verification" content="J5O1G13OwG" />
+    <meta name="baidu-site-verification" content="J5O1G13OwG">
     <!-- Site Verification -->
     
-    <meta name="baidu-site-verification" content="J5O1G13OwG" />
+    <meta name="baidu-site-verification" content="J5O1G13OwG">
 
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
@@ -68,25 +68,25 @@
     <meta property="og:url" content="http://xposean.xin">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="谈谈现在的移动端页面调试 | Xposean&#39;s Blog">
-    <meta property="og:image" content="/img/favicon.png" />
+    <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="做一个刚刚好的前端仔">
     
 
     
-        <meta property="article:published_time" content="12月 19, 2017" />
-        <meta property="article:modified_time" content="12月 19, 2017" />
+        <meta property="article:published_time" content="12月 19, 2017">
+        <meta property="article:modified_time" content="12月 19, 2017">
     
 
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="谈谈现在的移动端页面调试 | Xposean&#39;s Blog">
     <meta name="twitter:description" content="做一个刚刚好的前端仔">
     <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="http://xposean.xin" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="http://xposean.xin">
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://xposean.xin/2017/12/19/谈谈现在的移动端页面调试/index.html" />
+        <link rel="canonical" href="http://xposean.xin/2017/12/19/谈谈现在的移动端页面调试/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -541,7 +541,7 @@ Object
  */
 </code></pre><p>使用<code>vConsole</code>可以很方便的log我们想要的信息,只是需要引入一个库文件,而且不支持代码断点,以及不支持查看元素的样式是写在<code>css</code>第几行，也不支持显示在哪个文件，于是还有一种更加好的方案.</p>
 <hr>
-<h2 id="Chrome远程调试-Remote-Debugging"><a href="#Chrome远程调试-Remote-Debugging" class="headerlink" title="Chrome远程调试(Remote Debugging)"></a>Chrome远程调试(Remote Debugging)</h2><p><img src="http://images.cnitblog.com/blog/494920/201411/130923544443367.jpg" alt=""><br><code>Chrome</code>浏览器是可以通过USB连接移动设备进行远程Web页面调试的,上图的左边是pc端的chrome浏览器，右边是手机上的<code>Chrome</code> 然后可以看到当鼠标移动到某个<code>div</code>上时 手机上的这个区域高亮显示 跟pc上调试某段代码效果一样 你可以修改代码 并直接在手机上反馈修改结果</p>
+<h2 id="Chrome远程调试-Remote-Debugging"><a href="#Chrome远程调试-Remote-Debugging" class="headerlink" title="Chrome远程调试(Remote Debugging)"></a>Chrome远程调试(Remote Debugging)</h2><p><img src="http://images.cnitblog.com/blog/494920/201411/130923544443367.jpg" alt><br><code>Chrome</code>浏览器是可以通过USB连接移动设备进行远程Web页面调试的,上图的左边是pc端的chrome浏览器，右边是手机上的<code>Chrome</code> 然后可以看到当鼠标移动到某个<code>div</code>上时 手机上的这个区域高亮显示 跟pc上调试某段代码效果一样 你可以修改代码 并直接在手机上反馈修改结果</p>
 <h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>在移动调试前我们需要以下准备工作:</p>
 <ol>
 <li>pc端安装最新的chrome</li>
@@ -550,18 +550,18 @@ Object
 </ol>
 <h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p><strong>USB设置</strong> 在你的手机里打开”设置”-&gt;”开发人员工具”-&gt;”USB调试” 打开USB调试。 因为Android手机型号众多 很多人找不到”USB调试这个选项在哪” 而且大多数手机”开发者选项”默认是影藏的，你需要看下自己的手机说明然后将手机调到”开发者模式” 就可以找到 “USB调试了” </p>
 <p>假设你已经将手机设置为”USB调试”打开的状态 将手机连接到电脑 手机会弹出是否链接 点击确定,并安装好驱动,这是<strong>关键</strong>.</p>
-<p><img src="http://img.blog.csdn.net/20150108192728031" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20150108192728031" alt></p>
 <p>打开电脑的chrome 在地址栏输入 <code>chrome://inspect</code>  选中 <code>Discover USB devices</code>可以检测到你的设备 </p>
-<p><img src="https://i.imgur.com/O5GwQwx.png" alt=""></p>
-<p>在移动设备上打开chrome,并访问要调试的网址<br><img src="https://i.imgur.com/yPYDJ1L.jpg" alt=""></p>
-<p>点击<code>inspect</code> 如下图 就看到了文章开始一样的效果 此时就是可以审查手机页面上的元素了<br><img src="https://i.imgur.com/h3DZ6tJ.jpg" alt=""></p>
+<p><img src="https://i.imgur.com/O5GwQwx.png" alt></p>
+<p>在移动设备上打开chrome,并访问要调试的网址<br><img src="https://i.imgur.com/yPYDJ1L.jpg" alt></p>
+<p>点击<code>inspect</code> 如下图 就看到了文章开始一样的效果 此时就是可以审查手机页面上的元素了<br><img src="https://i.imgur.com/h3DZ6tJ.jpg" alt></p>
 <p>使用Chrome远程调试的方式可以更加全面的调试代码和审查元素,但有不好的地方就是只支持安卓设备,目前是不支持IOS苹果设备的.<br>不过这个也不是问题,IOS 的话，可以使用<code>iphone</code> 数据线链接 <code>Mac</code>，打开 <code>Safari</code> 就可以直接使用 <code>Mac</code> 的 <code>Safari</code> 调试工具了,跟chrome的方法类似。</p>
 <h3 id="调试iOS上的Safari"><a href="#调试iOS上的Safari" class="headerlink" title="调试iOS上的Safari"></a>调试iOS上的Safari</h3><ol>
 <li>在iOS设备上打开允许调试：设置→Safari→高级→打开”web检查器“</li>
 <li>在MAC上打开Safari的开发菜单：顶部菜单栏“Safari”→偏好设置→高级→打开”在菜单栏中显示“开发”菜单</li>
-<li>在iOS设备上的Safari浏览器中打开要调试的页面，然后切换到MAC的Safari，在顶部菜单栏选择“开发”→找到你的iOS设备名称→右边二级菜单选择需要调试的对应标签页，即可开始远程调试<br><img src="https://i.imgur.com/I2IlAA7.png" alt=""></li>
+<li>在iOS设备上的Safari浏览器中打开要调试的页面，然后切换到MAC的Safari，在顶部菜单栏选择“开发”→找到你的iOS设备名称→右边二级菜单选择需要调试的对应标签页，即可开始远程调试<br><img src="https://i.imgur.com/I2IlAA7.png" alt></li>
 </ol>
-<p>如果没有iOS设备，也可以在Xcode中模拟一台，点击顶部“Xcode”→“Open Developer Tool”→“iOS Simulator”即可打开一个iOS设备的模拟器，并且模拟器里面Safari打开的页面，也是能通过上个步骤中MAC上的Safari调试。<br><img src="https://i.imgur.com/bXzuEH6.jpg" alt=""></p>
+<p>如果没有iOS设备，也可以在Xcode中模拟一台，点击顶部“Xcode”→“Open Developer Tool”→“iOS Simulator”即可打开一个iOS设备的模拟器，并且模拟器里面Safari打开的页面，也是能通过上个步骤中MAC上的Safari调试。<br><img src="https://i.imgur.com/bXzuEH6.jpg" alt></p>
 <h3 id="UC浏览器开发版"><a href="#UC浏览器开发版" class="headerlink" title="UC浏览器开发版"></a>UC浏览器开发版</h3><p>同时UC也提供了真机调试的版本<br><a href="http://www.uc.cn/business/developer/" title="UC浏览器开发版" target="_blank" rel="noopener">http://www.uc.cn/business/developer/</a></p>
 
         </div>

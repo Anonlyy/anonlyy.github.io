@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -36,13 +36,13 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Xposean">
     <meta name="description" itemprop="description" content="做一个刚刚好的前端仔">
-    <meta name="keywords" content="">
+    <meta name="keywords" content>
 
     <!--百度搜索-->
-    <meta name="baidu-site-verification" content="J5O1G13OwG" />
+    <meta name="baidu-site-verification" content="J5O1G13OwG">
     <!-- Site Verification -->
     
-    <meta name="baidu-site-verification" content="J5O1G13OwG" />
+    <meta name="baidu-site-verification" content="J5O1G13OwG">
 
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
@@ -68,25 +68,25 @@
     <meta property="og:url" content="http://xposean.xin">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="深入研究微信小程序的wepy框架 | Xposean&#39;s Blog">
-    <meta property="og:image" content="/img/favicon.png" />
+    <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="做一个刚刚好的前端仔">
     
 
     
-        <meta property="article:published_time" content="12月 30, 2017" />
-        <meta property="article:modified_time" content="1月 02, 2018" />
+        <meta property="article:published_time" content="12月 30, 2017">
+        <meta property="article:modified_time" content="1月 02, 2018">
     
 
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="深入研究微信小程序的wepy框架 | Xposean&#39;s Blog">
     <meta name="twitter:description" content="做一个刚刚好的前端仔">
     <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="http://xposean.xin" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="http://xposean.xin">
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://xposean.xin/2017/12/30/深入研究微信小程序的wepy框架/index.html" />
+        <link rel="canonical" href="http://xposean.xin/2017/12/30/深入研究微信小程序的wepy框架/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -515,8 +515,8 @@ wx.request({
 // wepy 使用方式
 // request 接口从只接收Object变为可接收String
 wx.request(&apos;xxxx&apos;).then((d) =&gt; console.log(d));
-</code></pre><p>在同时并发10个request请求测试时：<br>不使用wepy:<br><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554651/5185f740-b198-11e6-88f8-45e359090dc3.png&amp;objectId=1190000007580866&amp;token=fd4bd72096cf29af2f7aa954056f459a" alt=""><br><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554886/c30e802a-b199-11e6-927d-08cd4e5ed0b0.png&amp;objectId=1190000007580866&amp;token=4cfef2840665f05dc9359b979eb2bb74" alt=""></p>
-<p>使用wepy后：<br><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554663/65704c2e-b198-11e6-8277-abb77e0c7b3e.png&amp;objectId=1190000007580866&amp;token=eb5231dacbbab14ae42efeea2c4fee82" alt=""></p>
+</code></pre><p>在同时并发10个request请求测试时：<br>不使用wepy:<br><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554651/5185f740-b198-11e6-88f8-45e359090dc3.png&amp;objectId=1190000007580866&amp;token=fd4bd72096cf29af2f7aa954056f459a" alt><br><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554886/c30e802a-b199-11e6-927d-08cd4e5ed0b0.png&amp;objectId=1190000007580866&amp;token=4cfef2840665f05dc9359b979eb2bb74" alt></p>
+<p>使用wepy后：<br><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554663/65704c2e-b198-11e6-8277-abb77e0c7b3e.png&amp;objectId=1190000007580866&amp;token=eb5231dacbbab14ae42efeea2c4fee82" alt></p>
 <h3 id="新增属性-vue移植"><a href="#新增属性-vue移植" class="headerlink" title="新增属性(vue移植)"></a>新增属性(vue移植)</h3><ul>
 <li>computed 计算属性</li>
 <li>watcher 监听器</li>
@@ -612,8 +612,8 @@ export default class Index extends wepy.page {
 
 &lt;/script&gt;
 </code></pre><h3 id="组件通信与交互"><a href="#组件通信与交互" class="headerlink" title="组件通信与交互"></a>组件通信与交互</h3><p><code>wepy.component</code>基类提供三个方法<code>$broadcast</code>，<code>$emit</code>，<code>$invoke</code>，因此任一页面或任一组件都可以调用上述三种方法实现通信与交互，如：<br>1.<strong>$broadcast</strong><br>$broadcast事件是由父组件发起，所有子组件都会收到此广播事件，除非事件被手动取消。事件广播的顺序为广度优先搜索顺序，如上图，如果Page_Index发起一个$broadcast事件，那么接收到事件的先后顺序为：A, B, C, D, E, F, G, H。如下图：</p>
-<p><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554688/800089e6-b198-11e6-84c5-352d2d0e2f7e.png&amp;objectId=1190000007580866&amp;token=61f8192d48b7640ebef69ed8700726bf" alt=""></p>
-<p>2.<strong>$emit</strong><br><code>$emit</code>与<code>$broadcast</code>正好相反，事件发起组件的父组件会依次接收到<code>$emit</code>事件，如上图，如果E发起一个$emit事件，那么接收到事件的先后顺序为：A, Page_Index。如下图：<br><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554704/9997932c-b198-11e6-9840-3edae2194f47.png&amp;objectId=1190000007580866&amp;token=707913104beb5c2ee310c64f22e37140" alt=""></p>
+<p><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554688/800089e6-b198-11e6-84c5-352d2d0e2f7e.png&amp;objectId=1190000007580866&amp;token=61f8192d48b7640ebef69ed8700726bf" alt></p>
+<p>2.<strong>$emit</strong><br><code>$emit</code>与<code>$broadcast</code>正好相反，事件发起组件的父组件会依次接收到<code>$emit</code>事件，如上图，如果E发起一个$emit事件，那么接收到事件的先后顺序为：A, Page_Index。如下图：<br><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554704/9997932c-b198-11e6-9840-3edae2194f47.png&amp;objectId=1190000007580866&amp;token=707913104beb5c2ee310c64f22e37140" alt></p>
 <p>3.<strong>$invoke</strong><br>$invoke是一个组件对另一个组件的直接调用，通过传入的组件路径找到相应组件，然后再调用其方法。</p>
 <p>如果想在<code>Page_Index</code>中调用组件A的某个方法：</p>
 <pre><code>this.$invoke(&apos;ComA&apos;, &apos;someMethod&apos;, &apos;someArgs&apos;);
@@ -621,10 +621,10 @@ export default class Index extends wepy.page {
 <pre><code>this.$invoke(&apos;./../ComB/ComG&apos;, &apos;someMethod&apos;, &apos;someArgs&apos;);
 </code></pre><hr>
 <p>4.<strong>支持加载外部NPM包</strong><br>小程序较大的缺陷是不支持<code>NPM</code>包，导致无法直接使用大量优秀的开源内容，<code>wepy</code>在编译过程当中，会递归 遍历代码中的<code>require</code>然后将对应依赖文件从<code>node_modules</code>当中拷贝出来，并且修改<code>require</code>为相对路径， 从而实现对外部NPM包的支持。</p>
-<p><img src="https://cloud.githubusercontent.com/assets/2182004/20554645/482b0f64-b198-11e6-8d4e-70c92326004f.png" alt=""></p>
+<p><img src="https://cloud.githubusercontent.com/assets/2182004/20554645/482b0f64-b198-11e6-8d4e-70c92326004f.png" alt></p>
 <p>5.默认使用<code>babel</code>编译，支持ES6/7的一些新特性，如promise，async/await等等</p>
 <p>6.wepy支持使用<code>LESS</code>、<code>SASS</code>、<code>Styus</code>；</p>
-<h3 id="wepy编译原理"><a href="#wepy编译原理" class="headerlink" title="wepy编译原理"></a>wepy编译原理</h3><p><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554671/70a797a0-b198-11e6-8355-b7c234713d0c.png&amp;objectId=1190000007580866&amp;token=a4993b9e79afe4e9af0e6866dfebdab9" alt=""></p>
+<h3 id="wepy编译原理"><a href="#wepy编译原理" class="headerlink" title="wepy编译原理"></a>wepy编译原理</h3><p><img src="https://segmentfault.com/image?src=https://cloud.githubusercontent.com/assets/2182004/20554671/70a797a0-b198-11e6-8355-b7c234713d0c.png&amp;objectId=1190000007580866&amp;token=a4993b9e79afe4e9af0e6866dfebdab9" alt></p>
 <h3 id="weby快速起步"><a href="#weby快速起步" class="headerlink" title="weby快速起步"></a>weby快速起步</h3><p>weby配备了专门的构建工具脚手架<code>wepy-cli</code>协助开发,帮助快速起步</p>
 <p>1.安装</p>
 <pre><code>npm install wepy-cli -g

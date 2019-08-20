@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: none;" lang="zh">
-    <head>
+    <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <!--
         © Material Theme
@@ -36,13 +36,13 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Xposean">
     <meta name="description" itemprop="description" content="做一个刚刚好的前端仔">
-    <meta name="keywords" content="">
+    <meta name="keywords" content>
 
     <!--百度搜索-->
-    <meta name="baidu-site-verification" content="J5O1G13OwG" />
+    <meta name="baidu-site-verification" content="J5O1G13OwG">
     <!-- Site Verification -->
     
-    <meta name="baidu-site-verification" content="J5O1G13OwG" />
+    <meta name="baidu-site-verification" content="J5O1G13OwG">
 
     <!-- Favicons -->
     <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
@@ -68,25 +68,25 @@
     <meta property="og:url" content="http://xposean.xin">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="影响前端性能的元凶:DOM操作 | Xposean&#39;s Blog">
-    <meta property="og:image" content="/img/favicon.png" />
+    <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="做一个刚刚好的前端仔">
     
 
     
-        <meta property="article:published_time" content="10月 24, 2017" />
-        <meta property="article:modified_time" content="10月 30, 2017" />
+        <meta property="article:published_time" content="10月 24, 2017">
+        <meta property="article:modified_time" content="10月 30, 2017">
     
 
     <!-- The Twitter Card protocol -->
     <meta name="twitter:title" content="影响前端性能的元凶:DOM操作 | Xposean&#39;s Blog">
     <meta name="twitter:description" content="做一个刚刚好的前端仔">
     <meta name="twitter:image" content="/img/favicon.png">
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="http://xposean.xin" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="http://xposean.xin">
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://xposean.xin/2017/10/24/影响前端性能的元凶-DOM操作/index.html" />
+        <link rel="canonical" href="http://xposean.xin/2017/10/24/影响前端性能的元凶-DOM操作/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -497,7 +497,7 @@
 <p><strong>重绘</strong>（repaint）:当前元素的颜色样式(背景颜色、字体颜色等)发生改变的时候，我们只需要把改变的元素重新的渲染一下即可，重绘主要改变外观风格（改个颜色，换个皮肤），不改变布局，不影响其他的dom。</p>
 <p><strong>回流</strong>（reflow）:指浏览器为了重新渲染部分或者全部的文档而重新计算文档中元素的位置和几何构造的过程。如<code>DOM</code>元素的增删、位置移动、尺寸大小的改变以及浏览器窗口尺寸改变。每个页面至少会有一次回流,就是在页面初次渲染的时候。</p>
 <p>这其中,重绘对浏览器的性能影响较小,一般不做优化，但是能避免最好.主要是回流需要尽可能避免和优化。</p>
-<h2 id="浏览器的渲染原理"><a href="#浏览器的渲染原理" class="headerlink" title="浏览器的渲染原理"></a>浏览器的渲染原理</h2><p>在渲染页面的过程中，浏览器会通过解析HTML文档来构建DOM树，解析<code>CSS</code>产生<code>CSS</code>规则树。<code>JavaScript</code>代码在解析过程中， 可能会修改生成的<code>DOM树</code>和<code>CSS</code>规则树。之后根据<code>DOM</code>树和<code>CSS</code>规则树构建渲染树，在这个过程中<code>CSS</code>会根据选择器匹配HTML元素。渲染树包括了每 个元素的大小、边距等样式属性，渲染树中不包含隐藏元素及<code>head</code>元素等不可见元素。最后浏览器根据元素的坐标和大小来计算每个元素的位置，并绘制这些元 素到页面上。重绘指的是页面的某些部分要重新绘制，比如颜色或背景色的修改，元素的位置和尺寸并没用改变；回流则是元素的位置或尺寸发生了改变，浏览器需 要重新计算渲染树，导致渲染树的一部分或全部发生变化。渲染树重新建立后，浏览器会重新绘制页面上受影响的元素。<br><img src="http://it.dyg.cn/wp-content/uploads/2017/10/snipaste_20171013_112243.png" alt=""></p>
+<h2 id="浏览器的渲染原理"><a href="#浏览器的渲染原理" class="headerlink" title="浏览器的渲染原理"></a>浏览器的渲染原理</h2><p>在渲染页面的过程中，浏览器会通过解析HTML文档来构建DOM树，解析<code>CSS</code>产生<code>CSS</code>规则树。<code>JavaScript</code>代码在解析过程中， 可能会修改生成的<code>DOM树</code>和<code>CSS</code>规则树。之后根据<code>DOM</code>树和<code>CSS</code>规则树构建渲染树，在这个过程中<code>CSS</code>会根据选择器匹配HTML元素。渲染树包括了每 个元素的大小、边距等样式属性，渲染树中不包含隐藏元素及<code>head</code>元素等不可见元素。最后浏览器根据元素的坐标和大小来计算每个元素的位置，并绘制这些元 素到页面上。重绘指的是页面的某些部分要重新绘制，比如颜色或背景色的修改，元素的位置和尺寸并没用改变；回流则是元素的位置或尺寸发生了改变，浏览器需 要重新计算渲染树，导致渲染树的一部分或全部发生变化。渲染树重新建立后，浏览器会重新绘制页面上受影响的元素。<br><img src="http://it.dyg.cn/wp-content/uploads/2017/10/snipaste_20171013_112243.png" alt></p>
 <p>这就是DOM树<br><img src="http://it.dyg.cn/wp-content/uploads/2017/10/w_800-750x334.png" alt="DOM树"></p>
 <p><strong>回流</strong>的代价比<strong>重绘</strong>的代价高很多，重绘会影响部分的元素，而回流则有可能影响全部的元素。</p>
 <blockquote>
